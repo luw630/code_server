@@ -1,0 +1,118 @@
+﻿生成启动时间为 2018/3/22 20:03:12。
+     1>项目“D:\code_server\server\cpp_src\srv_gateway\srv_gateway.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\depend\boost_1_60_0\ /I"..\..\depend\protobuf-3.3.0\src\\" /I"..\..\depend\rapidjson-1.1.0\include\\" /I"..\..\depend\MySQL Server 5.7\include\\" /I"..\..\depend\mysql-connector-c-6.1.6-src\include\\" /I"..\..\depend\mysql-connector-c++-1.1.7\\" /I"..\..\depend\mysql-connector-c++-1.1.7\driver\\" /I"..\..\depend\mysql-connector-c++-1.1.7\build\\" /I..\op_lib\ /I..\base_lib\ /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\\" /Fd"D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\base_lib\base_asyn_task_mgr.cpp ..\base_lib\base_http_request.cpp gate_game_session.cpp gate_login_session.cpp gate_client_session.cpp gate_server.cpp gate_session_mgr.cpp gate_cfg_net_server.cpp gate_cfg_session.cpp ip_mgr.cpp stdafx.cpp
+         base_asyn_task_mgr.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+         base_http_request.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+         gate_game_session.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         gate_login_session.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         gate_client_session.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>gate_client_session.cpp(211): warning C4244: “参数”: 从“time_t”转换到“google::protobuf::int32”，可能丢失数据
+     1>gate_client_session.cpp(227): warning C4244: “参数”: 从“time_t”转换到“google::protobuf::int32”，可能丢失数据
+         gate_server.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         gate_session_mgr.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         gate_cfg_net_server.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         gate_cfg_session.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         ip_mgr.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+         stdafx.cpp
+       Link:
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code_server\server\cpp_src\..\project\Release\srv_gateway.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\depend\boost_1_60_0\stage\lib\ ..\..\lib\Release\lua_lib.lib ..\..\lib\Release\op_lib.lib ..\..\lib\Release\base_lib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\code_server\server\cpp_src\..\project\Release\srv_gateway.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\code_server\server\cpp_src\..\project\Release\srv_gateway.lib" /MACHINE:X86 /SAFESEH D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\base_asyn_task_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\base_http_request.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\gate_game_session.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\gate_login_session.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\gate_client_session.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\gate_server.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\gate_session_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\gate_cfg_net_server.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\gate_cfg_session.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\ip_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_gateway\stdafx.obj
+         正在生成代码
+         已完成代码的生成
+     1>base_lib.lib(base_net_server_session.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_server_session.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_net_server.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_server.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_net_session.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_session.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_game_time_mgr.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_game_time_mgr.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_io_service_pool.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_io_service_pool.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_utils_helper.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_utils_helper.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_server.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_server.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_net_dispatcher.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_dispatcher.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(r_keygen.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(r_keygen.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(r_random.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(r_random.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(FileMD5.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(FileMD5.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(rsa.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(rsa.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_game_log.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_game_log.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(nn.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(nn.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(prime.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(prime.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(r_stdlib.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(r_stdlib.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(md5c.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(md5c.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_FDAPI.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_FDAPI.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_fdapi_crt.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_fdapi_crt.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Common.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Common.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_variadicFunctor.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_variadicFunctor.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_RedisLog.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_RedisLog.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(win32_rfdmap.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(win32_rfdmap.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_ANSI.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_ANSI.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Error.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Error.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_EventLog.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_EventLog.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Time.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Time.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+         srv_gateway.vcxproj -> D:\code_server\server\cpp_src\..\project\Release\srv_gateway.exe
+     1>已完成生成项目“D:\code_server\server\cpp_src\srv_gateway\srv_gateway.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:01:28.72

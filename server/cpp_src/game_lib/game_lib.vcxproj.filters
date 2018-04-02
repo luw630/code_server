@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base_game_lua_mgr.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base_game_server.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_cfg_net_server.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_cfg_session.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_web_mgr.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_db_session.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_login_session.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_session.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_session_mgr.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="base_game_server.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game_web_mgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game_cfg_net_server.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game_cfg_session.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="base_game_lua_mgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bind_base_game_msg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game_db_session.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game_login_session.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game_session.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game_session_mgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,160 @@
+
+√
+public_texas.proto"ê
+UserInfo
+guid (Rguid
+chair (Rchair
+name (	Rname
+icon (	Ricon
+money (Rmoney
+	bet_money (RbetMoney
+action (Raction
+position (Rposition
+
+hole_cards	 (R	holeCards
+	countdown
+ (R	countdown
+cards (Rcards
+
+cards_type (R	cardsType
+tax (Rtax
+victory (Rvictory%
+biggest_winner (RbiggestWinner
+	win_money (RwinMoney$
+main_pot_money (RmainPotMoney$
+side_pot_money (RsidePotMoney
+
+cards_show (R	cardsShow"˝
+
+TexasTable
+state (Rstate
+max_bet (RmaxBet
+min_bet (RminBet
+	blind_bet (RblindBet
+pot (Rpot
+side_pot (RsidePot
+
+think_time (R	thinkTime!
+public_cards (RpublicCards
+	own_chair	 (RownChair"r
+SC_TexasTableInfo&
+pb_table (2.TexasTableRpbTable"
+pb_user (2	.UserInfoRpbUser"
+MsgID
+ID®√"v
+SC_TexasSendUserCards"
+pb_user (2	.UserInfoRpbUser&
+pb_table (2.TexasTableRpbTable"
+MsgID
+ID™√"õ
+SC_TexasSendPublicCards&
+pb_table (2.TexasTableRpbTable"
+pb_user (2	.UserInfoRpbUser!
+public_cards (RpublicCards"
+MsgID
+ID©√"¬
+SC_TexasUserAction&
+	pb_action (2	.UserInfoRpbAction&
+pb_table (2.TexasTableRpbTable
+chair (Rchair
+action (Raction
+	bet_money (RbetMoney"
+MsgID
+ID´√"H
+SC_TexasNewUser"
+pb_user (2	.UserInfoRpbUser"
+MsgID
+ID¨√"J
+SC_TexasUserLeave"
+pb_user (2	.UserInfoRpbUser"
+MsgID
+ID≠√"Q
+SC_TexasForceLeave
+reason (	Rreason
+num (Rnum"
+MsgID
+IDØ√"q
+SC_TexasTableEnd"
+pb_user (2	.UserInfoRpbUser&
+pb_table (2.TexasTableRpbTable"
+MsgID
+IDÆ√"Q
+SC_TexasGiveTips
+chair (Rchair
+money (Rmoney"
+MsgID
+ID∞√"z
+SC_TexasShowCards
+chair (Rchair
+
+user_cards (R	userCards
+
+cards_type (R	cardsType"
+MsgID
+ID±√"F
+SC_TexasShowCardsPermission
+chair (Rchair"
+MsgID
+ID≤√"8
+SC_TexasError
+error (Rerror"
+MsgID
+IDèÀ"\
+CS_TexasUserAction
+action (Raction
+	bet_money (RbetMoney"
+MsgID
+IDåƒ"'
+CS_TexasEnterTable"
+MsgID
+IDçƒ"'
+CS_TexasLeaveTable"
+MsgID
+IDéƒ"%
+CS_TexasGiveTips"
+MsgID
+IDèƒ"E
+CS_TexasShowCards
+
+show_cards (R	showCards"
+MsgID
+IDêƒ*Õ
+TexasCardsType
+CT_HIGH_CARD
+CT_ONE_PAIR
+CT_TWO_PAIRS
+CT_THREE_OF_A_KIND
+CT_STRAIGHT
+CT_FLUSH
+CT_FULL_HOUSE
+CT_FOUR_OF_KIND
+CT_STRAIT_FLUSH	
+CT_ROYAL_FLUSH
+*á
+TexasAction
+ACT_CALL
+	ACT_RAISE
+	ACT_CHECK
+ACT_FOLD
+
+ACT_ALL_IN
+
+ACT_NORMAL
+	ACT_THINK
+ACT_WAITING*Ä
+TexasStatus
+STATUS_WAITING
+STATUS_PRE_FLOP
+STATUS_FLOP
+STATUS_TURN
+STATUS_RIVER
+STATUS_SHOW_DOWN*p
+TexasUserPosition
+POSITION_LITTLE_BLIND
+POSITION_BIG_BLIND
+POSITION_BOTTON
+POSITION_NORMAL*1
+
+TexasError
+CS_ERR_MONEY
+CS_ERR_STATUS

@@ -1,0 +1,126 @@
+syntax = "proto2";
+
+// 客户端和服务器通信消息
+// C Client, L LoginServer, D DBServer, S GameServer
+// CS 即C-发送->S
+
+//下注
+message CS_Point21_Bet {
+	enum MsgID { ID = 27000; }
+    optional int32 target = 1;  //目标值
+}
+message SC_Point21_Bet {
+	enum MsgID { ID = 27001; }
+    optional int32 target = 1;  //目标值
+	optional int32 chair_id = 2;  	//谁下注了
+}
+//要牌
+message CS_Point21_GetCard {
+	enum MsgID { ID = 27002; }
+}
+message SC_Point21_GetCard {
+	enum MsgID { ID = 27003; }
+    optional int32 card = 1;  	//牌值
+	optional int32 chair_id = 2;  	//谁
+}
+//停牌
+message CS_Point21_Stop {
+	enum MsgID { ID = 27004; }
+}
+message SC_Point21_Stop {
+	enum MsgID { ID = 27005; }
+	optional int32 chair_id = 1;  	//谁
+	optional int32 cur_index = 2;  //目标牌的索引
+}
+//加倍
+message CS_Point21_CallDouble {
+	enum MsgID { ID = 27006; }
+}
+message SC_Point21_CallDouble {
+	enum MsgID { ID = 27007; }
+	optional int32 card = 1;  	//牌值
+	optional int32 chair_id = 2;  	//谁
+	optional int32 target = 3;  //目标值
+	optional int32 cur_index = 4;  //目标牌的索引
+	
+}
+//分牌
+message CS_Point21_Split {
+	enum MsgID { ID = 27008; }
+}
+message SC_Point21_Split {
+	enum MsgID { ID = 27009; }
+	optional int32 target = 1;  	//底注目标值
+	optional int32 chair_id = 2;  	//谁
+	repeated Point21_Cards_Info tiles       = 3;	// 牌列表
+}
+//买保险
+message CS_Point21_Insurance {
+	enum MsgID { ID = 27010; }
+}
+message SC_Point21_Insurance {
+	enum MsgID { ID = 27011; }
+	optional int32 cost = 1;  		//是否买了  cost > 0 买了
+	optional int32 chair_id = 2;  	//谁
+}
+//投降
+message CS_Point21_Surrender {
+	enum MsgID { ID = 27012; }
+}
+message SC_Point21_Surrender {
+	enum MsgID { ID = 27013; }
+	optional int32 chair_id = 1;  	//谁
+	optional bool surrender = 2;  	//是否投降
+}
+
+message Point21_Cards_Info {
+	repeated int32 cards = 1; 	// 牌值
+	optional int32 stata = 2; 	// 状态
+	optional int32 bet = 3; 	// 下注
+}
+message Point21_Player_Info {
+	repeated Point21_Cards_Info pb_tiles       = 1;	// 牌列表
+	optional int32 chair_id		            = 2; 	// id
+	optional string nick 					= 3;
+	optional int32 icon 					= 4;
+	optional int64 gold 					= 5;
+	optional int32 guid		            	= 6; 	// guid
+	// game end
+	optional int32 win_money 	= 7; 			//赢钱
+	optional int32 taxes 		= 8; 			//税收
+};
+message Point21_Reconnect_Data {
+	optional int32 act_left_time = 1;						// 操作剩余时间
+}
+
+message SC_Point21_EnterData {
+	enum MsgID { ID = 27014; }
+	repeated Point21_Player_Info pb_players 	= 1; 		// 玩家
+	optional int32 table_state = 2;  						//状态
+	optional int32 zhuang_chair_id = 3;  					//庄家
+    optional int32 self_chair_id = 4;					//id
+	optional int32 act_time_limit = 5;					// 操作时间
+	optional bool is_reconnect = 6;						//reconnect
+	optional int32 base_score = 7;
+	optional int32 max_call = 8;
+	repeated int32 bet_base = 9;
+	optional Point21_Reconnect_Data pb_rec_data = 10;		//断线数据
+}
+
+//更新发言者
+message SC_Point21_NextTurn {
+	enum MsgID { ID = 27015; }
+    optional int32 chair_id	    = 1; 	// 当前玩家表态
+}
+//结算
+message SC_Point21_Game_Finish {
+	enum MsgID { ID = 27016; }
+	repeated Point21_Player_Info pb_players 	= 1; 		// 玩家
+}
+//服务器的游戏状态
+message SC_Point21_Desk_State{
+	enum MsgID { ID = 27017; }
+	optional int32 state = 1;				
+}
+
+  							

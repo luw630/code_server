@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CannonPos>
+	<!--    炮台ID  X位置     Y位置      朝向-->
+	<Cannon id="0" PosX="0.25" PosY="0.035" Direction="3.14"/>
+	<Cannon id="1" PosX="0.75" PosY="0.035" Direction="3.14"/>
+	<Cannon id="2" PosX="0.75" PosY="0.965" Direction="0.0"/>
+	<Cannon id="3" PosX="0.25" PosY="0.965" Direction="0.0"/>
+<CannonEffect name="PaoTaiEffect" PosX="-115" PosY="0"/>
+<Jetton PosX="-60" PosY="0" Max="4"/>
+<LOCK name="lock_flag" line="lock_line" flag="lock_flag_%d" PosX="160" PosY="-120"/>
+</CannonPos>
+<CannonSet id="0" normal="0" ion="1" double="1">
+<CannonType type="0">
+  <Cannon ResName="fish_pao1" Name="move" ResType="0" PosX="0" PosY="0" FireOffest="0" type="0"/>
+  <Bullet ResName="bullet2" Name="move" ResType="1" Scale="1.0"/>
+  <Net ResName="effect_fish_bomb" Name="effect_fish_bomb_01_ani" ResType="1" PosX="0" PosY="0" Scale="0.8"/>
+</CannonType>
+<CannonType type="1">
+  <Cannon ResName="fish_pao2" Name="move" ResType="0" PosX="0" PosY="0" FireOffest="0" type="0"/>
+  <Bullet ResName="bullet3" Name="Animation1" ResType="1" Scale="1.0"/>
+  <Net ResName="effect_fish_bomb" Name="effect_fish_bomb_02_ani" ResType="1" PosX="0" PosY="0" Scale="0.8"/>
+</CannonType>
+</CannonSet>
+<CannonSet id="1" normal="0" ion="1" double="1">
+<CannonType type="0">
+  <Cannon ResName="fish_pao3" Name="move" ResType="0" PosX="0" PosY="0" FireOffest="0" type="0"/>
+  <Bullet ResName="bullet4" Name="mve" ResType="1" Scale="1.0"/>
+  <Net ResName="effect_fish_bomb" Name="effect_fish_bomb_03_ani" ResType="1" PosX="0" PosY="0" Scale="0.8"/>
+</CannonType>
+<CannonType type="1">
+  <Cannon ResName="fish_pao4" Name="move" ResType="0" PosX="0" PosY="0" FireOffest="0" type="0"/>
+  <Bullet ResName="bullet5" Name="move" ResType="1" Scale="1.0"/>
+  <Net ResName="effect_fish_bomb" Name="effect_fish_bomb_04_ani" ResType="1" PosX="0" PosY="0" Scale="0.8"/>
+</CannonType>
+</CannonSet>

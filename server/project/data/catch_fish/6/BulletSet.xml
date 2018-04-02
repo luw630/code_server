@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!--子弹设定  倍率        速度        捕获半径       最大捕鱼数量  炮管类型-->
+<BulletSet Mulriple="1000" Speed="600" CatchRadio="20" MaxCatch="1" CannonType="9">
+</BulletSet>
+
+<BulletSet Mulriple="2000" Speed="610" CatchRadio="20" MaxCatch="1" CannonType="9">
+</BulletSet>
+
+<BulletSet Mulriple="3000" Speed="620" CatchRadio="25" MaxCatch="1" CannonType="9">
+</BulletSet>
+
+<BulletSet Mulriple="4000" Speed="630" CatchRadio="25" MaxCatch="1" CannonType="9">
+</BulletSet>
+
+<BulletSet Mulriple="5000" Speed="640" CatchRadio="30" MaxCatch="1" CannonType="9">
+</BulletSet>
+
+<BulletSet Mulriple="6000" Speed="650" CatchRadio="30" MaxCatch="1" CannonType="10">
+</BulletSet>
+
+<BulletSet Mulriple="7000" Speed="660" CatchRadio="35" MaxCatch="1" CannonType="10">
+</BulletSet>
+
+<BulletSet Mulriple="8000" Speed="670" CatchRadio="40" MaxCatch="1" CannonType="10">
+</BulletSet>
+
+<BulletSet Mulriple="9000" Speed="680" CatchRadio="45" MaxCatch="1" CannonType="10">
+</BulletSet>	
+
+<BulletSet Mulriple="10000" Speed="690" CatchRadio="50" MaxCatch="1" CannonType="11">
+</BulletSet>			

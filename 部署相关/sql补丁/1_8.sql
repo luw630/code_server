@@ -1,0 +1,1 @@
+ALTER TABLE recharge.t_recharge_order CHANGE device device VARCHAR(256) CHARSET utf8 COLLATE utf8_general_ci NULL COMMENT '设备号';

@@ -1,0 +1,180 @@
+syntax = "proto2";
+
+// message变量加pb_前缀，用于客户端解析
+
+
+// 客户端用的服务器房间配置结构
+message GameClientRoomListCfg {
+	optional int32 game_id = 1;						// 真实的服务器ID		
+	optional int32 second_game_type = 2;			// 客户端显示的子类型，二级菜单
+	optional int32 first_game_type = 3;				// 总游戏类型，一级菜单
+	optional string game_name = 4;					// 游戏名字
+	optional int32 table_count = 5;					// 桌子数目
+	optional int32 money_limit = 6;					// 进入房间钱限制
+	optional int32 cell_money = 7;					// 底注
+	optional int32 tax = 8;							// 税收
+	optional string room_lua_cfg = 9;				// 房间配置
+}
+
+// 玩家基本信息
+message PlayerBaseInfo {
+	optional int64 bank = 1[default = 0]; 			  // 银行存款
+	optional int32 login_award_day = 2;				  // 登录奖励，该领取那一天
+	optional int32 login_award_receive_day = 3; 	  // 登录奖励，最近领取在那一天
+	optional int32 online_award_time = 4;			  // 在线奖励，今天已经在线时间
+	optional int32 online_award_num = 5;			  // 在线奖励，该领取哪个奖励
+	optional int32 relief_payment_count = 6; 		  // 救济金，今天领取次数
+	optional int32 level = 7[default = 1];			  // 玩家等级
+	optional int64 money = 8[default = 0]; 			  // 有多少钱
+	optional int32 header_icon = 9[default = 0]; 	  // 头像
+	optional int32 slotma_addition = 10[default = 0]; // 老虎机中奖权重
+	optional int32 newplayer_reward = 11[default = 0]; // 新玩家领取奖励
+}
+
+// 其他玩家可见信息
+message PlayerVisualInfo {
+	optional int32 chair_id = 1;					// 座位
+	optional int32 guid = 2;						// 玩家的guid
+	optional string account = 3;					// 账号
+	optional string nickname = 4;					// 昵称
+	optional int32 level = 5[default = 1];			// 玩家等级
+	optional int64 money = 6[default = 0]; 			// 有多少钱
+	optional int32 header_icon = 7[default = -1]; 	// 头像	
+	optional string ip_area = 8;					// 客户端ip地区
+	optional bool is_ready = 9;						// false 取消 true 准备
+}
+
+// 物品基本信息
+message ItemInfo {
+	optional int32 item_id = 1;						// 物品id
+	optional int32 item_num = 2; 					// 物品数量
+}
+
+message Msg_DataInfo{
+	optional int32  id = 1;							// 编号
+	optional int32  start_time = 2;					// 开始时间
+	optional int32  end_time = 3;					// 结束时间
+	optional int32  msg_type = 4;					// 消息类型 1 消息 2公告
+	optional int32  is_read = 5;					// 是否已读
+	optional string content = 6;					// 消息内容	
+}
+
+// 物品背包信息
+message ItemBagInfo {
+	repeated ItemInfo pb_items = 1; 				// 物品
+}
+
+// 邮件信息
+message MailInfo {
+	optional string mail_id = 1; 					// 邮件id，客户端发送不填
+	optional int32 expiration_time = 2; 			// 过期时间，客户端发送不填
+	optional int32 guid = 3; 						// 收邮件玩家的guid
+	optional int32 send_guid = 4; 					// 发邮件的guid，客户端发送不填
+	optional string send_name = 5; 					// 发邮件的名字，客户端发送不填
+	optional string title = 6; 						// 标题
+	optional string content = 7; 					// 内容
+	repeated ItemInfo pb_attachment = 8; 			// 附件
+}
+
+// 邮件列表
+message MailListInfo {
+	repeated MailInfo pb_mails = 1; 				// 邮件
+}
+
+// 银行流水
+message BankStatement {
+	optional int64 serial = 1; 						// 流水号
+	optional int32 guid = 2;						// 玩家的guid
+	optional int32 time = 3;                        // 记录时间
+	optional int32 opt = 4;                         // 操作类型 BANK_STATEMENT_OPT_TYPE
+	optional string target = 5;                     // 转账记录账号名
+	optional int64 money = 6;                       // 改变的钱
+	optional int64 bank_balance = 7; 				// 当前银行余额
+}
+
+// 排行榜一项
+message RankItem {
+	optional int32 rank = 1;						// 排名
+	optional int32 guid = 2;						// 玩家的guid
+	optional string nickname = 3;					// 昵称
+	optional int64 money = 4;                       // 钱
+}
+
+// 排行榜信息
+message RankList {
+	repeated RankItem pb_rank_list = 1; 			// 排行榜
+}
+
+// 机器人信息
+message AndroidInfo {
+	optional int32 guid = 1;						// 玩家的guid
+	optional string account = 2; 					// 账号
+	optional string nickname = 3;					// 昵称
+	optional int32 game_id = 4;						// 哪个游戏服务器
+	optional int64 money = 5; 						// 有多少钱
+}
+
+// 提现订单返回信息
+message CashFalse {
+	optional int32 guid = 1;						// 玩家的guid
+	optional int32 order_id = 2;					// 订单id
+	optional int64 coins = 3; 					    // 提款金币
+	optional int32 status = 4;						// 订单状态
+	optional int32 status_c = 5;					// 服务器回退状态
+}
+
+message CashMoneyType{
+	optional int32 money = 1;						//提现金额
+	optional string created_at = 2;					//提现时间
+	optional int32  status = 3;                     //提现状态 0未审核 1已通知打款 2PHP已拒绝并通知退币 3打款失败 4打款成功
+}
+
+message PlayerMoney{
+	optional int64 money = 1;						//现金
+	optional int64 bank = 2;						//银行
+
+}
+// 订单返回信息
+message Recharge {
+	optional int32 guid = 1;						// 玩家的guid
+	optional int32 id = 2;							// 订单id
+	optional int64 exchange_gold = 3; 				// 提款金币
+	optional int32 pay_status = 4;					// 订单状态
+	optional int32 server_status = 5;				// 服务器回退状态
+}
+
+// 跑马灯
+message Marquee{
+	optional int32  id = 1;							// 编号
+	optional int32  start_time = 2;					// 开始时间
+	optional int32  end_time = 3;					// 结束时间
+	optional string content = 4;					// 消息内容
+	optional int32 number = 5;						// 轮播次数
+	optional int32 interval_time = 6;				// 轮播时间间隔（秒）	
+}
+
+message AgentsTransferData{
+	optional int32 AgentsID = 1;					//代理商id
+	optional int32 PlayerID = 2;					//玩家id
+	optional int32 transfer_id = 3;					//交易id
+	optional int32 transfer_type = 4;				//交易类型
+	optional int32 transfer_money = 5;				//金额
+	optional int32 retID = 6;						//回复id
+	optional int32 reCode = 7;						//处理结果
+}
+
+message BankCardInfo{
+	optional int32 guid = 1;						
+	optional string account = 2;					
+	optional string card_num = 3;	
+	optional string user_name = 4;	
+	optional string bank_name = 5;					
+	optional string bank_addr = 6;	
+	optional string bank_code = 7;	
+}
+
+message PlayerInfoInMemery{
+	optional int32 guid = 1;
+	optional int32 money = 2;
+	optional int32 bank = 3;			
+}

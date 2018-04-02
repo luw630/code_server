@@ -1,0 +1,269 @@
+syntax = "proto2";
+
+// 出牌类型
+enum BANKER_CARD_TYPE {
+	BANKER_CARD_TYPE_NONE           = 100;  //无牛
+	BANKER_CARD_TYPE_ONE            = 101;  //牛1
+	BANKER_CARD_TYPE_TWO            = 102;  //牛2
+	BANKER_CARD_TYPE_THREE 			= 103;  //牛3
+	BANKER_CARD_TYPE_FOUR 			= 104;  //牛4
+	BANKER_CARD_TYPE_FIVE 			= 105;  //牛5
+	BANKER_CARD_TYPE_SIX 			= 106;  //牛6
+	BANKER_CARD_TYPE_SEVEN 			= 107;  //牛7
+	BANKER_CARD_TYPE_EIGHT 			= 108;  //牛8
+	BANKER_CARD_TYPE_NIGHT 			= 109;  //牛9
+	BANKER_CARD_TYPE_TEN			= 110;  //牛10	牛牛
+	BANKER_CARD_TYPE_FOUR_KING		= 201;  //4花牛 银牛
+	BANKER_CARD_TYPE_FIVE_KING		= 202;  //5花牛 金牛
+	BANKER_CARD_TYPE_FOUR_SAMES		= 203;  //4炸
+	BANKER_CARD_TYPE_FIVE_SAMLL		= 204;  //5小牛
+	BANKER_CARD_TYPE_ERROR			= 1;
+}
+
+//游戏状态
+enum Status
+{
+	STATUS_WAITING		    = 0;    //准备阶段
+	STATUS_SEND_CARDS		= 1;	//发牌阶段
+	STATUS_CONTEND_BANKER	= 2;	//抢庄阶段
+	STATUS_DICISION_BANKER	= 3;	//定庄阶段
+	STATUS_BET				= 4;	//下注阶段
+	STATUS_SHOW_CARD		= 5;	//摊牌阶段
+	STATUS_SHOW_DOWN		= 6;	//结算
+}
+
+//牌桌信息数据
+message BankerTable
+{
+	enum MsgID { ID = 26003; }
+	optional int32 state = 1[default = -1];		//游戏状态	[enum BankerStatus]
+	optional int64 bottom_bet = 2;	//底注
+	optional int32 chair = 3;		//自己的座位
+}	
+
+//发牌玩家数据结构
+message BankerPlayerInfo
+{
+	required int32 guid =  1;		//玩家ID		//id为0表示位置为空
+	required int32 chair = 2;		//椅子
+	optional string name = 3;		//名字
+	optional string icon = 4;		//头像
+	optional int64 money = 5;		//携带的钱
+}
+
+//结算玩家数据结构
+message BankerGameEndPlayerInfo
+{
+	required int32 chair = 1;		//椅子
+	optional int64 money = 2;		//钱
+	optional int64 tax = 3;		//税收		输玩家：-1
+	optional int32 victory = 4;	//输赢状态	1-赢； 2-输
+	required int64 increment_money = 5;	//赢/输的钱
+}
+
+//重连玩家数据结构
+message BankerReconnectPlayerInfo
+{
+	required int32 guid = 1;		//玩家ID		//id为0表示位置为空
+	required int32 chair = 2;		//椅子
+	optional string name = 3;		//名字
+	optional string icon = 4;		//头像
+	optional int64 money = 5;		//携带的钱
+	optional int32 ratio = 6;		//-1, 1-4	
+	optional int32 position = 7;	//玩家位置		//1-庄家, -1普通
+	optional int64 bet_money = 8;	//下注的钱
+
+	repeated int32 cards = 9;		//5张 盖牌-1表示
+	optional int32 cards_type = 10;	//牌型				[enum BANKER_CARD_TYPE]
+	optional int32 flag = 11;		//3-2展示	1展示; -2不展示
+
+	optional int64 tax = 12;		//税收		输玩家：-1
+	optional int32 victory = 13;	//输赢状态	1-赢； 2-输
+	required int64 increment_money = 14;	//赢/输的钱
+
+	optional int32 status = 15;	//状态	1准备中； 2游戏中
+}
+
+//匹配
+message SC_BankerTableMatching		
+{
+	enum MsgID { ID = 26000; }
+	optional int32 chair = 1;
+	optional int32 chair1 = 2;
+}
+
+//发牌
+message SC_BankerSendCards				
+{
+	enum MsgID { ID = 26001; }
+	optional BankerTable pb_table = 1;
+	repeated BankerPlayerInfo pb_player = 2;
+	repeated int32 cards = 3;			//玩家自己的牌	4张; 第5张-1
+}
+
+//开始抢庄
+message SC_BankerBeginToContend			
+{
+	enum MsgID { ID = 26002; }
+	required int32 countdown = 1;		//倒计时/s
+	required int32 total_time = 2;		//倒计时总时间
+}
+
+//其它玩家的抢庄倍数
+message SC_BankerPlayerContend			
+{
+	enum MsgID { ID = 26003; }
+	optional int32 chair = 1;	
+	optional int32 ratio = 2;			//-1, 1-4
+}
+
+//定庄
+message SC_BankerChoosingBanker {		
+	enum MsgID { ID = 26004; }
+	repeated int32 chairs = 1;			//竞争庄家的玩家[1,2,4]
+	optional int32 banker_chair = 2;
+	optional int32 banker_ratio = 3;	//庄家倍率
+}
+
+//闲家开始下注
+message SC_BankerPlayerBeginToBet		
+{
+	enum MsgID { ID = 26005; }
+	required int32 countdown = 1;		//倒计时/s
+	required int32 total_time = 2;		//倒计时总时间
+}
+
+//闲家下注
+message SC_BankerPlayerBet				
+{
+	enum MsgID { ID = 26006; }
+	optional int32 chair = 1;	
+	required int64 bet_money = 2;		//下注的钱
+}
+
+//玩家看到自己的牌
+message SC_BankerShowOwnCards			
+{
+	enum MsgID { ID = 26007; }
+	repeated int32 cards = 1;			//玩家自己的牌	5张;
+	optional int32 cards_type = 2;		//牌型
+	required int32 countdown = 3;		//倒计时/s
+	required int32 total_time = 4;		//倒计时总时间
+}
+
+//展示牌桌各玩家牌	消息个数=玩家人数
+message SC_BankerShowCards				
+{
+	enum MsgID { ID = 26008; }
+	optional int32 chair = 1;			//座位
+	repeated int32 cards = 2;			//所有5张牌，顺序重排
+	optional int32 cards_type = 3;		//牌型					[enum BANKER_CARD_TYPE]
+	optional int32 flag = 4;			//3-2展示	1展示; 2不展示
+}
+
+//结算
+message SC_BankerGameEnd			
+{
+	enum MsgID { ID = 26009; }
+	repeated BankerGameEndPlayerInfo pb_player = 1;
+	optional BankerTable pb_table = 2;
+}
+
+//强制离开
+message SC_BankerForceToLeave		
+{
+	enum MsgID { ID = 26010; }
+	optional string reason = 1;
+	optional int32 num = 2;
+}
+
+//断线重入 房间汇总信息/等待信息
+message SC_BankerReconnectInfo			
+{
+	enum MsgID { ID = 26011; }
+	optional BankerTable pb_table = 1;
+	repeated BankerReconnectPlayerInfo pb_player = 2;
+	optional int32 countdown = 3;		//倒计时/s
+	optional int32 total_time = 4;		//倒计时总时间
+}
+message SC_BankerPlayerSitDown	
+{
+	enum MsgID { ID = 26012; }
+	optional BankerPlayerInfo pb_info = 1;
+	optional int32 state = 2[default = -1];		//游戏状态	[enum BankerStatus]	
+}
+
+//发起 投票 
+message SC_BankerStartVote {
+	enum MsgID { ID = 26020; }
+	optional int32 chair_id	    = 1; 	// 玩家
+}
+
+//投票 结果
+message SC_BankerVoteResult {
+	enum MsgID { ID = 26021; }
+	optional int32 chair_id = 1; 	// 玩家
+	optional bool agree = 2;  //是否同意
+}
+
+//进入下一次游戏
+message SC_ReEanter_Next_Game	
+{
+	enum MsgID { ID = 26022; }
+	optional int32 chair_id = 1[default = -1];
+}
+//下一次游戏准备时间
+message SC_Next_Game_Time	
+{
+	enum MsgID { ID = 26023; }
+	optional int32 time_num = 1[default = -1];
+}
+
+
+
+//玩家进入游戏
+message CS_BankerEnter			
+{
+	enum MsgID { ID = 26001; }
+	optional int32 chair = 1;
+	optional int32 chair1 = 2;
+}
+
+//玩家离开游戏
+message CS_BankerLeave		
+{
+	enum MsgID { ID = 26102; }
+}
+
+//抢庄
+message CS_BankerContend				
+{
+	enum MsgID { ID = 26103; } 
+	optional int32 ratio = 1;			//-1, 1-4
+}
+
+//闲家下注
+message CS_BankerPlayerBet			
+{
+	enum MsgID { ID = 26104; }
+	required int64 bet_money = 1;	//本轮下注的钱
+}
+
+//猜牌
+message CS_BankerPlayerGuessCards	
+{
+	enum MsgID { ID = 26105; }
+}
+
+//下一局
+message CS_BankerNextGame			
+{
+	enum MsgID { ID = 26106; }
+}
+
+
+//投票 
+message CS_BankerVote {
+	enum MsgID { ID = 26110; }
+	optional bool agree = 1;  //是否同意
+}

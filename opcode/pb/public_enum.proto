@@ -1,0 +1,269 @@
+syntax = "proto2";
+
+// 注册账号结果
+enum REG_ACCOUNT_RESULT {
+	REG_ACCOUNT_RESULT_SUCCESS = 0;							// 注册账号成功
+	REG_ACCOUNT_RESULT_FAILED = 1;							// 注册账号失败
+}
+
+// 登录结果
+enum LOGIN_RESULT {
+	LOGIN_RESULT_SUCCESS = 0;								// 登录成功
+	LOGIN_RESULT_REPEAT_LOGIN = 1;							// 重复登录
+	LOGIN_RESULT_DB_ERR = 2;								// 数据库操作返回错误
+	LOGIN_RESULT_ACCOUNT_PASSWORD_ERR = 3;					// 该账号密码错误
+	LOGIN_RESULT_NO_DEFAULT_LOBBY = 4;						// 没有找到默认大厅
+	LOGIN_RESULT_SMS_CLOSED = 5;							// 没有开启短信验证
+	LOGIN_RESULT_SMS_REPEATED = 6;							// 短信验证重复发送消息
+	LOGIN_RESULT_RESET_ACCOUNT_FAILED = 7;					// 完善账号数据库操作失败
+	LOGIN_RESULT_SMS_FAILED = 8;							// 短信验证失败
+	LOGIN_RESULT_ALIYUN_FAILED = 9;							// 阿里云失败
+	LOGIN_RESULT_SET_PASSWORD_FAILED = 10;					// 修改密码失败
+	LOGIN_RESULT_SET_NICKNAME_FAILED = 11;					// 设置昵称数据库操作失败
+	LOGIN_RESULT_SET_PASSWORD_GUEST = 12;					// 游客不能修改密码
+	LOGIN_RESULT_SAME_PASSWORD = 13;						// 相同密码
+	LOGIN_RESULT_LOGIN_VALIDATEBOX_FAIL = 14;				// 登陆验证框失败
+	LOGIN_RESULT_ACCOUNT_DISABLED = 15;						// 账号被封
+	LOGIN_RESULT_RESET_ACCOUNT_DUP_ACC = 16;				// 完善账号失败：已经绑定了该手机
+	LOGIN_RESULT_RESET_ACCOUNT_DUP_NICKNAME = 17;			// 完善账号失败：已经设置了改昵称
+	LOGIN_RESULT_SET_NICKNAME_DUP_NICKNAME = 18;			// 设置昵称失败：已经设置了改昵称
+	LOGIN_RESULT_SET_ACCOUNT_OR_PASSWORD_EMPTY = 19;		// 账号或者密码为空
+	LOGIN_RESULT_PASSWORD_SIZE_LIMIT = 20;					// 密码长度限制为9-18位
+	LOGIN_RESULT_PASSWORD_CHAR_LIMIT = 21;					// 密码只能为数字，字母，下划线
+	LOGIN_RESULT_ACCOUNT_SIZE_LIMIT = 22;					// 账号只能为7-18位
+	LOGIN_RESULT_ACCOUNT_CHAR_LIMIT = 23;					// 账号只能为数字
+	LOGIN_RESULT_SMS_ERR = 24;								// 验证码只能输入数字，限制6位
+	LOGIN_RESULT_NICKNAME_EMPTY = 25;						// 昵称不能为空
+	LOGIN_RESULT_NICKNAME_LIMIT = 26;						// 昵称输入框只能输入字母数字汉字，限制2-7个汉字的长度。
+	LOGIN_RESULT_ACCOUNT_EMPTY = 27;						// 账号为空
+	LOGIN_RESULT_TEL_LEN_ERR = 28;							// 手机号长度不正确
+	LOGIN_RESULT_TEL_ERR = 29;								// 手机号不正确
+	LOGIN_RESULT_TEL_USED = 30;								// 手机号已被使用
+	LOGIN_RESULT_REDIS_ERROR = 31;							//redis异常
+	LOGIN_RESULT_MAINTAIN = 32;								//系统进入维护中
+	LOGIN_RESULT_FREQUENTLY_LOGIN = 33;						// 频繁登录，dbserver收到多个
+	LOGIN_RESULT_UNCOMPLETED_LOGIN = 34;					// 未完成登录，login又收到一个
+	LOGIN_RESULT_LOGIN_QUQUE = 35;							// 已经在登录排队中，gate又收到一个
+}
+
+// 银行操作结果
+enum BANK_OPT_RESULT {
+	BANK_OPT_RESULT_SUCCESS = 0;							// 成功
+	BANK_OPT_RESULT_PASSWORD_HAS_BEEN_SET = 1;				// 密码已经设置
+	BANK_OPT_RESULT_PASSWORD_IS_NOT_SET = 2;				// 密码未设置
+	BANK_OPT_RESULT_OLD_PASSWORD_ERR = 3; 					// 旧密码错误
+	BANK_OPT_RESULT_ALREADY_LOGGED = 4; 					// 已经登录
+	BANK_OPT_RESULT_LOGIN_FAILED = 5;						// 登录失败
+	BANK_OPT_RESULT_NOT_LOGIN = 6;							// 未登录
+	BANK_OPT_RESULT_MONEY_ERR = 7;							// 钱数值错误
+	BANK_OPT_RESULT_TRANSFER_ACCOUNT = 8;					// 没有找到收款的人
+	BANK_OPT_RESULT_FORBID_IN_GAMEING = 9;					// 游戏中不能存取
+}	
+
+// 银行流水操作类型
+enum BANK_STATEMENT_OPT_TYPE {
+	BANK_STATEMENT_OPT_TYPE_DEPOSIT = 0;					// 存钱
+	BANK_STATEMENT_OPT_TYPE_DRAW = 1;						// 取钱
+	BANK_STATEMENT_OPT_TYPE_TRANSFER_OUT = 2;				// 转出
+	BANK_STATEMENT_OPT_TYPE_TRANSFER_IN = 3;				// 转入
+	BANK_STATEMENT_OPT_TYPE_REWARD_LOGIN = 4;				// 登陆奖励
+	BANK_STATEMENT_OPT_TYPE_REWARD_ONLINE = 5;				// 在线奖励
+	BANK_STATEMENT_OPT_TYPE_RELIEF_PAYMENT = 6;				// 救济金
+}
+
+// 物品操作返回结果			
+enum ITEM_OPERATE_RESULT {			
+	ITEM_OPERATE_RESULT_SUCCESS = 0;						// 操作成功
+	ITEM_OPERATE_RESULT_ITEMID_ERR = 1;						// 物品id错误
+	ITEM_OPERATE_RESULT_NUM_ERR = 2;						// 数量错误
+	ITEM_OPERATE_RESULT_MONEY_NOT_ENOUGH = 3;				// 钱不够
+	ITEM_OPERATE_RESULT_DEL_FAILED = 4;						// 删除失败
+	ITEM_OPERATE_RESULT_USE_FAILED = 5;						// 使用失败
+}
+
+// 购买货币类型
+enum ITEM_PRICE_TYPE {
+	ITEM_PRICE_TYPE_GOLD = 0;								// 金币
+}
+
+// 物品种类
+enum ITEM_TYPE {
+	ITEM_TYPE_MONEY = 0;									// 货币，用于奖励
+	ITEM_TYPE_BOX = 1;										// 宝箱
+}
+
+// 领取奖励结果
+enum RECEIVE_REWARD_RESULT {
+	RECEIVE_REWARD_RESULT_SUCCESS = 0;						// 成功
+	RECEIVE_REWARD_RESULT_ERR_MONEY = 1;					// 奖励金币错误
+	RECEIVE_REWARD_RESULT_ERR_REPEATED = 2;					// 奖励不能重复领取
+	RECEIVE_REWARD_RESULT_ERR_FIND_LOGIN_AWARD = 3;			// 查找登陆奖励错误
+	RECEIVE_REWARD_RESULT_ERR_FIND_ONLINE_AWARD = 4;		// 查找在线奖励错误
+	RECEIVE_REWARD_RESULT_ERR_ONLINE_AWARD_CD = 5;			// 在线奖励时间未到
+	RECEIVE_REWARD_RESULT_ERR_COUNT_LIMIT = 6;				// 每日领取救济金次数限制
+	RECEIVE_REWARD_RESULT_ERR_MONEY_LIMIT = 7;				// 有太多钱不能领取救济金
+}
+
+// 邮件操作结果
+enum MAIL_OPT_RESULT {
+	MAIL_OPT_RESULT_SUCCESS = 0;							// 成功
+	MAIL_OPT_RESULT_FIND_FAILED = 1;						// 没找到id的邮件
+	MAIL_OPT_RESULT_NO_RECEIVER = 2;						// 没有找到收邮件的人
+	MAIL_OPT_RESULT_EXPIRATION = 3;							// 邮件过期
+	MAIL_OPT_RESULT_NO_ATTACHMENT = 4;						// 邮件没有附件，不能收取
+	MAIL_OPT_RESULT_HAS_ATTACHMENT = 5;						// 邮件有附件，不能删除
+}
+
+// 排行榜种类
+enum RANK_TYPE {
+	RANK_TYPE_FORTUNE = 1;									// 总财富
+	RANK_TYPE_DAILY_EARNINGS = 2;							// 日盈利
+	RANK_TYPE_WEEKLY_EARNINGS = 3;							// 周盈利
+	RANK_TYPE_MONTHLY_EARNINGS = 4;							// 月盈利
+}
+
+
+// 游戏服返回结果
+enum GAME_SERVER_RESULT {
+	GAME_SERVER_RESULT_SUCCESS = 0;							// 操作成功
+	GAME_SERVER_RESULT_IN_GAME = 1;							// 在游戏中无法退出
+	GAME_SERVER_RESULT_IN_ROOM = 2;							// 玩家已经进了房间
+	GAME_SERVER_RESULT_OUT_ROOM = 3;						// 玩家已经出了房间
+	GAME_SERVER_RESULT_NOT_FIND_ROOM = 4;					// 没有找到相应的房间
+	GAME_SERVER_RESULT_NOT_FIND_TABLE = 5;					// 没有找到相应的桌子
+	GAME_SERVER_RESULT_NOT_FIND_CHAIR = 6;					// 没有找到相应的椅子
+	GAME_SERVER_RESULT_PLAYER_ON_CHAIR = 7;					// 玩家已经在椅子
+	GAME_SERVER_RESULT_CHAIR_HAVE_PLAYER = 8;				// 椅子有人
+	GAME_SERVER_RESULT_PLAYER_NO_CHAIR = 9;					// 玩家不在椅子
+	GAME_SERVER_RESULT_OHTER_ON_CHAIR = 10;					// 其他玩家在椅子
+	GAME_SERVER_RESULT_NO_GAME_SERVER = 11;					// 没有找到游戏服务器
+	GAME_SERVER_RESULT_ROOM_LIMIT = 12;						// 房间分数限制
+	GAME_SERVER_RESULT_FREEZEACCOUNT = 13;					// 账号被冻结
+	GAME_SERVER_RESULT_MAINTAIN = 14;						// 游戏维护中
+	GAME_SERVER_RESULT_CREATE_PRIVATE_ROOM_CHAIR = 15;		// 创建私人房间椅子
+	GAME_SERVER_RESULT_CREATE_PRIVATE_ROOM_ALL = 16;		// 创建私人房间总钱不够
+	GAME_SERVER_RESULT_CREATE_PRIVATE_ROOM_BANK = 17;		// 创建私人房间银行钱不够
+	GAME_SERVER_RESULT_CREATE_PRIVATE_ROOM_MONEY = 18;		// 创建私人房间钱不够
+	GAME_SERVER_RESULT_JOIN_PRIVATE_ROOM_ALL = 19;			// 加入私人房间总钱不够
+	GAME_SERVER_RESULT_JOIN_PRIVATE_ROOM_BANK = 20;			// 加入私人房间银行钱不够
+	GAME_SERVER_RESULT_JOIN_PRIVATE_ROOM_MONEY = 21;		// 加入私人房间钱不够
+	GAME_SERVER_RESULT_PRIVATE_ROOM_NOT_FOUND = 22;			// 私人房间没有找到
+	GAME_SERVER_RESULT_READY_FAILED = 23;					// 准备失败
+	GAME_SERVER_RESULT_PRIVATE_ROOM_FULL = 24;				// 私人房间满了
+	GAME_SERVER_RESULT_ALIBABA_CLOSE = 25;					// 支付宝提现维护中
+	GAME_SERVER_RESULT_CASH_BANKCLOSE = 26;					// 银行卡提现维护中
+}
+
+// GM命令机器人操作
+enum GM_ANDROID_OPT {
+	GM_ANDROID_ADD_ACTIVE = 1;								// 加主动机器人
+	GM_ANDROID_SUB_ACTIVE = 2;								// 减主动机器人
+	GM_ANDROID_ADD_PASSIVE = 3;								// 加被动机器人
+	GM_ANDROID_SUB_PASSIVE = 4;								// 减被动机器人
+}
+
+// 钱log操作类型
+enum LOG_MONEY_OPT_TYPE {
+	LOG_MONEY_OPT_TYPE_BUY_ITEM = 1;						// 购买物品花钱
+	LOG_MONEY_OPT_TYPE_BOX = 2;								// 开宝箱得到钱
+	LOG_MONEY_OPT_TYPE_REWARD_LOGIN = 3;					// 登陆奖励
+	LOG_MONEY_OPT_TYPE_REWARD_ONLINE = 4;					// 在线奖励
+	LOG_MONEY_OPT_TYPE_RELIEF_PAYMENT = 5;					// 救济金
+	LOG_MONEY_OPT_TYPE_LAND = 6;							// 斗地主
+	LOG_MONEY_OPT_TYPE_ZHAJINHUA = 7;						// 诈金花
+	LOG_MONEY_OPT_TYPE_SHOWHAND = 8;						// 梭哈
+	LOG_MONEY_OPT_TYPE_OX = 9;								// 牛牛
+	LOG_MONEY_OPT_TYPE_FURIT = 10;							// 水果机
+	LOG_MONEY_OPT_TYPE_BENZ_BMW = 11;						// 奔驰宝马
+	LOG_MONEY_OPT_TYPE_TEXAS = 12;							// 德州扑克
+	LOG_MONEY_OPT_TYPE_BUYU = 13;                           // 捕鱼
+	LOG_MONEY_OPT_TYPE_SLOTMA = 14;                         // 老虎机
+	LOG_MONEY_OPT_TYPE_RESET_ACCOUNT = 15;					// 开户有奖
+	LOG_MONEY_OPT_TYPE_CASH_MONEY = 16;					    // 用户提现
+	LOG_MONEY_OPT_TYPE_RECHARGE_MONEY = 17;					// 用户充值
+	LOG_MONEY_OPT_TYPE_GM = 18;								// GM修改金币
+	LOG_MONEY_OPT_TYPE_INVITE = 19;							// 邀请税收分成
+	LOG_MONEY_OPT_TYPE_CASH_MONEY_FALSE = 20;			    // 用户提现回退
+	LOG_MONEY_OPT_TYPE_CREATE_PRIVATE_ROOM = 21;			// 开私有房间费
+	LOG_MONEY_OPT_TYPE_BANKER_OX = 22;			   			// 抢庄牛牛
+	LOG_MONEY_OPT_TYPE_FORTUNE_SLOTS = 23;			   		// 多福老虎机
+	LOG_MONEY_OPT_TYPE_MAAJAN = 24;			   				// 二人麻将
+	LOG_MONEY_OPT_TYPE_CLASSIC_OX = 25;			   			// 经典牛牛
+	LOG_MONEY_OPT_TYPE_POINT21 = 26;			   			// 21点
+	LOG_MONEY_OPT_TYPE_SANGONG = 27;						// 三公
+	LOG_MONEY_OPT_TYPE_HONGHEI = 28;						// 红黑大战
+	LOG_MONEY_OPT_TYPE_CHANNEL_ZK = 29;						// 渠道追款
+	LOG_MONEY_OPT_TYPE_PLAYER_PROMOTION = 30;				// 玩家推广
+	LOG_MONEY_OPT_TYPE_LONGHU = 31;							//龙虎大战
+	
+}
+
+// 游戏准备模式
+enum GAME_READY_MODE {
+	GAME_READY_MODE_NONE = 1;								// 不需要准备
+	GAME_READY_MODE_ALL = 2;                                // 全部准备才开始
+	GAME_READY_MODE_PART = 3;                               // 只要两个人准备就开始
+}
+
+// 支付宝绑定结果
+enum GAME_BAND_ALIPAY {
+	GAME_BAND_ALIPAY_SUCCESS = 0;							// 操作成功
+	GAME_BAND_ALIPAY_CHECK_ERROR = 1;						// 检查错误
+	GAME_BAND_ALIPAY_REPEAT_BAND = 2;					    // 已经绑定
+	GAME_BAND_ALIPAY_DB_ERROR = 3;						    // 插入错误	
+}
+
+enum GMmessageRetCode {
+	GMmessageRetCode_Success 						=1;			//成功
+	GMmessageRetCode_SocketConnectFail 				=0;			//服务器连接失败
+	GMmessageRetCode_GmCommandError					=2;			//gmCommand 命令关键字错误Error
+	GMmessageRetCode_GmParamMiss 					=3;			//gmCommand 命令参数不全
+	GMmessageRetCode_MsgPlayerOffline 				=101;		//消息中入库成功但玩家不在线
+	GMmessageRetCode_MsgDBFaild 					=102;		//消息中入库失败
+	GMmessageRetCode_MsgGameIdnoFind 				=103;		//未找到游戏id
+	GMmessageRetCode_MsgGateDataError 				=104;		//Gate数据解包错误
+	GMmessageRetCode_Msgnofindsession 				=105;		//gate服没找到玩家session
+	GMmessageRetCode_MsgParamMiss					=106;		//消息参数不全
+	GMmessageRetCode_MsgTypeError					=107;		//类型错误
+	GMmessageRetCode_FBParamMiss					=121;		//反馈参数不全
+	GMmessageRetCode_FBPlayerOffline				=122;		//反馈 玩家不在线
+	GMmessageRetCode_FBGateDataError 				=123;		//Gate数据解包错误
+	GMmessageRetCode_DelMsgDBError   				=125;		//删除数据操作失败
+	GMmessageRetCode_ATMoneyParamError 				=130;		//金钱判断错误
+	GMmessageRetCode_ATGameServerNofindPlayer 		=131;		//游戏服未找到对就玩家
+	GMmessageRetCode_ATNotEnoughMoney 				=132;		//扣减时玩家银行金钱不足
+	GMmessageRetCode_ATJudgmentPlayerOnlineError 	=133;		//玩家在线判断出错
+	GMmessageRetCode_ATDB_NoFind_Player 			=134;		//数据库中未找到玩家记录
+	GMmessageRetCode_ATDB_NotData    				=135;		//操作数据库存储过程无data返回
+	GMmessageRetCode_ATChangMoney_DB_Error 			=136;		//数据库报错
+	GMmessageRetCode_ATCantTransfer     			=137;		//AT无转账功能
+	GMmessageRetCode_ATnofindUser        			=138;		//查无此人
+
+	GMmessageRetCode_ATtypeError					=140;		//转账类型错误
+	GMmessageRetCode_PLGameServerNofindPlayer 		=141;		//游戏服未找到对就玩家
+	GMmessageRetCode_PLNotEnoughMoney 				=142;		//扣减时玩家银行金钱不足
+	GMmessageRetCode_PLJudgmentPlayerOnlineError 	=143;		//玩家在线判断出错
+	GMmessageRetCode_PLDB_NoFind_Player 			=144;		//数据库中未找到玩家记录
+	GMmessageRetCode_PLDB_NotData     				=145;		//操作数据库存储过程无data返回
+	GMmessageRetCode_PLChangMoney_DB_Error 			=146;		//数据库报错
+	GMmessageRetCode_PLCantTransfer     			=147;		//PL无转账功能
+	GMmessageRetCode_PLnofindUser        			=148;		//查无此人
+	GMmessageRetCode_AT_PL_onePlayer				=149;		//代理商 与 玩家 是同一人
+	GMmessageRetCode_EditAliPayFail  				= 160;		//修改支付宝信息 失败
+	
+	GMmessageRetCode_FreezeAccountOnLineFaild       = 165;		//玩家封号入库成功但读取在线数据失败
+	GMmessageRetCode_FreezeAccountGameFaild         = 166;		//封号玩家 入库成功 但游戏服处理失败
+
+	GMmessageRetCode_DBRquestError					=999;		//数据库返回错误
+}
+
+enum ChangeMoneyRecode{
+	ChangMoney_Success = 0;											//操作成功
+	ChangMoney_GameServerNofindPlayer = 1;							//游戏服未找到对就玩家
+	ChangMoney_NotEnoughMoney = 2;									//扣减时玩家银行金钱不足
+	ChangMoney_JudgmentPlayerOnlineError=3;							//玩家在线判断出错
+	ChangMoney_DB_NoFind_Player = 4;								//数据库中未找到玩家记录
+	ChangMoney_DB_NotData = 5;										//操作数据库存储过程无data返回
+	ChangMoney_DB_Error = 6;										//数据库报错
+
+}

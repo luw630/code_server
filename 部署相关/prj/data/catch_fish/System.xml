@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<SystemSet ShowDebugInfo="0" Shadow="1">
+	<!--游戏默认的窗口大小-->
+	<DefaultScreenSet width="1280" height="720" />
+	<!--金币渔币兑换比例和一次性兑换渔币数量-->
+	<ExchangeScore Ratio="1:1" Once="1000000" ShowGoldMinMul="1" />
+	<!--开炮时间最小间隔(毫秒)  最大间隔-->
+	<Fire Interval="200" MaxInterval="90000" MaxBullet="20" />
+	<Catch NoticeLevel="3000" AndroidProbMul="1.0" />
+	<Special MaxCount="3" />
+	<!--离子炮设定  出现的倍率　出现的机率　　时长-->
+	<IonSet Multiple="30" Probability="500" time="7" />
+	<CannonSet Normal="0" Ion="1" Double="1" />
+	<FirstFire level="0" Count="10" TypeCount="5" TypeList="1,2,3,4,5" WeightList="1,1,1,1,1" />
+</SystemSet>

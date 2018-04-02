@@ -1,0 +1,34 @@
+﻿syntax = "proto2";
+
+// 玩家登陆信息
+message PlayerLoginInfo {
+	optional int32 session_id = 1;					// GateServer上客户端连接的网络id
+	optional int32 gate_id = 2;						// 玩家在哪个gate server
+	optional string account = 3;					// 账号
+	optional int32 guid = 4;						// 玩家的guid
+	optional string nickname = 5;					// 昵称
+	optional int32 vip = 6;							// vip等级
+	optional int32 login_time = 7;					// 登录时间
+	optional int32 logout_time = 8;					// 退出时间
+	optional bool has_bank_password = 9; 			// 是否设置银行密码，false：没有设置，true：已经设置
+	optional bool is_guest = 10; 					// 是否是游客
+	optional bool is_reconnect = 11;				// 掉线重连
+	optional string alipay_account = 12;		    // 支付宝账号
+	optional string alipay_name = 13;				// 支付宝名字
+	optional int32 change_alipay_num = 14;          // 支付宝剩余绑定次数
+	optional string phone = 15;						// 手机型号
+	optional string phone_type = 16;				// 手机类型
+	optional string version = 17;					// 版本号
+	optional string channel_id = 18;				// 渠道号
+	optional string package_name = 19;				// 安装包名字
+	optional string imei = 20;						// 设备唯一码
+	optional string ip = 21;						// 客户端ip
+	optional int32 risk = 22;         				// 危险等级
+	optional string ip_area = 23;					// 客户端ip地区
+	optional string password = 24;					// 密码
+	optional string create_channel_id = 25;			// channelid
+	optional bool enable_transfer = 26;				// 1能够转账，0不能给其他玩家转账
+	optional int32 is_first = 27[default = 2];		// 1第一次，2非第一次
+	optional int32 inviter_guid = 28[default = 0];	// 邀请者的guid
+	optional string invite_code = 29;				// 自己的invite_code
+}

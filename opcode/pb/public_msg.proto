@@ -1,0 +1,1073 @@
+syntax = "proto2";
+
+import "public_player.proto";
+
+// 客户端和服务器通信消息
+// C Client, L LoginServer, D DBServer, S GameServer
+// CS 即C-发送->S
+
+// message类型变量加pb_前缀，用于客户端解析
+
+
+
+//////////////////////////////////////////////////////////////////////////
+/// 登陆退出，玩家数据相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 请求公钥
+message C_RequestPublicKey {
+	enum MsgID { ID = 999; }
+	optional string channel_id = 1;
+	optional string version = 2;
+	optional string re_ip = 3;
+	optional int32 android_uid = 4; //渠道ID
+	optional int32 android_pid = 5; //渠道父ID
+}
+
+// 得到公钥
+message C_PublicKey {
+	enum MsgID { ID = 1000; }
+	optional string public_key = 1;					// 公钥
+}
+
+// 注册账号
+message CL_RegAccount {
+	enum MsgID { ID = 1001; }
+	optional string account = 1;					// 账号，没有账号密码即是游客登陆
+	optional string password = 2;					// 密码 需要加密
+	optional string phone = 3;						// 手机型号
+	optional string phone_type = 4;					// 手机类型
+	optional string version = 5;					// 版本号
+	optional string channel_id = 6;					// 渠道号
+	optional string package_name = 7;				// 安装包名字
+	optional string imei = 8;						// 设备唯一码
+	optional string ip = 9;							// 客户端ip
+	optional string ip_area = 10;					// 客户端ip地区
+	optional int32 android_uid = 11; //渠道ID
+	optional int32 android_pid = 12; //渠道父ID
+}
+
+// 登录请求
+message CL_Login {
+	enum MsgID { ID = 1003; }
+	optional string account = 1;					// 账号
+	optional string password = 2;					// 密码 需要加密
+	optional string phone = 3;						// 手机型号
+	optional string phone_type = 4;					// 手机类型
+	optional string imei = 5;						// 设备唯一码
+	optional string ip = 6;							// 客户端ip
+	optional string version = 7;					// 版本号
+	optional string channel_id = 8;					// 渠道号
+	optional string package_name = 9;				// 安装包名字
+	optional string ip_area = 10;					// 客户端ip地区
+}
+
+// 登录验证框
+message LoginValidatebox {
+	repeated int32 question = 1;					// 问题
+	repeated int32 answer = 2;						// 答案
+}
+
+// 登录结果
+message LC_Login {
+	enum MsgID { ID = 1004; }
+	optional int32 result = 1[default = 0];			// 登录结果，参考LOGIN_RESULT
+	optional int32 guid = 2;						// 成功返回玩家的guid
+	optional string account = 3;					// 账号
+	optional int32 game_id = 4;						// 在哪个游戏服务器
+	optional string nickname = 5;					// 昵称
+	optional bool is_guest = 6; 					// 是否是游客
+	optional string password = 7;					// 密码
+	optional string alipay_account = 8;	         	// 支付宝账号
+	optional string alipay_name = 9;				// 支付宝名字
+	optional bool is_validatebox = 10;				// 是否有登陆验证框
+	optional LoginValidatebox pb_validatebox = 11;	// 登陆验证框
+	optional int32  change_alipay_num = 12;			// 支付宝剩余绑定次数
+	optional string ip_area = 13;					// 客户端ip地区
+	optional bool enable_transfer = 14;				// 1能够转账，0不能给其他玩家转账
+	optional int32 is_first = 15[default = 2];		// 1第一次，2非第一次
+}
+
+// 用短信验证码登陆
+message CL_LoginBySms {
+	enum MsgID { ID = 1005; }
+	optional string account = 1;					// 账号
+	optional string sms_no = 2;						// 验证码
+	optional string phone = 3;						// 手机型号
+	optional string phone_type = 4;					// 手机类型
+	optional string version = 5;					// 版本号
+	optional string channel_id = 6;					// 渠道号
+	optional string package_name = 7;				// 安装包名字
+	optional string imei = 8;						// 设备唯一码
+	optional string ip = 9;							// 客户端ip
+	optional string ip_area = 10;					// 客户端ip地区
+}
+
+// 踢掉客户端
+message SC_KickClient {
+	enum MsgID { ID = 1006; }
+	optional int32 result = 1;						// Kick code
+}
+
+message CL_LoginAll {
+	optional int32 type = 1;
+	optional CL_RegAccount reg = 2;
+	optional CL_Login login = 3;
+	optional CL_LoginBySms sms = 4;
+	optional int32 gate_id = 5;
+}
+
+// 申请短信验证
+message CS_RequestSms {
+	enum MsgID { ID = 1010; }
+	optional string tel = 1;						// 手机号
+	optional int32 intention = 2;					// 1 为普通 需求，2 为绑定账号寻求
+	optional int32 gate_session_id = 3;
+}
+
+// 申请短信验证回复
+message SC_RequestSms {
+	enum MsgID { ID = 1011; }
+	optional int32 result = 1;						// LOGIN_RESULT
+	optional string sms_no = 2;						// 验证码
+	optional string tel = 3;						// 手机号
+}
+
+// 完善账号
+message CS_ResetAccount {
+	enum MsgID { ID = 1012; }
+	optional string account = 1;					// 账号
+	optional string password = 2;					// 密码 需要加密
+	optional string nickname = 3;					// 昵称
+	optional string sms_no = 4;						// 短信验证码
+}
+
+// 完善账号结果
+message SC_ResetAccount {
+	enum MsgID { ID = 1013; }
+	optional int32 result = 1;						// LOGIN_RESULT
+	optional string account = 2;					// 账号
+	optional string nickname = 3;					// 昵称
+}
+
+// 修改密码
+message CS_SetPassword {
+	enum MsgID { ID = 1014; }
+	optional string old_password = 1;				// 旧密码 需要加密
+	optional string password = 2;					// 新密码 需要加密
+}
+
+// 修改密码结果
+message SC_SetPassword {
+	enum MsgID { ID = 1015; }
+	optional int32 result = 1;						// LOGIN_RESULT
+}
+
+// 用短信验证码修改密码
+message CS_SetPasswordBySms {
+	enum MsgID { ID = 1016; }
+	optional string password = 1;					// 新密码 需要加密
+	optional string sms_no = 2;						// 短信验证码
+}
+
+// 设置昵称
+message CS_SetNickname {
+	enum MsgID { ID = 1020; }
+	optional string nickname = 1;					// 昵称
+}
+
+// 设置昵称返回
+message SC_SetNickname {
+	enum MsgID { ID = 1021; }
+	optional string nickname = 1;					// 昵称
+	optional int32 result = 2;						// LOGIN_RESULT
+}
+
+// 修改头像
+message CS_ChangeHeaderIcon {
+	enum MsgID { ID = 1022; }
+	optional int32 header_icon = 1[default = 0]; 	// 头像
+}
+
+message SC_ChangeHeaderIcon {
+	enum MsgID { ID = 1023; }
+	optional int32 header_icon = 1[default = 0]; 	// 头像
+}
+
+// 提现订单返回信息
+message InviterInfo {
+	optional int32 guid = 1;						// 玩家的guid
+	optional string account = 2;					// 手机
+	optional string alipay_name_y = 3; 				// 支付宝
+	optional string alipay_account_y = 4;			// 支付宝
+}
+
+// 获取邀请人信息
+message CL_GetInviterInfo {
+	enum MsgID { ID = 1024; }
+	optional string invite_code = 1;				// code
+	optional int32 gate_session_id = 2;
+	optional int32 gate_id = 3;
+	optional int32 guid = 4;						// 玩家的guid
+}
+// 返回邀请人信息
+message LC_GetInviterInfo {
+	enum MsgID { ID = 1025; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional string account = 2;					// 账号
+	optional string alipay_account = 3;	         	// 支付宝账号
+	optional string alipay_name = 4;				// 支付宝名字
+	optional int32 gate_session_id = 5;				// 服务器使用
+	optional int32 gate_id = 6;
+	optional int32 guid_self = 7;					// 玩家自己的guid
+}
+
+// 请求玩家数据信息
+message CS_RequestPlayerInfo {
+	enum MsgID { ID = 1100; }
+}
+
+// 回复玩家数据信息
+message SC_ReplyPlayerInfo {
+	enum MsgID { ID = 1101; }
+	optional PlayerBaseInfo pb_base_info = 1;		// 玩家基本信息
+	optional ItemBagInfo pb_item_bag = 2;			// 背包
+	optional MailListInfo pb_mail_list = 3;			// 邮件列表
+}
+message GameMsg {	
+	optional int32 first_game_type = 1;				// 一级菜单
+	optional int32 second_game_type = 2;			// 二级菜单
+	optional int32 room_id = 3;
+	optional int32 table_id = 4;
+	optional int32 chair_id = 5;
+}
+// 回复玩家数据信息完成
+message SC_ReplyPlayerInfoComplete {
+	enum MsgID { ID = 1102; }
+	optional GameMsg pb_gmMessage = 1;
+}
+
+// 登录验证框
+message CS_LoginValidatebox {
+	enum MsgID { ID = 1103; }
+	repeated int32 answer = 2;						// 答案
+}
+// 失败
+message SC_LoginValidatebox {
+	enum MsgID { ID = 1104; }
+	optional int32 result = 1;						// LOGIN_RESULT
+	optional LoginValidatebox pb_validatebox = 2;	// 登陆验证框
+}
+
+// 切换游戏服务器
+message CS_ChangeGame {
+	enum MsgID { ID = 1150; }
+	optional int32 first_game_type = 1;				// 一级菜单
+	optional int32 second_game_type = 2;			// 二级菜单
+	optional int32 private_room_opt = 3;			// 私有房间操作 1 创建 2 加入
+	optional int32 owner_guid = 4;					// 房间拥有者guid
+	optional int32 private_room_chair_count = 5;	// 可选椅子数
+	optional int32 private_room_score_type = 6;		// 选的底注
+}
+
+// 加入私人房间
+message CS_JoinPrivateRoom {
+	enum MsgID { ID = 1151; }
+	optional int32 owner_guid = 1;					// 房间拥有者guid
+}
+
+message SC_JoinPrivateRoomFailed {
+	enum MsgID { ID = 1152; }
+	optional int32 owner_guid = 1;					// 房间拥有者guid
+	optional int32 result = 2;
+}
+
+// 私人房间信息
+message CS_PrivateRoomInfo {
+	enum MsgID { ID = 1153; }
+}
+
+message PrivateRoomInfo {
+	optional int32 first_game_type = 1;				// 一级菜单
+	repeated int32 table_count = 2;					// 桌子数目
+	repeated int32 cell_money = 3;					// 底注
+}
+
+message SC_PrivateRoomInfo {
+	enum MsgID { ID = 1154; }
+	repeated PrivateRoomInfo pb_info = 1;
+}
+
+// 返回游戏配置
+message GC_GameServerCfg {
+	enum MsgID { ID = 1200; }
+	repeated GameClientRoomListCfg pb_cfg = 1;
+}
+
+// 请求游戏配置
+message CG_GameServerCfg {
+	enum MsgID { ID = 1201; }
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+/// 银行相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 设置银行密码
+message CS_BankSetPassword {
+	enum MsgID { ID = 2000; }
+	optional string password = 1;					// 密码 需要加密
+}
+message SC_BankSetPassword {
+	enum MsgID { ID = 2001; }
+	optional int32 result = 1;						// 结果 BANK_OPT_RESULT
+}
+
+// 修改银行密码
+message CS_BankChangePassword {
+	enum MsgID { ID = 2002; }
+	optional string old_password = 1;				// 旧密码 需要加密
+	optional string password = 2;					// 新密码 需要加密
+}
+message SC_BankChangePassword {
+	enum MsgID { ID = 2003; }
+	optional int32 result = 1;						// 结果 BANK_OPT_RESULT
+}
+
+// 登录银行
+message CS_BankLogin {
+	enum MsgID { ID = 2004; }
+	optional string password = 1;					// 密码 需要加密
+}
+message SC_BankLogin {
+	enum MsgID { ID = 2005; }
+	optional int32 result = 1;						// 结果 BANK_OPT_RESULT
+}
+
+// 存钱
+message CS_BankDeposit {
+	enum MsgID { ID = 2010; }
+	optional int64 money = 1;						// 存入多少钱
+}
+message SC_BankDeposit {
+	enum MsgID { ID = 2011; }
+	optional int32 result = 1;						// 结果 BANK_OPT_RESULT
+	optional int64 money = 2;						// 存入多少钱
+}
+
+// 取钱
+message CS_BankDraw {
+	enum MsgID { ID = 2012; }
+	optional int64 money = 1;						// 取出多少钱
+}
+message SC_BankDraw {
+	enum MsgID { ID = 2013; }
+	optional int32 result = 1;						// 结果 BANK_OPT_RESULT
+	optional int64 money = 2;						// 取出多少钱
+}
+
+// 通知银行一条流水记录
+message SC_NotifyBankStatement {
+	enum MsgID { ID = 2014; }
+	optional BankStatement pb_statement = 1;		// 流水
+}
+
+// 银行流水记录
+message CS_BankStatement {
+	enum MsgID { ID = 2015; }
+	optional int64 cur_serial = 1;					// 查询大于该流水号的
+}
+message SC_BankStatement {
+	enum MsgID { ID = 2016; }
+	repeated BankStatement pb_statement = 1;		// 流水
+}
+
+// 转账
+message CS_BankTransfer {
+	enum MsgID { ID = 2017; }
+	optional string account = 1;					// 转账玩家的账号
+	optional int64 money = 2;						// 转账多少钱
+}
+message SC_BankTransfer {
+	enum MsgID { ID = 2018; }
+	optional int32 result = 1;						// 结果 BANK_OPT_RESULT
+	optional int64 money = 2;						// 转账多少钱
+	optional int64 bank = 3;						// 当前银行的钱
+}
+
+// 通知客户端钱的改变
+message SC_NotifyMoney {
+	enum MsgID { ID = 2019; }
+	optional int32 opt_type = 1;					// LOG_MONEY_OPT_TYPE
+	optional int64 money = 2;						// 当前的钱
+	optional int64 change_money = 3;				// 改变的钱
+}
+
+// 通过guid转账
+message CS_BankTransferByGuid {
+	enum MsgID { ID = 2020; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional int64 money = 2;						// 转账多少钱
+}
+
+//////////////////////////////////////////////////////////////////////////
+/// 物品相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 购买物品
+message CS_BuyItem {
+	enum MsgID { ID = 2100; }
+	optional int32 item_id = 1;						// 物品id
+	optional int32 item_num = 2;					// 物品数量
+}
+message SC_BuyItem {
+	enum MsgID { ID = 2101; }
+	optional int32 item_id = 1;						// 物品id
+	optional int32 item_num = 2;					// 物品数量
+	optional int32 result = 3;						// 结果 ITEM_OPERATE_RESULT
+}
+
+// 删除物品
+message CS_DelItem {
+	enum MsgID { ID = 2102; }
+	optional int32 item_id = 1;						// 物品id
+	optional int32 item_num = 2;					// 物品数量
+}
+message SC_DelItem {
+	enum MsgID { ID = 2103; }
+	optional int32 item_id = 1;						// 物品id
+	optional int32 item_num = 2;					// 物品数量
+	optional int32 result = 3;						// 结果 ITEM_OPERATE_RESULT
+}
+
+// 使用物品
+message CS_UseItem {
+	enum MsgID { ID = 2104; }
+	optional int32 item_id = 1;						// 物品id
+	optional int32 item_num = 2;					// 物品数量
+}
+message SC_UseItem {
+	enum MsgID { ID = 2105; }
+	optional int32 item_id = 1;						// 物品id
+	optional int32 item_num = 2;					// 物品数量
+	optional int32 result = 3;						// 结果 ITEM_OPERATE_RESULT
+}
+
+//////////////////////////////////////////////////////////////////////////
+/// 聊天，邮件相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 世界聊天
+message CS_ChatWorld {
+	enum MsgID { ID = 2200; }
+	optional string chat_content = 1;				// 聊天内容
+}
+message SC_ChatWorld {
+	enum MsgID { ID = 2201; }
+	optional string chat_content = 1;				// 聊天内容
+	optional int32 chat_guid = 2;					// 说话人
+	optional string chat_name = 3;					// 说话人名字
+}
+
+// 私聊
+message CS_ChatPrivate {
+	enum MsgID { ID = 2202; }
+	optional string chat_content = 1;				// 聊天内容
+	optional string private_name = 2;				// 私聊对象名字
+}
+message SC_ChatPrivate {
+	enum MsgID { ID = 2203; }
+	optional string chat_content = 1;				// 聊天内容
+	optional string private_name = 2;				// 私聊对象名字
+	optional string chat_name = 3;					// 说话人名字
+}
+
+// 同服聊天
+message CS_ChatServer {
+	enum MsgID { ID = 2204; }
+	optional string chat_content = 1;				// 聊天内容
+}
+message SC_ChatServer {
+	enum MsgID { ID = 2205; }
+	optional string chat_content = 1;				// 聊天内容
+	optional int32 chat_guid = 2;					// 说话人
+	optional string chat_name = 3; 					// 说话人名字
+}
+
+// 房间聊天
+message CS_ChatRoom {
+	enum MsgID { ID = 2206; }
+	optional string chat_content = 1;				// 聊天内容
+}
+message SC_ChatRoom {
+	enum MsgID { ID = 2207; }
+	optional string chat_content = 1;				// 聊天内容
+	optional int32 chat_guid = 2;					// 说话人
+	optional string chat_name = 3; 					// 说话人名字
+}
+
+// 同桌聊天
+message CS_ChatTable {
+	enum MsgID { ID = 2208; }
+	optional string chat_content = 1;				// 聊天内容
+}
+message SC_ChatTable {
+	enum MsgID { ID = 2209; }
+	optional string chat_content = 1;				// 聊天内容
+	optional int32 chat_guid = 2;					// 说话人
+	optional string chat_name = 3; 					// 说话人名字
+}
+
+// 跑马灯消息
+message SC_Marquee {
+	enum MsgID { ID = 2210; }
+	optional string content = 1;					// 内容
+}
+
+// 查询玩家跑马灯
+message CS_QueryPlayerMarquee {
+	enum MsgID { ID = 2211; }
+}
+
+// 返回查询玩家跑马灯
+message SC_QueryPlayerMarquee {
+	enum MsgID { ID = 2212; }
+	repeated Marquee pb_msg_data = 1;				// 消息数据
+}
+// 追加跑马灯消息
+message SC_NewMarquee {	
+	enum MsgID { ID = 2213; }
+	repeated Marquee pb_msg_data = 1; 				// 玩家的guid
+}
+
+// 发送邮件
+message CS_SendMail {
+	enum MsgID { ID = 2280; }
+	optional MailInfo pb_mail = 1;
+}
+// 写邮件的收到是否成功
+message SC_SendMail {
+	enum MsgID { ID = 2281; }
+	optional int32 ret = 1; 						// 0 成功 1 没有找到收邮件人
+	optional MailInfo pb_mail = 2;
+}
+// 收邮件的会收到该消息
+message SC_RecviceMail {
+	enum MsgID { ID = 2282; }
+	optional MailInfo pb_mail = 1;
+}
+
+// 删除邮件
+message CS_DelMail {
+	enum MsgID { ID = 2285; }
+	optional string mail_id = 1; 					// 邮件id
+}
+message SC_DelMail {
+	enum MsgID { ID = 2286; }
+	optional int32 result = 1;						// 结果 MAIL_OPT_RESULT
+	optional string mail_id = 2; 					// 邮件id
+}
+
+// 提取附件
+message CS_ReceiveMailAttachment {
+	enum MsgID { ID = 2287; }
+	optional string mail_id = 1; 					// 邮件id
+}
+message SC_ReceiveMailAttachment {
+	enum MsgID { ID = 2288; }
+	optional int32 result = 1;						// 结果 MAIL_OPT_RESULT
+	optional string mail_id = 2; 					// 邮件id
+	repeated ItemInfo pb_attachment = 3; 			// 附件
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+/// 领奖相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 登陆奖励
+message CS_ReceiveRewardLogin {
+	enum MsgID { ID = 2300; }
+}
+message SC_ReceiveRewardLogin {
+	enum MsgID { ID = 2301; }
+	optional int32 result = 1;						// 结果 RECEIVE_REWARD_RESULT
+	optional int64 money = 2;						// 奖励金币
+}
+
+// 在线奖励
+message CS_ReceiveRewardOnline {
+	enum MsgID { ID = 2302; }
+}
+message SC_ReceiveRewardOnline {
+	enum MsgID { ID = 2303; }
+	optional int32 result = 1;						// 结果 RECEIVE_REWARD_RESULT
+	optional int64 money = 2;						// 奖励金币
+}
+
+// 救济金
+message CS_ReceiveReliefPayment {
+	enum MsgID { ID = 2304; }
+}
+message SC_ReceiveReliefPayment {
+	enum MsgID { ID = 2305; }
+	optional int32 result = 1;						// 结果 RECEIVE_REWARD_RESULT
+	optional int64 money = 2;						// 奖励金币
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+/// 排行榜相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 申请排行榜
+message CE_RequestRank {
+	enum MsgID { ID = 2400; }
+	optional int32 rank_type = 1;					// 排行榜种类，RANK_TYPE
+}
+
+// 回复排行榜信息
+message EC_ReplyRank {
+	enum MsgID { ID = 2401; }
+	optional int32 rank_type = 1;					// 排行榜种类，RANK_TYPE
+	repeated RankItem pb_rank = 2;					// 排行榜
+} 
+
+
+//////////////////////////////////////////////////////////////////////////
+/// 房间操作相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 进入房间
+message CS_EnterRoom {
+	enum MsgID { ID = 11000; }
+	optional int32 room_id = 1;
+}
+message SC_EnterRoom {
+	enum MsgID { ID = 11001; }
+	optional int32 room_id = 1;
+	optional int32 result = 2;						// GAME_SERVER_RESULT
+}
+// 通知其他人进入房间
+message SC_NotifyEnterRoom {
+	enum MsgID { ID = 11002; }
+	optional int32 room_id = 1;
+	optional int32 guid = 2;
+}
+
+// 离开房间
+message CS_ExitRoom {
+	enum MsgID { ID = 11003; }
+}
+message SC_ExitRoom {
+	enum MsgID { ID = 11004; }
+	optional int32 room_id = 1;
+	optional int32 result = 2;						// GAME_SERVER_RESULT
+}
+// 通知其他人离开房间
+message SC_NotifyExitRoom {
+	enum MsgID { ID = 11005; }
+	optional int32 room_id = 1;
+	optional int32 guid = 2;
+}
+
+// 快速进入房间
+message CS_AutoEnterRoom {
+	enum MsgID { ID = 11006; }
+}
+
+// 快速坐下
+message CS_AutoSitDown {
+	enum MsgID { ID = 11010; }
+}
+
+// 坐下
+message CS_SitDown {
+	enum MsgID { ID = 11011; }
+	optional int32 table_id = 1;
+	optional int32 chair_id = 2;
+}
+message SC_SitDown {
+	enum MsgID { ID = 11012; }
+	optional int32 table_id = 1;
+	optional int32 chair_id = 2;
+	optional int32 result = 3;						// GAME_SERVER_RESULT
+}
+// 通知同桌坐下
+message SC_NotifySitDown {
+	enum MsgID { ID = 11013; }
+	optional int32 table_id = 1;
+	optional PlayerVisualInfo pb_visual_info = 2;	// 坐下玩家
+	optional bool is_onfline = 4;					// 是重新上线
+}
+
+// 站起
+message CS_StandUp {
+	enum MsgID { ID = 11020; }
+}
+message SC_StandUp {
+	enum MsgID { ID = 11021; }
+	optional int32 table_id = 1;
+	optional int32 chair_id = 2;
+	optional int32 result = 3;						// GAME_SERVER_RESULT
+}
+// 通知同桌站起
+message SC_NotifyStandUp {
+	enum MsgID { ID = 11022; }
+	optional int32 table_id = 1;
+	optional int32 chair_id = 2;
+	optional int32 guid = 3;
+	optional bool is_offline = 4;					// 是掉线
+}
+
+// 进入房间并坐下
+message CS_EnterRoomAndSitDown {
+	enum MsgID { ID = 11030; }
+}
+message SC_EnterRoomAndSitDown {
+	enum MsgID { ID = 11031; }
+	optional int32 room_id = 1;
+	optional int32 table_id = 2;
+	optional int32 chair_id = 3;
+	optional int32 result = 4;						// GAME_SERVER_RESULT
+	repeated PlayerVisualInfo pb_visual_info = 5;	// 同桌玩家	
+	optional int32 game_id = 6;
+	optional int32 first_game_type = 7;				// 一级菜单
+	optional int32 second_game_type = 8;			// 二级菜单
+	optional string ip_area = 9;					// 客户端ip地区
+	optional bool private_room = 10;				// true 私人房间
+	optional int32 balance_money = 11;				// 差多少钱
+	optional int32 private_room_score_type = 12;	// 选的底注
+	optional int32 private_room_cell_money = 13;	// 底注
+	optional int32 private_room_id = 14;			// 私人房间号
+}
+
+// 站起并离开房间
+message CS_StandUpAndExitRoom {
+	enum MsgID { ID = 11032; }
+}
+message SC_StandUpAndExitRoom {
+	enum MsgID { ID = 11033; }
+	optional int32 room_id = 1;
+	optional int32 table_id = 2;
+	optional int32 chair_id = 3;
+	optional int32 result = 4;						// GAME_SERVER_RESULT
+}
+
+// 切换座位
+message CS_ChangeChair {
+	enum MsgID { ID = 11034; }
+}
+message SC_ChangeChair {
+	enum MsgID { ID = 11035; }
+	optional int32 table_id = 1;
+	optional int32 chair_id = 2;
+	optional int32 result = 3;						// GAME_SERVER_RESULT
+	repeated PlayerVisualInfo pb_visual_info = 4;	// 同桌玩家
+}
+// 切换桌子
+message CS_ChangeTable {
+	enum MsgID { ID = 11036; }
+}
+// 准备开始
+message CS_Ready {
+	enum MsgID { ID = 11050; }
+}
+message SC_Ready {
+	enum MsgID { ID = 11051; }
+	optional int32 ready_chair_id = 1;				// 已准备玩家
+	optional bool is_ready = 2;						// false 取消 true 准备
+}
+
+message CS_Exit {
+	enum MsgID { ID = 11052; }
+}
+
+message SC_ReadyFailed {
+	enum MsgID { ID = 11053; }
+	optional int32 result = 1;						// GAME_SERVER_RESULT
+	optional int64 money = 2;
+}
+
+// 应答当前游戏结束数据
+message SC_Gamefinish {
+	enum MsgID { ID = 11054; }
+	optional int64 money = 1;
+}
+
+message SC_PlayerReconnection {
+	enum MsgID { ID = 11055; }
+	optional int32 room_id = 1;
+	optional int32 table_id = 2;
+	optional int32 chair_id = 3;
+	optional int32 result = 4;						// GAME_SERVER_RESULT
+	repeated PlayerVisualInfo pb_visual_info = 5;	// 同桌玩家	
+	optional int32 game_id = 6;
+	optional int32 first_game_type = 7;				// 一级菜单
+	optional int32 second_game_type = 8;			// 二级菜单
+	optional string ip_area = 9;					// 客户端ip地区
+	optional bool is_ready = 10;					// false 取消 true 准备
+	optional bool private_room = 11;				// true 私人房间
+	optional int32 private_room_score_type = 12;	// 选的底注
+	optional int32 private_room_cell_money = 13;	// 底注
+	optional int32 private_room_id = 14;			// 私人房间号
+	optional int32 private_room_has_start = 15;		// 私人房间已经开始 1 开始 2 没开始
+}
+
+message SC_ChangeTable {
+	enum MsgID { ID = 11056; }
+	optional int32 room_id = 1;
+	optional int32 table_id = 2;
+	optional int32 chair_id = 3;
+	optional int32 result = 4;						// GAME_SERVER_RESULT
+	repeated PlayerVisualInfo pb_visual_info = 5;	// 同桌玩家	
+	optional int32 game_id = 6;
+	optional int32 first_game_type = 7;				// 一级菜单
+	optional int32 second_game_type = 8;			// 二级菜单
+	optional string ip_area = 9;					// 客户端ip地区
+}
+
+message SC_HEARTBEAT{
+	enum MsgID { ID = 11057; }
+	optional int32 severTime = 1;				// 服务器时间 时间戳
+}
+
+message CS_HEARTBEAT{
+	enum MsgID { ID = 11058; }
+}
+message CS_ReconnectionPlay{	
+	enum MsgID { ID = 11059; }
+}
+message SC_ReconnectionPlay{	
+	enum MsgID { ID = 11067; }
+	optional bool find_table = 1; //是否找到房间
+}
+
+message SC_SimpleRespons{
+	enum MsgID { ID = 11060; }
+	optional int32 status = 1;
+}
+
+// 查询玩家公告及消息
+message CS_QueryPlayerMsgData{
+	enum MsgID { ID = 11061; }
+}
+
+// 返回查询玩家公告及消息
+message SC_QueryPlayerMsgData{
+	enum MsgID { ID = 11062; }
+	repeated Msg_DataInfo pb_msg_data = 1;			// 消息数据
+}
+// 追加消息
+message SC_NewMsgData{	
+	enum MsgID { ID = 11063; }
+	repeated Msg_DataInfo pb_msg_data = 1; 			// 玩家的guid
+}
+
+// 设置已读
+message CS_SetMsgReadFlag{	
+	enum MsgID { ID = 11064; }
+	optional int32 id = 1;							//消息ID
+	optional int32 msg_type = 2;					//消息类型m_type
+}
+// 反馈更新
+message SC_FeedBackUpDate{
+	enum MsgID { ID = 11065; }
+	optional int32 feedbackid = 1;					//反馈id
+	optional int32 type = 2;						//反馈更新类型
+	optional int32 updateTime = 3;					//反馈更新时间
+}
+message SC_DeletMsg{	
+	enum MsgID { ID = 11066; }
+	optional int32 msg_id = 1;						//删除消息 id
+	optional int32 msg_type = 2;					//删除消息 类型
+}
+// 发起提现
+message CS_CashMoney{	
+	enum MsgID { ID = 11070; }
+	optional int32 money = 1;						//提现金额
+	optional int32 cash_type = 2;					//1 支付宝  2 银行卡
+}
+// 提现结果
+message SC_CashMoneyResult{
+	enum MsgID { ID = 11071; }
+	optional int32 result = 1;           //1失败 0成功
+	optional int64 bank = 2;             //银行余额
+	optional int64 money = 3;            //当前余额
+}
+
+// 提现状态
+message CS_CashMoneyType{
+	enum MsgID { ID = 11072; }
+}
+
+// 提现状态
+message SC_CashMoneyType{
+	enum MsgID { ID = 11073; }
+	repeated CashMoneyType pb_cash_info = 1;
+}
+
+
+// 通知客户端银行钱的改变
+message SC_NotifyBank {
+	enum MsgID { ID = 11074; }
+	optional int32 opt_type = 1;					// LOG_MONEY_OPT_TYPE
+	optional int64 bank = 2;						// 当前的钱
+	optional int64 change_bank = 3;				// 改变的钱
+}
+
+message CS_BandAlipay{
+	enum MsgID { ID = 11077; }
+	optional string alipay_account = 1;					// 支付宝账号
+	optional string alipay_name = 2;					// 支付宝名字
+}
+
+message SC_BandAlipay{
+	enum MsgID { ID = 11078; }
+	optional int32 result = 1;           				//1失败 0成功
+	optional string alipay_account = 2;					// 支付宝账号
+	optional string alipay_name = 3;					// 支付宝名字
+}
+
+message CS_Trusteeship{	
+	enum MsgID { ID = 11079; }
+	optional int32 flag = 1;           				//1开启 2关闭
+}
+// 游戏是否开启税收显示
+message SC_ShowTax{
+	enum MsgID { ID = 11080; }
+	optional int32 flag = 1;           				//1开启
+}
+// 换服删除在线
+message SD_Delonline_player{
+	enum MsgID { ID = 11081; }
+	optional int32 guid = 1;           				
+	optional int32 game_id = 2;           				
+}
+message SC_AlipayEdit{
+	enum MsgID{ ID = 11082; }
+	optional int32 guid = 1;						// guid
+	optional string alipay_name = 2;
+	optional string alipay_name_y = 3;
+	optional string alipay_account = 4;
+	optional string alipay_account_y = 5;
+}
+// 广播通知在线用户到php拉取最新配置
+message SC_BrocastClientUpdateInfo
+{
+	enum MsgID { ID = 11083; }
+	optional string update_info = 1;		//到php更新信息
+}
+
+// 封号消息
+message SC_FreezeAccount{
+	enum MsgID { ID = 11084; }
+	optional int32 guid = 1;						// guid
+	optional int32 status = 2;						// status
+}
+
+
+//游戏维护
+message SC_GameMaintain{
+	enum MsgID { ID = 11085; }
+	optional int32 result =  1;						// guid
+	optional int32 first_game_type = 2;						 
+	optional int32 second_game_type = 3;						
+}
+
+//提现维护
+message SC_CashMaintain{
+	enum MsgID { ID = 11086; }
+	optional int32 result = 1;						// guid
+}
+
+//救济金
+message CS_GetHelpMoney{
+	enum MsgID { ID = 11087; }
+	optional int32 get_rightnow = 1;				// 1 立即获取，2稍后获取
+}
+//救济金
+message SC_GetHelpMoney{
+	enum MsgID { ID = 11088; }
+	optional int32 result_cash = 1;					// 1成功  2已经领取过了  3不符合领取条件 4暂未领取
+	optional int32 left_times = 2;					// 剩余次数
+	optional int32 cash_money = 3;					// 可以领多少钱
+	optional int32 money_must_less = 4;				// 救济金领取下限值
+}
+
+// 发起代理人提现
+message CS_Agent_CashMoney{	
+	enum MsgID { ID = 11089; }
+	optional int32 money = 1;//提现金额
+	optional int32 agent_id = 2;//代理人ID						
+}
+// 代理人提现结果
+message SC_Agent_CashMoneyResult{
+	enum MsgID { ID = 11090; }
+	optional int32 result = 1;           //1失败 0成功
+	optional int64 bank = 2;             //银行余额
+	optional int64 money = 3;            //当前余额
+}
+
+//新玩家登陆奖励
+message CS_RequestNewAward{
+	enum MsgID { ID = 11091; }
+}
+//
+message SC_RequestNewAward{
+	enum MsgID { ID = 11092; }
+	optional int32 newaward_result = 1;					// 1成功  2已经领取过了  3不符合领取条件 4暂未领取
+	optional int32 money = 2[default = 0];		//领取的钱
+}
+
+//玩家签到奖励
+message CS_RequestCheckInAward{
+	enum MsgID { ID = 11093; }
+}
+//
+message SC_RequestCheckInAward{
+	enum MsgID { ID = 11094; }
+	optional int32 checkin_result = 1;					// 1成功  2已经领取过了  3不符合领取条件 4暂未领取
+	optional int32 money = 2[default = 0];		//领取的钱
+}
+
+
+message CS_BindBankCard{
+	enum MsgID { ID = 11095; }
+	optional BankCardInfo pb_info = 1;
+}
+message SC_BindBankCard{
+	enum MsgID { ID = 11096; }
+	optional int32 bind_result = 1;			// 1成功  2输入字符错误 或 不合法
+}
+message CS_GetBankCardInfo{
+	enum MsgID { ID = 11097; }
+}
+message SC_GetBankCardInfo{
+	enum MsgID { ID = 11098; }
+	optional BankCardInfo pb_info = 1;
+}
+
+//查询游戏维护
+message CS_NewGameMaintain{
+	enum MsgID { ID = 11099; }			
+}
+
+//返回维护中游戏列表
+message SC_NewGameMaintain{
+	enum MsgID { ID = 11100; }
+	repeated int32 first_game_type = 1;			
+}
+
+//领取推广金币
+message CS_PlayerPromotion{
+	enum MsgID { ID = 11101; }
+	optional int32 index = 1;		
+}		
+
+
+message SC_PlayerPromotion{
+	enum MsgID { ID = 11102; }
+	optional int32 promotion_result = 1;		// 1 成功 2 失败
+}		

@@ -1,0 +1,369 @@
+﻿syntax = "proto2";
+
+// 客户端和服务器通信消息
+// C Client, L LoginServer, D DBServer, S GameServer
+// CS 即C-发送->S
+
+
+
+//////////////////////////////////////////////////////////////////////////
+/// 牛牛相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 出牌类型
+enum OX_CARD_TYPE {
+	OX_CARD_TYPE_ERROR						= 0;
+	OX_CARD_TYPE_OX_NONE                    = 100;  //无牛
+	OX_CARD_TYPE_OX_ONE                     = 101;  //1牛
+	OX_CARD_TYPE_OX_TWO 					= 102;  //牛牛
+	OX_CARD_TYPE_FOUR_KING					= 103;  //4花牛
+	OX_CARD_TYPE_FIVE_KING					= 104;  //5花牛
+	OX_CARD_TYPE_FOUR_SAMES					= 105;  //4炸
+	OX_CARD_TYPE_FIVE_SAMLL					= 106;  //5小牛
+}
+
+//押注区域
+enum OX_SCORE_AREA{
+	OX_AREA_ONE = 1;
+	OX_AREA_TWO = 2;
+	OX_AREA_THREE = 3;
+	OX_AREA_FOUR = 4;
+}
+
+// 游戏开始
+message SC_OxStart {
+	enum MsgID { ID = 18002; }
+	optional int32 cur_chair_id = 1;				// 当前玩家
+}
+
+
+// 用户叫庄
+message CS_OxCallBanker {
+	enum MsgID { ID = 18003; Target = 2; }
+	optional bool call_banker = 1;					// 叫庄
+};
+message SC_OxCallBanker {
+	enum MsgID { ID = 18004; }
+	optional int32 cur_chair_id = 1;				// 当前玩家
+	optional int32 call_chair_id = 2;				// 叫庄玩家
+	optional bool call_banker = 3;					// 叫庄
+};
+
+// 加注状态
+message SC_OxAddScoreStatus {
+	enum MsgID { ID = 18005; }
+	optional int32 banker_chair_id = 1;				// 庄家用户
+	optional int64 max_score = 2;					// 最大下注
+}
+
+// 用户加注
+message CS_OxAddScore {
+	enum MsgID { ID = 18006; Target = 2; }
+	optional int32 guid = 1;
+	optional int32 score_area = 2;					//下注区域
+	optional int64 score = 3;						// 加注数目
+}
+message SC_OxAddScore {
+	enum MsgID { ID = 18007; }
+	optional int32 add_score_chair_id = 1;			// 加注用户
+	optional int32 score_area = 2 ; 					//下注区域
+	optional int64 score = 3;      					//下注数量
+	optional int64 player_bet_this_area_money = 4;  //加注用户在该区域下注总额
+	optional int64 money = 5;						//剩余金币数
+}
+
+// 发牌
+message Cards{
+	optional int32 score_area = 1; //区域
+	repeated int32 card = 2;  //卡牌列表
+}
+message SC_OxDealCard {
+	enum MsgID { ID = 18008; }
+	repeated Cards pb_cards = 1;						// 扑克列表
+}
+
+// 开牌
+message CS_OxOpenCards {
+	enum MsgID { ID = 18009; Target = 2; }
+}
+message SC_OxOpenCards {
+	enum MsgID { ID = 18010; }
+	optional int32 open_chair_id = 2;				// 开牌玩家
+}
+
+// 游戏结束
+message OxPlayerConclude {
+	optional int32 chair_id = 1;					// 用户
+	optional int64 pay_score = 2;					// 总押注
+	optional int64 earn_score = 3;                  // 总得分(扣除台费)
+	optional int32 system_tax = 4;					//系统收取台费
+	optional int64 banker_score = 5;				//庄家总得分(扣除台费)
+	optional int32 all_win_or_lose_flag = 6;		//通杀(1)通赔(2)标志
+	optional int64 money = 7;						//当前金币数
+	optional int32 tax_show_flag = 8;				//税收是否显示(1显示,0不显示))
+}
+message SC_OxEnd {
+	enum MsgID { ID = 18011; }
+	repeated OxPlayerConclude pb_conclude = 1; 		// 玩家结果
+	repeated Cards pb_cards = 2;
+}
+
+//计分板
+message CS_OxRecord{
+	enum MsgID {ID = 18012; Target = 2;}	
+}
+
+message RecordResult{
+	repeated bool result = 1;
+}
+
+message SC_OxRecord{
+	enum MsgID {ID = 18013;}
+	repeated RecordResult pb_recordresult = 1;
+}
+
+//牛牛排行
+message CS_OxTop{
+	enum MsgID {ID = 18014; Target = 2;}
+}
+
+message PlayerTopInfo{
+	optional int32 guid = 1;
+	optional int32 head_id = 2;
+	optional string nickname = 3;
+	optional int64 money = 4;
+	optional int32 header_icon = 5[default = 0]; 	// 头像
+}
+
+message SC_OxTop{
+	enum MsgID {ID = 18015;}
+	optional int32 count_all = 1; //总人数
+	repeated PlayerTopInfo pb_player_top_info = 2; //排名信息
+}
+
+//当前当庄庄家信息
+message BankerInfo{
+	optional int32 guid = 1;
+	optional string nickname = 2;	//昵称
+	optional int64 money = 3;		//当前金币数
+	optional int32 bankertimes= 4;  //连庄次数
+	optional int64 max_score = 5;   //最大下注
+	optional int64 banker_score = 6;//成绩
+	optional int64 left_score = 7;  //剩余还可下注金币数
+	optional int32 header_icon = 8[default = 0]; 	// 头像
+	
+}
+
+message SC_OxBankerInfo{
+	enum MsgID {ID = 18016;}
+	optional BankerInfo pb_banker_info = 1;
+}
+
+//上庄列表信息
+message BankerList{
+	optional int32 guid = 1;
+	optional string nickname = 2;	//昵称
+	optional int64 money = 3;		//当前金币数
+	optional int32 header_icon = 4[default = 0]; // 头像
+}
+
+message SC_OxBankerList{
+	enum MsgID {ID = 18017;}
+	optional int32 banker_num_total = 1; //上庄列表总人数
+	repeated BankerList pb_banker_list = 2;
+}
+
+//上庄错误代码
+enum Banker_Result
+{
+	APPLYFORBANKER_OK = 0; //上庄成功
+	APPLYFORBANKER_FAILED = 1; //上庄失败
+	FORBIDAPPLYBANKER_FLAG = 2; //禁止玩家申请上庄
+}
+//上庄错误代码
+message  SC_OxForBankerFlag{
+	enum MsgID {ID = 18018;}
+	optional int32 result = 1; //错误代码[enum Baner_Result]
+}
+
+
+//下注枚举
+enum Bet_Result
+{
+	BET_OK = 0; //下注成功
+	BET_MAX = 1; //已达到庄家最大下注金额
+	MONEY_ERROR = 2; //玩家金币不足(你下注的金额不够赔)
+	MONEY_LIMIT = 3; //玩家不满足最低下注金币限制
+	OTHER_ERROR = 4; //其他错误
+}
+	
+//玩家下注错误代码
+message SC_OxBetCoin{
+	enum MsgID {ID =18019;}
+	optional int32 result = 1; //错误代码[enum Bet_Result]
+}
+
+
+//显示最高排名的8位游戏玩家
+message SC_OxPlayerList{
+	enum MsgID {ID = 18020;}
+	optional int32 top_player_total = 1; //总人数
+	repeated PlayerTopInfo pb_player_info_list = 2;
+}
+
+message EveryAreaInfo {
+	optional int64 max_bet_score = 1;   //最大下注总额
+	optional int64 bet_tian_total  = 2; //下注天金币总额
+	optional int64 bet_di_total    = 3; //下注地金币总额
+	optional int64 bet_xuan_total  = 4; //下注玄金币总额
+	optional int64 bet_huang_total = 5; //下注黄金币总额
+	optional int64 left_money_bet = 6;	//还可下注金额
+	optional int64 total_all_area_bet_money = 7; //所有区域下注金币总计
+}
+
+message SC_OxEveryArea {
+	enum MsgID {ID = 18021;}
+	optional EveryAreaInfo pb_AreaInfo = 1;
+}
+
+//用户申请上庄
+message CS_OxApplyForBanker {
+	enum MsgID {ID = 18022;Target = 2;}
+	optional int32 guid = 1;		//用户ID
+	optional string nickname = 2;	//昵称
+	optional int64 money = 3;		//金币
+}
+
+//在上庄列表中的用户申请下庄
+message CS_OxLeaveForBanker {
+	enum MsgID {ID = 18023;Target = 2;}
+	optional int32 guid = 1;
+}
+
+//在当庄的用户申请下庄
+message CS_OxCurBankerLeave {
+	enum MsgID {ID = 18024;Target = 2;}
+	optional int32 guid = 1;
+}
+
+//推送状态以及倒计时间
+message SC_OxSatusAndDownTime {
+	enum MsgID {ID = 18025;}
+	optional int32 status = 1;
+	optional int32 count_down_time = 2;
+}
+
+
+//请求玩家信息
+message Oxplayer_info {
+	optional int32 guid = 1;
+	optional string nickname = 2;	//昵称
+	optional int64 money = 3;		//金币
+	optional int32 header_icon = 4[default = 0]; // 头像
+}
+//玩家信息
+message SC_OxPlayerConnection {
+	enum MsgID {ID = 18026;}
+	repeated Oxplayer_info pb_player_info = 1;
+}
+
+//玩家下注信息
+message Player_bet_info {
+	optional int32 which_area = 1;  //下注区域
+	optional int64 bet_money = 2;   //下注金币
+}
+
+//牌型结果
+message CardResult {
+	optional int32 score_area = 1; //区域
+	optional int32 card_type = 2; //牌型(enum OX_CARD_TYPE)
+	optional int32 card_times = 3;//倍数
+}
+
+
+//桌面信息
+message SC_OxTableInfo {
+	enum MsgID {ID = 18027;}
+	optional int32 status = 1;    //当前状态
+	optional int32 count_down_time = 2;  //当前状态对应倒计时
+	optional BankerInfo pb_curBanker = 3; //当前庄家信息
+	repeated PlayerTopInfo pb_player_info_list = 4; //当前最高金币数前8位游戏玩家
+	repeated BankerList pb_banker_list = 5;   //当前庄家列表
+	optional EveryAreaInfo pb_AreaInfo = 6;   //当前区域下注信息
+	repeated Player_bet_info pb_player_area_bet_info = 7; //当前玩家在每个区域下注
+	repeated Cards pb_cards = 8;				  //当前扑克列表	
+	repeated CardResult pb_result = 9;			//每个区域的牌型
+	optional OxPlayerConclude pb_conclude = 10; //玩家结果
+}
+
+//玩家进入游戏或重连
+message CS_OxPlayerConnectGame {
+	enum MsgID {ID = 18028;}
+	optional int32 guid = 1;
+}
+
+
+//牌型结果
+message SC_CardResult {
+	enum MsgID {ID = 18029;}
+	repeated CardResult pb_result = 1;
+}
+
+//玩家结果信息
+message SC_OxResult {
+	enum MsgID {ID = 18030;}
+	optional OxPlayerConclude pb_player_result = 1;  //玩家结果信息(逐个发送)
+}
+
+
+//下庄错误代码
+enum BankerLeave_Result {
+	LEAVELFORBANKER_OK = 0; //下庄成功
+	LEAVELFORBANKER_FAILED = 1; //下庄失败
+}
+
+//下庄错误代码
+message  SC_OxBankerLeaveFlag{
+	enum MsgID {ID = 18031;}
+	optional int32 result = 1; //错误代码[enum BanerLeave_Result]
+}
+
+//玩家离开游戏
+message CS_OxLeaveGame{
+	enum MsgID {ID = 18032;}
+	optional int32 guid = 1;
+}
+
+//筹码信息
+message chip_info {
+	optional int32 chip_index = 1;    //筹码索引
+	optional int32 chip_money = 2; //对应筹码值
+}
+
+//基础信息
+message SC_Ox_config_info {
+	enum MsgID {ID = 18033;}
+	optional int32 banker_limit = 1;  //上庄条件
+	repeated chip_info pb_info_chip = 2; //筹码信息
+	optional int32 bet_min_limit_money = 3; //携带金币最低下注限制
+}
+
+//牌型比较结果
+message CardCompareResult {
+	optional int32 area_ = 1;     //区域(天地玄黄)
+	optional bool result = 2;	 //比较结果(false庄家赢,true庄家输)
+}
+message SC_CardCompareResult {
+	enum MsgID {ID = 18034;}
+	repeated CardCompareResult pb_CompareResult = 1;
+}
+
+//获取底注配置
+message CS_OxGetBetCfg{
+	enum MsgID {ID = 18035;}
+}
+//获取底注配置
+message SC_OxGetBetCfg{
+	enum MsgID {ID = 18036;}
+	repeated int32 bets = 1;
+}

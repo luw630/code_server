@@ -1,0 +1,49 @@
+﻿syntax = "proto2";
+
+// 验证账号
+message VerifyAccount {
+	optional string account = 1;					// 账号
+	optional string password = 2;					// 密码
+}
+
+// 验证账号结果
+message VerifyAccountResult {
+	optional int32 ret = 1;							// 结果，参考LOGIN_RESULT
+	optional int32 guid = 3;						// 成功返回玩家的guid
+	optional int32 no_bank_password = 4;			// 是否设置银行密码，1：没有设置
+	optional int32 vip = 5;							// vip 等级
+	optional int32 login_time = 6;					// 登录时间
+	optional int32 logout_time = 7;					// 退出时间
+	optional string nickname = 8;					// 昵称
+	optional int32 is_guest = 9; 					// 是否是游客
+	optional string password = 10;					// 密码
+	optional string alipay_account = 11;		    // 支付宝账号
+	optional string alipay_name = 12;				// 支付宝名字
+	optional int32 change_alipay_num = 13;          // 支付宝剩余绑定次数
+	optional int32 risk = 14;         				// 危险等级
+	optional string channel_id = 15;				// 渠道号
+	optional bool enable_transfer = 16;				// 1能够转账，0不能给其他玩家转账
+	optional int32 inviter_guid = 17[default = 0];	// 邀请者的guid
+	optional string invite_code = 18;				// 自己的invite_code
+}
+
+// 注册游客账号返回
+message GuestAccount {
+	optional int32 ret = 1;							// 结果，参考LOGIN_RESULT
+	optional int32 guid = 2;						// 成功返回玩家的guid
+	optional string account = 3;					// 账号
+	optional int32 no_bank_password = 4;			// 是否设置银行密码，1：没有设置
+	optional int32 vip = 5;							// vip 等级
+	optional int32 login_time = 6;					// 登录时间
+	optional int32 logout_time = 7;					// 退出时间
+	optional string nickname = 8;					// 昵称
+	optional int32 is_guest = 9; 					// 是否是游客
+	optional string password = 10;					// 密码
+	optional string alipay_account = 11;		    // 支付宝账号
+	optional string alipay_name = 12;				// 支付宝名字
+	optional int32 change_alipay_num = 13;          // 支付宝剩余绑定次数
+	optional int32 risk = 14;         				// 危险等级
+	optional string channel_id = 15;				// 渠道号
+	optional bool enable_transfer = 16;				// 1能够转账，0不能给其他玩家转账
+	optional int32 is_first = 17[default = 2];		// 1第一次，2非第一次
+}

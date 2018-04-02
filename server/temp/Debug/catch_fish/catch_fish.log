@@ -1,0 +1,140 @@
+﻿生成启动时间为 2018/3/20 12:11:55。
+     1>项目“D:\code_server\server\cpp_src\catch_fish\catch_fish.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\depend\boost_1_60_0\ /I"..\..\depend\protobuf-3.3.0\src\\" /I"..\..\depend\redis-win-3.0.503\deps\hiredis\\" /I..\..\depend\websocketpp\ /I..\lua_lib\src\ /I..\op_lib\ /I..\base_lib\ /I..\game_lib\ /I..\game_lib\cfg\ /I. /Iwang_hu /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D GS_DEBUG /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\\" /Fd"D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt catch_fish_logic.cpp catchfish.cpp earnings.cpp
+         earnings.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>d:\code_server\server\cpp_src\catch_fish\wang_hu\movecompent.h(26): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\cpp_src\catch_fish\earnings.cpp(19): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\earnings.cpp(32): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+         catch_fish_logic.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>d:\code_server\server\cpp_src\catch_fish\wang_hu\movecompent.h(26): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(392): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(592): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(593): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(610): warning C4244: “参数”: 从“int64_t”转换到“int”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(627): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(679): warning C4244: “参数”: 从“__int64”转换到“google::protobuf::int32”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(743): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(761): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(786): warning C4018: “>=”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(809): warning C4018: “>=”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(820): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(829): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(859): warning C4018: “>=”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(918): warning C4018: “>=”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(924): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1219): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1234): warning C4018: “>=”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1256): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1260): warning C4018: “>=”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1282): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1404): warning C4018: “>”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1426): warning C4018: “>=”: 有符号/无符号不匹配
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1602): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1622): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1656): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1731): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1768): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+     1>d:\code_server\server\cpp_src\catch_fish\catch_fish_logic.cpp(1855): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+         正在生成代码...
+         正在跳过...(未检测到相关更改)
+         catchfish.cpp
+       Link:
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code_server\server\cpp_src\..\project\Debug\catchfish.dll" /INCREMENTAL /NOLOGO /LIBPATH:"..\..\depend\protobuf-3.3.0\bin\Debug\\" /LIBPATH:..\..\depend\boost_1_60_0\stage\lib\ /LIBPATH:..\..\lib\Debug\ lua_lib.lib base_lib.lib libprotocd.lib libprotobufd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\code_server\server\cpp_src\..\project\Debug\catchfish.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\code_server\server\cpp_src\..\project\Debug\catchfish.lib" /MACHINE:X86 /DLL D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\base_game_time_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\config.pb.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\public_fishing.pb.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\catchfish.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\catch_fish_logic.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\earnings.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\BezierCurve.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\Buffer.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\BufferFactory.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\BufferManager.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\Bullet.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\CommonLogic.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\Effect.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\EffectFactory.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\EffectManager.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\EventMgr.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\Fish.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\GameConfig.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\IDGenerator.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\MathAide.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\MoveCompent.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\MovePoint.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\MyComponent.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\MyComponentFactory.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\MyObject.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\MyObjectFactory.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\MyObjectManager.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\PathManager.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\Player.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\pugixml.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\catch_fish\VisualCompent.obj
+            正在创建库 D:\code_server\server\cpp_src\..\project\Debug\catchfish.lib 和对象 D:\code_server\server\cpp_src\..\project\Debug\catchfish.exp
+     1>base_lib.lib(lua_tinker.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_tinker.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_variadicFunctor.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_variadicFunctor.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Time.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Time.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(win32_rfdmap.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(win32_rfdmap.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_RedisLog.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_RedisLog.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_fdapi_crt.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_fdapi_crt.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_FDAPI.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_FDAPI.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_EventLog.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_EventLog.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Error.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Error.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Common.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Common.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_ANSI.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_ANSI.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(wire_format.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(wire_format.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(unknown_field_set.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(unknown_field_set.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(text_format.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(text_format.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(substitute.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(substitute.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(reflection_ops.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(reflection_ops.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(message.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(message.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(map_field.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(map_field.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(zero_copy_stream_impl.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(zero_copy_stream_impl.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(tokenizer.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(tokenizer.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(strtod.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(strtod.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(generated_message_reflection.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(generated_message_reflection.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(extension_set_heavy.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(extension_set_heavy.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(dynamic_message.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(dynamic_message.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(descriptor_database.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(descriptor_database.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(descriptor.pb.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(descriptor.pb.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(descriptor.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(descriptor.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(any.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(any.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(wire_format_lite.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(wire_format_lite.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(strutil.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(strutil.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(structurally_valid.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(structurally_valid.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(stringprintf.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(stringprintf.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(stringpiece.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(stringpiece.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(status.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(status.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(once.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(once.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(int128.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(int128.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(common.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(common.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(atomicops_internals_x86_msvc.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(atomicops_internals_x86_msvc.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(repeated_field.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(repeated_field.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(message_lite.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(message_lite.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(zero_copy_stream_impl_lite.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(zero_copy_stream_impl_lite.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(zero_copy_stream.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(zero_copy_stream.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(coded_stream.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(coded_stream.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(generated_message_util.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(generated_message_util.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(extension_set.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(extension_set.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(arena.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(arena.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+         catch_fish.vcxproj -> D:\code_server\server\cpp_src\..\project\Debug\catchfish.dll
+     1>已完成生成项目“D:\code_server\server\cpp_src\catch_fish\catch_fish.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:21.78

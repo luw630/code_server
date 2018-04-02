@@ -1,0 +1,248 @@
+
+‚ 
+public_fishing.proto"_
+CS_TreasureEnd
+chair_id (RchairId
+score (Rscore"
+MsgID
+ID‡]
+
+Target"_
+CS_ChangeCannonSet
+chair_id (RchairId
+add (Radd"
+MsgID
+ID·]
+
+Target"t
+
+CS_Netcast
+	bullet_id (RbulletId
+data (Rdata
+fish_id (RfishId"
+MsgID
+ID‚]
+
+Target"Z
+CS_LockFish
+chair_id (RchairId
+lock (Rlock"
+MsgID
+ID„]
+
+Target"W
+CS_LockSpecFish
+chair_id (RchairId
+fish_id (RfishId"
+MsgID
+IDÿ^"ƒ
+CS_Fire
+chair_id (RchairId
+	direction (R	direction
+	fire_time (RfireTime
+	client_id (RclientId
+pos_x (RposX
+pos_y (RposY"
+MsgID
+ID‰]
+
+Target"\
+CS_ChangeCannon
+chair_id (RchairId
+add (Radd"
+MsgID
+IDÂ]
+
+Target"t
+CS_ChangeScore
+chair_id (RchairId
+add (Radd
+add_all (RaddAll"
+MsgID
+IDÊ]
+
+Target"g
+CS_TimeSync
+chair_id (RchairId
+client_tick (R
+clientTick"
+MsgID
+IDÁ]
+
+Target"I
+
+SC_FishMul
+fish_id (RfishId
+mul (Rmul"
+MsgID
+IDƒ^"Ö
+SC_AddBuffer
+buffer_type (R
+bufferType!
+buffer_param (RbufferParam
+buffer_time (R
+bufferTime"
+MsgID
+ID∆^"Ë
+SC_BulletSet
+mulriple (Rmulriple
+speed (Rspeed
+	max_catch (RmaxCatch
+bullet_size (R
+bulletSize
+catch_radio (R
+catchRadio
+cannon_type (R
+cannonType
+first (Rfirst"
+MsgID
+ID«^"S
+SC_BulletSet_List,
+
+pb_bullets (2.SC_BulletSetR	pbBullets"
+MsgID
+IDŸ^"0
+
+SC_SendDes
+des (	Rdes"
+MsgID
+ID»^"V
+SC_LockFish
+chair_id (RchairId
+lock_id (:0RlockId"
+MsgID
+ID…^"?
+SC_AllowFire
+
+allow_fire (R	allowFire"
+MsgID
+IDÀ^"R
+SC_SwitchScene
+nst (Rnst
+	switching (R	switching"
+MsgID
+IDÃ^"Y
+SC_KillBullet
+chair_id (RchairId
+	bullet_id (RbulletId"
+MsgID
+IDÕ^"
+SC_KillFish
+chair_id (RchairId
+score (Rscore
+fish_id (RfishId
+bscoe (Rbscoe"
+MsgID
+IDŒ^"›
+SC_SendBullet
+id (Rid
+chair_id (RchairId
+create_tick (R
+createTick
+x_pos (RxPos
+y_pos (RyPos
+cannon_type (R
+cannonType
+multiply (Rmultiply
+score (Rscore
+	direction	 (R	direction
+is_new
+ (RisNew
+server_tick (R
+serverTick
+	is_double (RisDouble"
+MsgID
+IDœ^"\
+SC_Fly_Bullet_List4
+pb_fly_bullets (2.SC_SendBulletRpbFlyBullets"
+MsgID
+ID⁄^"ö
+SC_CannonSet
+chair_id (RchairId
+cannon_type (R
+cannonType
+
+cannon_mul (R	cannonMul
+
+cannon_set (R	cannonSet"
+MsgID
+ID–^"Å
+SC_ChangeScore
+chair_id (RchairId
+
+fish_score (R	fishScore#
+wastage_score (RwastageScore"
+MsgID
+ID—^"™
+SC_UserInfo
+chair_id (RchairId
+score (Rscore
+cannon_type (R
+cannonType
+
+cannon_mul (R	cannonMul
+wastage (Rwastage"
+MsgID
+ID“^"˘
+SC_SendFish
+fish_id (RfishId
+type_id (RtypeId
+path_id (RpathId
+create_tick (R
+createTick
+offest_x (RoffestX
+offest_y (RoffestY
+dir (Rdir
+delay (Rdelay
+server_tick	 (R
+serverTick
+
+fish_speed
+ (R	fishSpeed
+fis_type (RfisType
+troop (Rtroop
+
+refersh_id (R	refershId"
+MsgID
+ID”^"N
+SC_SendFishList)
+	pb_fishes (2.SC_SendFishRpbFishes"
+MsgID
+ID‘^"∞
+SC_GameConfig
+	server_id (RserverId5
+change_ratio_user_score (RchangeRatioUserScore5
+change_ratio_fish_score (RchangeRatioFishScore#
+exchange_once (RexchangeOnce#
+fire_interval (RfireInterval!
+max_interval (RmaxInterval!
+min_interval (RminInterval)
+show_gold_min_mul (RshowGoldMinMul(
+max_bullet_count	 (RmaxBulletCount
+
+max_cannon
+ (R	maxCannon"
+MsgID
+ID’^"|
+SC_TimeSync
+chair_id (RchairId
+server_tick (R
+serverTick
+client_tick (R
+clientTick"
+MsgID
+ID÷^"V
+SC_SystemMessage
+wType (RwType
+szString (	RszString"
+MsgID
+ID◊^*j
+SMT_TYPE
+SMT_CHAT
+	SMT_EJECT
+
+SMT_GLOBAL
+
+SMT_PROMPT
+SMT_TABLE_ROLL
+	SMT_SCORE 

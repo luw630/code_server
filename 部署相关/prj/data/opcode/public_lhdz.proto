@@ -1,0 +1,118 @@
+
+æ
+public_lhdz.proto"M
+SC_LongHuCard
+	red_cards (RredCards
+black_cards (R
+blackCards"Ω
+SC_LongHuOnlinePlayer"
+header_icon (:0R
+headerIcon
+ip_area (	RipArea!
+player_money (RplayerMoney
+
+player_bet (R	playerBet
+
+player_win (R	playerWin
+player_rank (R
+playerRank
+win_lost (RwinLost
+	win_money (RwinMoney
+guid	 (Rguid
+chair_id
+ (RchairId"]
+SC_LongHuRecord
+	win_color (RwinColor
+win_type (RwinType
+turn (Rturn"m
+SC_LongHuRichPlayer
+chair (Rchair
+money (Rmoney
+tax (Rtax
+victory (Rvictory"ß
+SC_LongHuStart%
+start_waittime (RstartWaittime
+
+playerbets (R
+playerbets
+allbets (Rallbets!
+table_status (RtableStatus"
+MsgID
+ID»‚"k
+CS_LongHuPlayerBet
+	playerbet (R	playerbet$
+playerbettype (Rplayerbettype"
+MsgID
+ID…‚"¸
+SC_LongHuPlayerBet)
+playerbet_result (RplayerbetResult
+allbets (Rallbets%
+player_chairid (RplayerChairid
+	playerbet (R	playerbet$
+playerbettype (Rplayerbettype#
+bis_luckystar (RbisLuckystar"
+MsgID
+ID ‚">
+SC_LongHuAllBet
+allbets (Rallbets"
+MsgID
+IDÀ‚"õ
+SC_LongHuPostCard'
+result_waittime (RresultWaittime'
+pb_card (2.SC_LongHuCardRpbCard!
+table_status (RtableStatus"
+MsgID
+IDÃ‚"˛
+SC_LongHuPostResult#
+next_waittime (RnextWaittime
+chair (Rchair
+money (Rmoney
+tax (Rtax
+victory (Rvictory!
+table_status (RtableStatus
+win_area (RwinArea
+win_type (RwinType"
+MsgID
+IDÕ‚"D
+Player_bet_info
+	bet_money (RbetMoney
+chair (Rchair"≤
+SC_LongHuReConnect
+
+playerbets (R
+playerbets
+allbets (Rallbets
+
+player_bet (R	playerBet'
+pb_card (2.SC_LongHuCardRpbCard!
+table_status (RtableStatus%
+table_waittime (RtableWaittime=
+pb_player_bet_info (2.Player_bet_infoRpbPlayerBetInfo"
+MsgID
+IDŒ‚"G
+SC_LongHuRest#
+rest_waittime (RrestWaittime"
+MsgID
+IDœ‚"e
+SC_LongHuPlayerList;
+pb_onlinelist (2.SC_LongHuOnlinePlayerRpbOnlinelist"
+MsgID
+ID–‚"W
+SC_LongHuGameRecord-
+	pb_record (2.SC_LongHuRecordRpbRecord"
+MsgID
+ID—‚")
+CS_LongHuBetStandard"
+MsgID
+ID“‚"I
+SC_LongHuBetStandard
+
+playerbets (R
+playerbets"
+MsgID
+ID”‚"]
+SC_LongHuRichList5
+pb_richlist (2.SC_LongHuRichPlayerR
+pbRichlist"
+MsgID
+ID‘‚

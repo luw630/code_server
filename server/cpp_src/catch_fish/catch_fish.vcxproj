@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5DB0D37D-8534-49D1-B6E5-7017420F07FE}</ProjectGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>catch_fish</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>false</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>false</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\project\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\temp\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>catchfish</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\project\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\temp\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>catchfish</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;GS_DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\depend\boost_1_60_0\;..\..\depend\protobuf-3.3.0\src\;..\..\depend\redis-win-3.0.503\deps\hiredis\;..\..\depend\websocketpp\;..\lua_lib\src\;..\op_lib\;..\base_lib\;..\game_lib\;..\game_lib\cfg\;.;wang_hu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>lua_lib.lib;base_lib.lib;libprotocd.lib;libprotobufd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\depend\protobuf-3.3.0\bin\$(Configuration)\;..\..\depend\boost_1_60_0\stage\lib\;..\..\lib\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\depend\boost_1_60_0\;..\..\depend\protobuf-3.3.0\src\;..\..\depend\redis-win-3.0.503\deps\hiredis\;..\..\depend\websocketpp\;..\lua_lib\src\;..\op_lib\;..\base_lib\;..\game_lib\;..\game_lib\cfg\;.;wang_hu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>lua_lib.lib;base_lib.lib;libprotoc.lib;libprotobuf.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\depend\protobuf-3.3.0\bin\$(Configuration)\;..\..\depend\boost_1_60_0\stage\lib\;..\..\lib\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\base_lib\base_game_time_mgr.cpp" />
+    <ClCompile Include="..\op_lib\config.pb.cc" />
+    <ClCompile Include="..\op_lib\public_fishing.pb.cc" />
+    <ClCompile Include="catchfish.cpp" />
+    <ClCompile Include="catch_fish_logic.cpp" />
+    <ClCompile Include="earnings.cpp" />
+    <ClCompile Include="wang_hu\BezierCurve.cpp" />
+    <ClCompile Include="wang_hu\Buffer.cpp" />
+    <ClCompile Include="wang_hu\BufferFactory.cpp" />
+    <ClCompile Include="wang_hu\BufferManager.cpp" />
+    <ClCompile Include="wang_hu\Bullet.cpp" />
+    <ClCompile Include="wang_hu\CommonLogic.cpp" />
+    <ClCompile Include="wang_hu\Effect.cpp" />
+    <ClCompile Include="wang_hu\EffectFactory.cpp" />
+    <ClCompile Include="wang_hu\EffectManager.cpp" />
+    <ClCompile Include="wang_hu\EventMgr.cpp" />
+    <ClCompile Include="wang_hu\Fish.cpp" />
+    <ClCompile Include="wang_hu\GameConfig.cpp" />
+    <ClCompile Include="wang_hu\IDGenerator.cpp" />
+    <ClCompile Include="wang_hu\MathAide.cpp" />
+    <ClCompile Include="wang_hu\MoveCompent.cpp" />
+    <ClCompile Include="wang_hu\MovePoint.cpp" />
+    <ClCompile Include="wang_hu\MyComponent.cpp" />
+    <ClCompile Include="wang_hu\MyComponentFactory.cpp" />
+    <ClCompile Include="wang_hu\MyObject.cpp" />
+    <ClCompile Include="wang_hu\MyObjectFactory.cpp" />
+    <ClCompile Include="wang_hu\MyObjectManager.cpp" />
+    <ClCompile Include="wang_hu\PathManager.cpp" />
+    <ClCompile Include="wang_hu\Player.cpp" />
+    <ClCompile Include="wang_hu\pugixml.cpp" />
+    <ClCompile Include="wang_hu\VisualCompent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\base_lib\base_game_log.h" />
+    <ClInclude Include="..\base_lib\base_game_time_mgr.h" />
+    <ClInclude Include="..\op_lib\config.pb.h" />
+    <ClInclude Include="..\op_lib\public_fishing.pb.h" />
+    <ClInclude Include="catchfish.h" />
+    <ClInclude Include="catch_fish_logic.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="earnings.h" />
+    <ClInclude Include="wang_hu\BezierCurve.h" />
+    <ClInclude Include="wang_hu\Buffer.h" />
+    <ClInclude Include="wang_hu\BufferFactory.h" />
+    <ClInclude Include="wang_hu\BufferManager.h" />
+    <ClInclude Include="wang_hu\Bullet.h" />
+    <ClInclude Include="wang_hu\CallBack.h" />
+    <ClInclude Include="wang_hu\CommonLogic.h" />
+    <ClInclude Include="wang_hu\Effect.h" />
+    <ClInclude Include="wang_hu\EffectFactory.h" />
+    <ClInclude Include="wang_hu\EffectManager.h" />
+    <ClInclude Include="wang_hu\Event.h" />
+    <ClInclude Include="wang_hu\EventMgr.h" />
+    <ClInclude Include="wang_hu\Factory.h" />
+    <ClInclude Include="wang_hu\Fish.h" />
+    <ClInclude Include="wang_hu\GameConfig.h" />
+    <ClInclude Include="wang_hu\IDGenerator.h" />
+    <ClInclude Include="wang_hu\MathAide.h" />
+    <ClInclude Include="wang_hu\MoveCompent.h" />
+    <ClInclude Include="wang_hu\MovePoint.h" />
+    <ClInclude Include="wang_hu\MyComponent.h" />
+    <ClInclude Include="wang_hu\MyComponentFactory.h" />
+    <ClInclude Include="wang_hu\MyFunctor.h" />
+    <ClInclude Include="wang_hu\MyObject.h" />
+    <ClInclude Include="wang_hu\MyObjectFactory.h" />
+    <ClInclude Include="wang_hu\MyObjectManager.h" />
+    <ClInclude Include="wang_hu\PathManager.h" />
+    <ClInclude Include="wang_hu\Player.h" />
+    <ClInclude Include="wang_hu\Point.h" />
+    <ClInclude Include="wang_hu\pugiconfig.hpp" />
+    <ClInclude Include="wang_hu\pugixml.hpp" />
+    <ClInclude Include="wang_hu\Size.h" />
+    <ClInclude Include="wang_hu\TSingleton.h" />
+    <ClInclude Include="wang_hu\VisualCompent.h" />
+    <ClInclude Include="wang_hu\XMLDecrypt.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

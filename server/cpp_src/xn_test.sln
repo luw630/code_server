@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xn_test", "xn_test\xn_test.vcxproj", "{80BC29AE-C266-4B9A-87B4-C9A098823446}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pb_server", "pb_server\pb_server.vcxproj", "{EFE31F5D-56AB-4A27-BBA6-A2AB4296FC09}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "lua\lua.vcxproj", "{FBAB75C5-86D5-4A05-B981-2473F1F511AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80BC29AE-C266-4B9A-87B4-C9A098823446}.Debug|Win32.ActiveCfg = Debug|Win32
+		{80BC29AE-C266-4B9A-87B4-C9A098823446}.Debug|Win32.Build.0 = Debug|Win32
+		{80BC29AE-C266-4B9A-87B4-C9A098823446}.Release|Win32.ActiveCfg = Release|Win32
+		{80BC29AE-C266-4B9A-87B4-C9A098823446}.Release|Win32.Build.0 = Release|Win32
+		{EFE31F5D-56AB-4A27-BBA6-A2AB4296FC09}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EFE31F5D-56AB-4A27-BBA6-A2AB4296FC09}.Debug|Win32.Build.0 = Debug|Win32
+		{EFE31F5D-56AB-4A27-BBA6-A2AB4296FC09}.Release|Win32.ActiveCfg = Release|Win32
+		{EFE31F5D-56AB-4A27-BBA6-A2AB4296FC09}.Release|Win32.Build.0 = Release|Win32
+		{FBAB75C5-86D5-4A05-B981-2473F1F511AA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FBAB75C5-86D5-4A05-B981-2473F1F511AA}.Debug|Win32.Build.0 = Debug|Win32
+		{FBAB75C5-86D5-4A05-B981-2473F1F511AA}.Release|Win32.ActiveCfg = Release|Win32
+		{FBAB75C5-86D5-4A05-B981-2473F1F511AA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

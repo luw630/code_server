@@ -1,0 +1,108 @@
+
+¥
+public_point21.proto";
+CS_Point21_Bet
+target (Rtarget"
+MsgID
+ID¯“"V
+SC_Point21_Bet
+target (Rtarget
+chair_id (RchairId"
+MsgID
+ID˘“"'
+CS_Point21_GetCard"
+MsgID
+ID˙“"V
+SC_Point21_GetCard
+card (Rcard
+chair_id (RchairId"
+MsgID
+ID˚“"$
+CS_Point21_Stop"
+MsgID
+ID¸“"\
+SC_Point21_Stop
+chair_id (RchairId
+	cur_index (RcurIndex"
+MsgID
+ID˝“"*
+CS_Point21_CallDouble"
+MsgID
+ID˛“"é
+SC_Point21_CallDouble
+card (Rcard
+chair_id (RchairId
+target (Rtarget
+	cur_index (RcurIndex"
+MsgID
+IDˇ“"%
+CS_Point21_Split"
+MsgID
+IDÄ”"É
+SC_Point21_Split
+target (Rtarget
+chair_id (RchairId)
+tiles (2.Point21_Cards_InfoRtiles"
+MsgID
+IDÅ”")
+CS_Point21_Insurance"
+MsgID
+IDÇ”"X
+SC_Point21_Insurance
+cost (Rcost
+chair_id (RchairId"
+MsgID
+IDÉ”")
+CS_Point21_Surrender"
+MsgID
+IDÑ”"b
+SC_Point21_Surrender
+chair_id (RchairId
+	surrender (R	surrender"
+MsgID
+IDÖ”"R
+Point21_Cards_Info
+cards (Rcards
+stata (Rstata
+bet (Rbet"„
+Point21_Player_Info.
+pb_tiles (2.Point21_Cards_InfoRpbTiles
+chair_id (RchairId
+nick (	Rnick
+icon (Ricon
+gold (Rgold
+guid (Rguid
+	win_money (RwinMoney
+taxes (Rtaxes"<
+Point21_Reconnect_Data"
+act_left_time (RactLeftTime"¢
+SC_Point21_EnterData3
+
+pb_players (2.Point21_Player_InfoR	pbPlayers
+table_state (R
+tableState&
+zhuang_chair_id (RzhuangChairId"
+self_chair_id (RselfChairId$
+act_time_limit (RactTimeLimit!
+is_reconnect (RisReconnect
+
+base_score (R	baseScore
+max_call (RmaxCall
+bet_base	 (RbetBase7
+pb_rec_data
+ (2.Point21_Reconnect_DataR	pbRecData"
+MsgID
+IDÜ”"C
+SC_Point21_NextTurn
+chair_id (RchairId"
+MsgID
+IDá”"`
+SC_Point21_Game_Finish3
+
+pb_players (2.Point21_Player_InfoR	pbPlayers"
+MsgID
+IDà”"@
+SC_Point21_Desk_State
+state (Rstate"
+MsgID
+IDâ”

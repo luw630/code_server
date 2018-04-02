@@ -1,0 +1,116 @@
+﻿生成启动时间为 2018/3/18 17:21:08。
+     1>项目“D:\code_server\server\cpp_src\srv_mysql\srv_mysql.vcxproj”在节点 8 上(Build 个目标)。
+     1>Link:
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code_server\server\cpp_src\..\project\Debug\srv_mysql.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\depend\boost_1_60_0\stage\lib\ ..\..\lib\Debug\lua_lib.lib ..\..\lib\Debug\op_lib.lib ..\..\lib\Debug\base_lib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\code_server\server\cpp_src\..\project\Debug\srv_mysql.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\code_server\server\cpp_src\..\project\Debug\srv_mysql.lib" /MACHINE:X86 D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\bind_db_net_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\bind_db_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\db_cfg_net_server.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\db_cfg_session.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\db_lua_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\db_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\db_cfg_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\db_session.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\db_session_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\db_server.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\srv_mysql\stdafx.obj
+     1>base_lib.lib(base_http_request.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_http_request.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_bind_lua.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_bind_lua.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_db_connection.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_db_connection.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_lua_db_connection_pool.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_lua_db_connection_pool.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_server.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_server.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(fpconv.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(fpconv.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(lua_cjson.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_cjson.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(lua_extensions.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_extensions.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(strbuf.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(strbuf.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_db_connection_pool.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_db_connection_pool.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(FileMD5.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(FileMD5.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_game_log.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_game_log.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_gm_mgr.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_gm_mgr.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_game_contrl.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_game_contrl.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_lua_mgr.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_lua_mgr.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(lua_tinker.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_tinker.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(lua_tinker_ex.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_tinker_ex.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(pbc-lua53.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(pbc-lua53.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_redis_con.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_redis_con.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_redis_con_thread.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_redis_con_thread.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(md5c.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(md5c.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(nn.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(nn.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(prime.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(prime.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(rsa.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(rsa.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(r_keygen.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(r_keygen.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(r_random.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(r_random.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(r_stdlib.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(r_stdlib.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_game_time_mgr.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_game_time_mgr.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_net_session.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_session.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_net_dispatcher.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_dispatcher.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_io_service_pool.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_io_service_pool.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_net_server.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_server.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_net_server_session.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_server_session.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_utils_helper.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_utils_helper.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_windows_console.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_windows_console.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_variadicFunctor.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_variadicFunctor.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Time.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Time.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(win32_rfdmap.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(win32_rfdmap.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_RedisLog.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_RedisLog.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_fdapi_crt.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_fdapi_crt.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_FDAPI.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_FDAPI.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_EventLog.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_EventLog.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Error.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Error.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Common.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Common.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_ANSI.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_ANSI.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(sds.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(sds.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(net.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(net.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(hiredis.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(hiredis.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(wmessage.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(wmessage.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(varint.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(varint.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(stringpool.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(stringpool.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(rmessage.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(rmessage.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(register.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(register.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(proto.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(proto.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(pattern.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(pattern.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(map.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(map.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(decode.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(decode.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(context.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(context.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(bootstrap.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(bootstrap.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(array.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(array.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(alloc.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(alloc.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(wire_format.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(wire_format.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(unknown_field_set.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(unknown_field_set.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(text_format.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(text_format.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(substitute.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(substitute.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(reflection_ops.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(reflection_ops.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(message.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(message.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(map_field.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(map_field.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(zero_copy_stream_impl.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(zero_copy_stream_impl.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(tokenizer.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(tokenizer.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(strtod.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(strtod.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(generated_message_reflection.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(generated_message_reflection.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(extension_set_heavy.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(extension_set_heavy.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(dynamic_message.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(dynamic_message.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(descriptor_database.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(descriptor_database.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(descriptor.pb.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(descriptor.pb.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(descriptor.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(descriptor.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(any.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(any.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(wire_format_lite.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(wire_format_lite.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(strutil.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(strutil.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(structurally_valid.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(structurally_valid.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(stringprintf.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(stringprintf.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(stringpiece.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(stringpiece.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(status.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(status.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(once.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(once.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(int128.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(int128.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(common.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(common.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(atomicops_internals_x86_msvc.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(atomicops_internals_x86_msvc.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(repeated_field.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(repeated_field.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(message_lite.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(message_lite.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(zero_copy_stream_impl_lite.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(zero_copy_stream_impl_lite.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(zero_copy_stream.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(zero_copy_stream.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(coded_stream.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(coded_stream.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(generated_message_util.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(generated_message_util.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(extension_set.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(extension_set.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(arena.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(arena.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+         srv_mysql.vcxproj -> D:\code_server\server\cpp_src\..\project\Debug\srv_mysql.exe
+     1>已完成生成项目“D:\code_server\server\cpp_src\srv_mysql\srv_mysql.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:39.65

@@ -1,0 +1,11 @@
+###
+### Using 'vc14' toolset.
+###
+
+E:\CDServe\3rdParty\boost_1_60_0\tools\build\src\engine>if exist bootstrap rd /S /Q bootstrap 
+
+E:\CDServe\3rdParty\boost_1_60_0\tools\build\src\engine>md bootstrap 
+
+E:\CDServe\3rdParty\boost_1_60_0\tools\build\src\engine>cl /nologo /RTC1 /Zi /MTd /Fobootstrap/ /Fdbootstrap/ -DNT -DYYDEBUG -wd4996 kernel32.lib advapi32.lib user32.lib /Febootstrap\jam0  command.c compile.c constants.c debug.c execcmd.c execnt.c filent.c frames.c function.c glob.c hash.c hdrmacro.c headers.c jam.c jambase.c jamgram.c lists.c make.c make1.c object.c option.c output.c parse.c pathnt.c pathsys.c regexp.c rules.c scan.c search.c subst.c timestamp.c variable.c modules.c strings.c filesys.c builtins.c md5.c class.c cwd.c w32_getreg.c native.c modules/set.c modules/path.c modules/regex.c modules/property-set.c modules/sequence.c modules/order.c 
+
+E:\CDServe\3rdParty\boost_1_60_0\tools\build\src\engine>exit /b 9009 

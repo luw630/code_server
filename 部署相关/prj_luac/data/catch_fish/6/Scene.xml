@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UNICODE" standalone="yes" ?>
+<!--场景 id    时间      场景图          下一个场景id-->
+<scene id="1" time="600" map="Map_0.jpg" bmg="bgm1.mp3" next="2">
+	<TroopSet BeginTime="300" EndTime="360" id="4" />
+	<DistrubFish Time="45" MinCount="3" MaxCount="6" TypeCount="20" TypeList="200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219" WeightList="100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="22" MinCount="5" MaxCount="8" TypeCount="4" TypeList="2,3,4,5" WeightList="100,100,100,100" RefershType="2" OffestX="50" OffestY="50" OffestTime="0.5"/>
+	<DistrubFish Time="18" MinCount="8" MaxCount="15" TypeCount="3" TypeList="1,2,3" WeightList="100,100,100" RefershType="1" OffestX="50" OffestY="50" OffestTime="1"/>
+	<DistrubFish Time="3" MinCount="1" MaxCount="3" TypeCount="9" TypeList="1,2,3,4,5,6,7,8,9" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="8" MinCount="2" MaxCount="4" TypeCount="6" TypeList="10,11,12,13,14,15" WeightList="100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="10" MinCount="1" MaxCount="3" TypeCount="9" TypeList="16,17,18,19,20,21,22,23,24" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="13" MinCount="1" MaxCount="3" TypeCount="9" TypeList="16,17,18,19,20,21,22,23,24" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="40" MinCount="1" MaxCount="1" TypeCount="2" TypeList="25,29" WeightList="100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="100" MinCount="1" MaxCount="1" TypeCount="1" TypeList="500" WeightList="100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="35" MinCount="1" MaxCount="1" TypeCount="8" TypeList="701,702,703,704,705,801,802,803" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="30" MinCount="1" MaxCount="1" TypeCount="10" TypeList="601,602,603,604,605,606,607,608,609,610" WeightList="100,100,100,100,100,100,100,100,100,100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="36" MinCount="1" MaxCount="1" TypeCount="2" TypeList="300,301" WeightList="100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+</scene>
+
+<scene id="2" time="600" map="Map_1.jpg" bmg="bgm2.mp3" next="3">
+	<TroopSet BeginTime="300" EndTime="360" id="5" />
+	<DistrubFish Time="45" MinCount="3" MaxCount="6" TypeCount="20" TypeList="200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219" WeightList="100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="22" MinCount="5" MaxCount="8" TypeCount="4" TypeList="2,3,4,5" WeightList="100,100,100,100" RefershType="2" OffestX="50" OffestY="50" OffestTime="0.5"/>
+	<DistrubFish Time="18" MinCount="8" MaxCount="15" TypeCount="3" TypeList="1,2,3" WeightList="100,100,100" RefershType="1" OffestX="50" OffestY="50" OffestTime="1"/>
+	<DistrubFish Time="3" MinCount="1" MaxCount="3" TypeCount="9" TypeList="1,2,3,4,5,6,7,8,9" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="8" MinCount="2" MaxCount="4" TypeCount="6" TypeList="10,11,12,13,14,15" WeightList="100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="10" MinCount="1" MaxCount="3" TypeCount="9" TypeList="16,17,18,19,20,21,22,23,24" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="13" MinCount="1" MaxCount="3" TypeCount="9" TypeList="16,17,18,19,20,21,22,23,24" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="40" MinCount="1" MaxCount="1" TypeCount="3" TypeList="25,29" WeightList="100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="100" MinCount="1" MaxCount="1" TypeCount="1" TypeList="500" WeightList="100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="35" MinCount="1" MaxCount="1" TypeCount="8" TypeList="701,702,703,704,705,801,802,803" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="30" MinCount="1" MaxCount="1" TypeCount="10" TypeList="601,602,603,604,605,606,607,608,609,610" WeightList="100,100,100,100,100,100,100,100,100,100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="36" MinCount="1" MaxCount="1" TypeCount="2" TypeList="300,301" WeightList="100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+</scene>
+
+<scene id="3" time="600" map="Map_2.jpg" bmg="bgm3.mp3" next="4">
+	<TroopSet BeginTime="300" EndTime="360" id="6" />
+	<DistrubFish Time="45" MinCount="3" MaxCount="6" TypeCount="20" TypeList="200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219" WeightList="100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="22" MinCount="5" MaxCount="8" TypeCount="4" TypeList="2,3,4,5" WeightList="100,100,100,100" RefershType="2" OffestX="50" OffestY="50" OffestTime="0.5"/>
+	<DistrubFish Time="18" MinCount="8" MaxCount="15" TypeCount="3" TypeList="1,2,3" WeightList="100,100,100" RefershType="1" OffestX="50" OffestY="50" OffestTime="1"/>
+	<DistrubFish Time="3" MinCount="1" MaxCount="3" TypeCount="9" TypeList="1,2,3,4,5,6,7,8,9" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="8" MinCount="2" MaxCount="4" TypeCount="6" TypeList="10,11,12,13,14,15" WeightList="100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="10" MinCount="1" MaxCount="3" TypeCount="9" TypeList="16,17,18,19,20,21,22,23,24" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="13" MinCount="1" MaxCount="3" TypeCount="9" TypeList="16,17,18,19,20,21,22,23,24" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="40" MinCount="1" MaxCount="1" TypeCount="2" TypeList="25,29" WeightList="100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="100" MinCount="1" MaxCount="1" TypeCount="1" TypeList="500" WeightList="100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="35" MinCount="1" MaxCount="1" TypeCount="8" TypeList="701,702,703,704,705,801,802,803" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="30" MinCount="1" MaxCount="1" TypeCount="10" TypeList="601,602,603,604,605,606,607,608,609,610" WeightList="100,100,100,100,100,100,100,100,100,100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="36" MinCount="1" MaxCount="1" TypeCount="2" TypeList="300,301" WeightList="100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+</scene>
+
+<scene id="4" time="600" map="Map_1.jpg" bmg="bgm2.mp3" next="5">
+	<TroopSet BeginTime="300" EndTime="360" id="7" />
+	<DistrubFish Time="45" MinCount="3" MaxCount="6" TypeCount="20" TypeList="200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219" WeightList="100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="22" MinCount="5" MaxCount="8" TypeCount="4" TypeList="2,3,4,5" WeightList="100,100,100,100" RefershType="2" OffestX="50" OffestY="50" OffestTime="0.5"/>
+	<DistrubFish Time="18" MinCount="8" MaxCount="15" TypeCount="3" TypeList="1,2,3" WeightList="100,100,100" RefershType="1" OffestX="50" OffestY="50" OffestTime="1"/>
+	<DistrubFish Time="3" MinCount="1" MaxCount="3" TypeCount="9" TypeList="1,2,3,4,5,6,7,8,9" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="8" MinCount="2" MaxCount="4" TypeCount="6" TypeList="10,11,12,13,14,15" WeightList="100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="10" MinCount="1" MaxCount="3" TypeCount="9" TypeList="16,17,18,19,20,21,22,23,24" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="13" MinCount="1" MaxCount="3" TypeCount="9" TypeList="16,17,18,19,20,21,22,23,24" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="40" MinCount="1" MaxCount="1" TypeCount="2" TypeList="25,29" WeightList="100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="100" MinCount="1" MaxCount="1" TypeCount="1" TypeList="500" WeightList="100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="35" MinCount="1" MaxCount="1" TypeCount="8" TypeList="701,702,703,704,705,801,802,803" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="30" MinCount="1" MaxCount="1" TypeCount="10" TypeList="601,602,603,604,605,606,607,608,609,610" WeightList="100,100,100,100,100,100,100,100,100,100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="36" MinCount="1" MaxCount="1" TypeCount="2" TypeList="300,301" WeightList="100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+</scene>
+
+<scene id="5" time="600" map="Map_3.jpg" bmg="bgm4.mp3" next="1">
+	<TroopSet BeginTime="300" EndTime="360" id="8" />
+	<DistrubFish Time="45" MinCount="3" MaxCount="6" TypeCount="20" TypeList="200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219" WeightList="100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="22" MinCount="5" MaxCount="8" TypeCount="4" TypeList="2,3,4,5" WeightList="100,100,100,100" RefershType="2" OffestX="50" OffestY="50" OffestTime="0.5"/>
+	<DistrubFish Time="18" MinCount="8" MaxCount="15" TypeCount="3" TypeList="1,2,3" WeightList="100,100,100" RefershType="1" OffestX="50" OffestY="50" OffestTime="1"/>
+	<DistrubFish Time="3" MinCount="1" MaxCount="3" TypeCount="9" TypeList="1,2,3,4,5,6,7,8,9" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="8" MinCount="2" MaxCount="4" TypeCount="6" TypeList="10,11,12,13,14,15" WeightList="100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="10" MinCount="1" MaxCount="3" TypeCount="9" TypeList="16,17,18,19,20,21,22,23,24" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="13" MinCount="1" MaxCount="3" TypeCount="9" TypeList="16,17,18,19,20,21,22,23,24" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0" RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="40" MinCount="1" MaxCount="1" TypeCount="2" TypeList="25,29" WeightList="100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="100" MinCount="1" MaxCount="1" TypeCount="1" TypeList="500" WeightList="100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="35" MinCount="1" MaxCount="1" TypeCount="8" TypeList="701,702,703,704,705,801,802,803" WeightList="100,100,100,100,100,100,100,100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="30" MinCount="1" MaxCount="1" TypeCount="10" TypeList="601,602,603,604,605,606,607,608,609,610" WeightList="100,100,100,100,100,100,100,100,100,100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+	<DistrubFish Time="36" MinCount="1" MaxCount="1" TypeCount="2" TypeList="300,301" WeightList="100,100" RefershType="0"  RefershType="0" OffestX="50" OffestY="50" OffestTime="2"/>
+</scene>

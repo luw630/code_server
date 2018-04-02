@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\base_lib\base_asyn_task_mgr.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base_lib\base_http_request.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gate_game_session.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gate_client_session.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gate_cfg_net_server.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gate_cfg_session.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gate_login_session.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gate_session_mgr.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gate_server.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ip_mgr.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\base_lib\base_asyn_task_mgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\base_lib\base_http_request.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gate_game_session.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gate_client_session.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gate_cfg_net_server.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gate_cfg_session.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gate_login_session.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gate_session_mgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gate_server.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ip_mgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

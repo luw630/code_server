@@ -1,0 +1,94 @@
+
+¸
+public_showhand.proto"@
+CS_ShowHandAddScore
+target (Rtarget"
+MsgID
+IDè„"&
+CS_ShowHandGiveUp"
+MsgID
+IDé„"$
+CS_ShowHandPass"
+MsgID
+IDê„"*
+CS_ShowHandGiveUpEixt"
+MsgID
+IDë„"D
+CS_ShowHandMyVoteResult
+agreen (Ragreen"
+MsgID
+IDì„"À
+ShowHand_Player_Info
+tiles (Rtiles
+chair_id (RchairId
+	add_total (RaddTotal"
+cur_round_add (RcurRoundAdd
+nick (	Rnick
+icon (Ricon
+gold (Rgold
+guid (Rguid
+is_win	 (RisWin
+	win_money
+ (RwinMoney
+taxes (Rtaxes
+
+is_give_up (RisGiveUp"a
+ShowHand_Reconnect_Data"
+act_left_time (RactLeftTime"
+vote_chair_id (RvoteChairId"ð
+SC_ShowHand_Desk_Enter4
+
+pb_players (2.ShowHand_Player_InfoR	pbPlayers
+state (Rstate
+zhuang (Rzhuang"
+self_chair_id (RselfChairId$
+act_time_limit (RactTimeLimit!
+is_reconnect (RisReconnect
+
+base_score (R	baseScore
+max_call (RmaxCall8
+pb_rec_data	 (2.ShowHand_Reconnect_DataR	pbRecData"
+MsgID
+IDÌ…"A
+SC_ShowHand_Desk_State
+state (Rstate"
+MsgID
+IDÍ…"b
+SC_ShowHand_Game_Finish4
+
+pb_players (2.ShowHand_Player_InfoR	pbPlayers"
+MsgID
+IDÎ…"a
+SC_ShowHand_Next_Round4
+
+pb_players (2.ShowHand_Player_InfoR	pbPlayers"
+MsgID
+IDÏ…"[
+SC_ShowHandAddScore
+target (Rtarget
+chair_id (RchairId"
+MsgID
+IDÐ…"A
+SC_ShowHandGiveUp
+chair_id (RchairId"
+MsgID
+IDÑ…"?
+SC_ShowHandPass
+chair_id (RchairId"
+MsgID
+IDÒ…"q
+SC_ShowHand_NextTurn
+chair_id (RchairId
+type (Rtype
+max_add (RmaxAdd"
+MsgID
+IDÓ…"D
+SC_ShowHandStartVote
+chair_id (RchairId"
+MsgID
+IDì„"`
+SC_ShowHandPlayerVoteRes
+chair_id (RchairId
+agreen (Ragreen"
+MsgID
+IDì„

@@ -1,0 +1,14 @@
+﻿生成启动时间为 2018/3/18 17:21:06。
+     1>项目“D:\code_server\server\cpp_src\ai_lib\ai_lib.vcxproj”在节点 3 上(Build 个目标)。
+     1>Link:
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code_server\server\cpp_src\..\project\Debug\ailib.dll" /INCREMENTAL /NOLOGO /LIBPATH:"..\..\depend\protobuf-3.3.0\bin\Debug\\" /LIBPATH:..\..\depend\boost_1_60_0\stage\lib\ /LIBPATH:..\..\lib\Debug\ base_lib.lib lua_lib.lib libprotocd.lib libprotobufd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\code_server\server\cpp_src\..\project\Debug\ailib.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\code_server\server\cpp_src\..\project\Debug\ailib.lib" /MACHINE:X86 /DLL D:\code_server\server\cpp_src\..\temp\Debug\ai_lib\ddz_ai_bridge.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\ai_lib\ddz_ai_interface.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\ai_lib\ddz_ai_logic.obj
+            正在创建库 D:\code_server\server\cpp_src\..\project\Debug\ailib.lib 和对象 D:\code_server\server\cpp_src\..\project\Debug\ailib.exp
+     1>base_lib.lib(lua_tinker.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_tinker.obj)”或在“D:\code_server\server\project\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+         ai_lib.vcxproj -> D:\code_server\server\cpp_src\..\project\Debug\ailib.dll
+     1>已完成生成项目“D:\code_server\server\cpp_src\ai_lib\ai_lib.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:15.70

@@ -1,0 +1,34 @@
+﻿生成启动时间为 2018/3/18 17:31:52。
+     1>项目“D:\code_server\server\cpp_src\ai_lib\ai_lib.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\depend\boost_1_60_0\ /I"..\..\depend\protobuf-3.3.0\src\\" /I"..\..\depend\redis-win-3.0.503\deps\hiredis\\" /I..\..\depend\websocketpp\ /I..\lua_lib\src\ /I..\op_lib\ /I..\base_lib\ /I..\game_lib\ /I..\game_lib\cfg\ /I. /ICommon /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D DDZ_ROBOT_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\code_server\server\cpp_src\..\temp\Release\ai_lib\\" /Fd"D:\code_server\server\cpp_src\..\temp\Release\ai_lib\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ddz_ai_bridge.cpp ddz_ai_interface.cpp ddz_ai_logic.cpp
+         ddz_ai_bridge.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>ddz_ai_bridge.cpp(77): warning C4305: “初始化”: 从“int”到“BYTE”截断
+     1>ddz_ai_bridge.cpp(77): warning C4309: “初始化”: 截断常量值
+     1>ddz_ai_bridge.cpp(106): warning C4305: “初始化”: 从“int”到“BYTE”截断
+     1>ddz_ai_bridge.cpp(106): warning C4309: “初始化”: 截断常量值
+         ddz_ai_interface.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+         ddz_ai_logic.cpp
+     1>ddz_ai_logic.cpp(2388): warning C4018: “<”: 有符号/无符号不匹配
+       Link:
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code_server\server\cpp_src\..\project\Release\ailib.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\..\depend\protobuf-3.3.0\bin\Release\\" /LIBPATH:..\..\depend\boost_1_60_0\stage\lib\ /LIBPATH:..\..\lib\Release\ lua_lib.lib base_lib.lib libprotoc.lib libprotobuf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\code_server\server\cpp_src\..\project\Release\ailib.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\code_server\server\cpp_src\..\project\Release\ailib.lib" /MACHINE:X86 /SAFESEH /DLL D:\code_server\server\cpp_src\..\temp\Release\ai_lib\ddz_ai_bridge.obj
+         D:\code_server\server\cpp_src\..\temp\Release\ai_lib\ddz_ai_interface.obj
+         D:\code_server\server\cpp_src\..\temp\Release\ai_lib\ddz_ai_logic.obj
+            正在创建库 D:\code_server\server\cpp_src\..\project\Release\ailib.lib 和对象 D:\code_server\server\cpp_src\..\project\Release\ailib.exp
+         正在生成代码
+         已完成代码的生成
+     1>base_lib.lib(lua_tinker.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_tinker.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+         ai_lib.vcxproj -> D:\code_server\server\cpp_src\..\project\Release\ailib.dll
+     1>已完成生成项目“D:\code_server\server\cpp_src\ai_lib\ai_lib.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:27.31

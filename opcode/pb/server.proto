@@ -1,0 +1,1830 @@
+syntax = "proto2";
+
+import "login.proto";
+import "redis.proto";
+import "public_player.proto";
+import "config.proto";
+
+// 服务器之间通信消息
+// C Client, L LoginServer, D DBServer, S GameServer
+// CS 即C-发送->S
+
+
+
+enum ServerSessionFrom {
+	ServerSessionFromGate = 1;
+	ServerSessionFromLogin = 2;
+	ServerSessionFromDB = 3;
+	ServerSessionFromGame = 4;
+	ServerSessionFromWeb = 5;
+}
+
+// 服务器之间连接的第一个消息
+message S_Connect {
+	enum MsgID { ID = 1; }
+	optional ServerSessionFrom type = 1; 			// 服务器种类
+	optional int32 server_id = 2; 					// 服务器id，跟据配置文件
+	// 以下是game向login注册
+	optional int32 first_game_type = 3;				// 一级菜单
+	optional int32 second_game_type = 4; 			// 二级菜单，跟据配置文件
+	optional bool default_lobby = 5; 				// 是否是默认大厅
+	optional int32 player_limit = 6; 				// 玩家人数限制
+}
+
+// 更新游戏服务器人数
+message S_UpdateGamePlayerCount {
+	enum MsgID { ID = 2; }
+	optional int32 cur_player_count = 1;			// 当前玩家数量
+	optional int32 cur_android_count = 2;
+	optional int32 cur_ios_count = 3;
+}
+
+// 连接上了dbserver
+message S_ConnectDB {
+	enum MsgID { ID = 3; }
+}
+
+// 请求服务器配置
+message S_RequestServerConfig {
+	enum MsgID { ID = 10; }
+	optional ServerSessionFrom type = 1;			// 服务器类型
+	optional int32 server_id = 2;					// 服务器ID
+}
+
+// 回复服务器配置
+message S_ReplyServerConfig {
+	enum MsgID { ID = 11; }
+	optional ServerSessionFrom type = 1;			// 服务器类型
+	optional int32 server_id = 2;					// 服务器ID
+	optional DBServerConfig  db_config = 3;   		//db配置
+	optional LoginServerConfigInfo login_config = 4;// login配置
+	optional GameServerConfigInfo game_config = 5;	// game配置
+	optional GateServerConfigInfo gate_config = 6;	// gate配置
+	repeated GameClientRoomListCfg client_room_cfg = 7;
+}
+
+// 通知Gate启动Game
+message S_NotifyGameServerStart {
+	enum MsgID { ID = 12; }
+	optional int32 game_id = 1;						// 服务器ID
+}
+
+// 更新Game信息
+message S_RequestUpdateGameServerConfig {
+	enum MsgID { ID = 13; }
+	optional int32 game_id = 1;						// game服务器ID
+}
+message S_ReplyUpdateGameServerConfig {
+	enum MsgID { ID = 14; }
+	optional int32 server_id = 1;					// Gate服务器ID
+	optional int32 game_id = 2;						// Game服务器ID
+	optional string ip = 3;							// ip
+	optional int32 port = 4;						// 端口
+	repeated GameClientRoomListCfg client_room_cfg = 5;
+}
+
+// 通知Gate,Game启动Login
+message S_NotifyLoginServerStart {
+	enum MsgID { ID = 15; }
+	optional int32 login_id = 1;					// 服务器ID
+}
+
+// 更新Login信息
+message S_RequestUpdateLoginServerConfigByGate {
+	enum MsgID { ID = 16; }
+	optional int32 login_id = 1;					// Login服务器ID
+}
+message S_ReplyUpdateLoginServerConfigByGate {
+	enum MsgID { ID = 17; }
+	optional int32 server_id = 1;					// Gate服务器ID
+	optional int32 login_id = 2;					// Login服务器ID
+	optional string ip = 3;							// ip
+	optional int32 port = 4;						// 端口
+}
+
+message S_RequestUpdateLoginServerConfigByGame {
+	enum MsgID { ID = 18; }
+	optional int32 login_id = 1;					// Login服务器ID
+}
+message S_ReplyUpdateLoginServerConfigByGame {
+	enum MsgID { ID = 19; }
+	optional int32 server_id = 1;					// Game服务器ID
+	optional int32 login_id = 2;					// Login服务器ID
+	optional string ip = 3;							// ip
+	optional int32 port = 4;						// 端口
+}
+
+// 通知Login,Game启动db
+message S_NotifyDBServerStart {
+	enum MsgID { ID = 20; }
+	optional int32 db_id = 1;						// 服务器ID
+}
+
+// 更新DB信息
+message S_RequestUpdateDBServerConfigByGame {
+	enum MsgID { ID = 21; }
+	optional int32 db_id = 1;						// db服务器ID
+}
+message S_ReplyUpdateDBServerConfigByGame {
+	enum MsgID { ID = 22; }
+	optional int32 server_id = 1;					// Game服务器ID
+	optional int32 db_id = 2;						// db服务器ID
+	optional string ip = 3;							// ip
+	optional int32 port = 4;						// 端口
+}
+
+message S_RequestUpdateDBServerConfigByLogin {
+	enum MsgID { ID = 23; }
+	optional int32 db_id = 1;						// db服务器ID
+}
+message S_ReplyUpdateDBServerConfigByLogin {
+	enum MsgID { ID = 24; }
+	optional int32 server_id = 1;					// Login服务器ID
+	optional int32 db_id = 2;						// db服务器ID
+	optional string ip = 3;							// ip
+	optional int32 port = 4;						// 端口
+}
+
+// 私人房间配置
+message S_ReplyPrivateRoomConfig {
+	enum MsgID { ID = 25; }
+	optional PrivateRoomListConfig info_list = 1;
+}
+
+
+// 注册账号
+message LD_RegAccount {
+	enum MsgID { ID = 100; }
+	optional string account = 1;					// 账号
+	optional string password = 2;					// 密码
+	optional string phone = 3;						// 手机名
+	optional string phone_type = 4;					// 手机类型
+	optional string version = 5;					// 版本号
+	optional string channel_id = 6;					// 渠道号
+	optional string package_name = 7;				// 安装包名字
+	optional string imei = 8;						// 设备唯一码
+	optional string ip = 9;							// 客户端ip
+	optional string ip_area = 10;					// 客户端ip地区
+	optional int32 session_id = 11; 				// GateServer上客户端连接的网络id
+	optional int32 gate_id = 12; 					// 客户端连接的哪个GateServer
+	optional int32 android_uid = 13; //渠道ID
+	optional int32 android_pid = 14; //渠道父ID
+}
+
+// 注册账号返回
+message DL_RegAccount {
+	enum MsgID { ID = 101; }
+	optional int32 ret = 1;							// 注册账号结果，参考LOGIN_RESULT
+	optional string account = 2;					// 账号
+	optional bool is_guest = 3;						// 是游客
+	optional int32 session_id = 4; 					// GateServer上客户端连接的网络id
+	optional int32 gate_id = 5; 					// 客户端连接的哪个GateServer
+	optional int32 guid = 6; 						// 玩家的guid
+	optional string nickname = 7;					// 昵称
+	optional string password = 8;					// 密码
+	optional string phone = 9;						// 手机型号
+	optional string phone_type = 10;				// 手机类型
+	optional string version = 11;					// 版本号
+	optional string channel_id = 12;				// 渠道号
+	optional string package_name = 13;				// 安装包名字
+	optional string imei = 14;						// 设备唯一码
+	optional string ip = 15;						// 客户端ip
+	optional string ip_area = 16;					// 客户端ip地区
+}
+
+message DL_RegAccount2 {
+	enum MsgID { ID = 103; }
+	optional GuestAccount guest_account_result = 1; // 账号验证结果
+	optional int32 session_id = 2; 					// GateServer上客户端连接的网络id
+	optional int32 gate_id = 3; 					// 客户端连接的哪个GateServer
+	optional string phone = 9;						// 手机型号
+	optional string phone_type = 10;				// 手机类型
+	optional string version = 11;					// 版本号
+	optional string channel_id = 12;				// 渠道号
+	optional string package_name = 13;				// 安装包名字
+	optional string imei = 14;						// 设备唯一码
+	optional string ip = 15;						// 客户端ip
+	optional string ip_area = 16;					// 客户端ip地区
+}
+
+// 在线玩家记录
+message SD_OnlineAccount {
+	enum MsgID { ID = 102; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int32 first_game_type = 2;				// 总游戏类型，一级菜单
+	optional int32 second_game_type = 3;			// 客户端显示的子类型，二级菜单
+	optional int32 gamer_id = 4;					// 游戏ID
+	optional int32 in_game = 5;						// 是否在游戏
+}
+
+// 手机号重复查询
+message LD_PhoneQuery {
+	enum MsgID { ID = 104; }
+	optional string phone = 1;						// 账号
+	optional int32 gate_session_id = 2;	
+}
+
+// 手机号重复查询 返回
+message DL_PhoneQuery {
+	enum MsgID { ID = 105; }
+	optional int32 ret = 1;							// 结果 1不存在 2存在
+	optional string phone = 2;						// 账号
+	optional int32 gate_session_id = 3;	
+	
+}
+
+// 服务器之间心跳
+message S_Heartbeat {
+	enum MsgID { ID = 106; }	
+}
+
+//////////////////////////////////////////////////////////////////////////
+/// 登陆退出，玩家数据相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 玩家退出服务器之间通信
+message S_Logout {
+	enum MsgID { ID = 1500; }
+	optional string account = 1; 					// 账号
+	optional int32 guid = 2; 						// 玩家的guid
+	optional int32 session_id = 3; 					// GateServer上客户端连接的网络id
+	optional int32 gate_id = 4; 					// 客户端连接的哪个GateServer
+	optional int32 login_time = 5; 					// 登录时间
+	optional int32 logout_time = 6; 				// 退出时间
+	optional bool is_offline = 7;					// 掉线
+	optional string phone = 8;						// 手机型号
+	optional string phone_type = 9;					// 手机类型
+	optional string version = 10;					// 版本号
+	optional string channel_id = 11;				// 渠道号
+	optional string package_name = 12;				// 安装包名字
+	optional string imei = 13;						// 设备唯一码
+	optional string ip = 14;						// 客户端ip
+	optional int32 user_data = 15;					// 回复login数据，1游客登陆	
+}
+
+// 验证账号
+message LD_VerifyAccount {
+	enum MsgID { ID = 1501; }
+	optional VerifyAccount verify_account = 1; 		// 账号验证信息
+	optional int32 session_id = 2; 					// GateServer上客户端连接的网络id
+	optional int32 gate_id = 3; 					// 客户端连接的哪个GateServer
+}
+
+// 验证账号结果
+message DL_VerifyAccountResult {
+	enum MsgID { ID = 1502; }
+	optional VerifyAccountResult verify_account_result = 1; // 账号验证结果
+	optional int32 session_id = 2; 					// GateServer上客户端连接的网络id
+	optional int32 gate_id = 3; 					// 客户端连接的哪个GateServer
+	optional string account = 4;					// 账号
+	optional string password = 5;					// 密码
+}
+
+// 短信登陆
+message LD_SmsLogin {
+	enum MsgID { ID = 1533; }
+	optional string account = 1; 					// 账号
+	optional int32 session_id = 2; 					// GateServer上客户端连接的网络id
+	optional string phone = 3;						// 手机型号
+	optional string phone_type = 4;					// 手机类型
+	optional string version = 5;					// 版本号
+	optional string channel_id = 6;					// 渠道号
+	optional string package_name = 7;				// 安装包名字
+	optional string imei = 8;						// 设备唯一码
+	optional string ip = 9;							// 客户端ip
+	optional int32 gate_id = 10; 					// 客户端连接的哪个GateServer
+	optional string ip_area = 11;					// 客户端ip地区
+}
+
+// 通知game登陆成功
+message LS_LoginNotify {
+	enum MsgID { ID = 1503; }
+	optional PlayerLoginInfo player_login_info = 1;	// 通知信息
+	optional string password = 2;					// 密码
+}
+
+// 通知再次登陆
+message LS_LoginNotifyAgain {
+	enum MsgID { ID = 1506; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional string password = 2;					// 密码
+}
+
+// 踢人客户端
+message LG_KickClient {
+	enum MsgID { ID = 1507; }
+	optional int32 session_id = 1;					// GateServer上客户端连接的网络id
+	optional int32 gate_id = 2;						// 玩家在哪个gate server
+	optional string reply_account = 3;				// 告诉那个玩家
+	optional int32 user_data = 4;
+}
+message L_KickClient {
+	enum MsgID { ID = 1509; }
+	optional string reply_account = 1;				// 告诉那个玩家
+	optional int32 user_data = 2;
+}
+
+// 完善账号
+message SD_ResetAccount {
+	enum MsgID { ID = 1550; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional string account = 2;					// 账号
+	optional string password = 3;					// 密码
+	optional string nickname = 4;					// 昵称
+}
+
+// 完善账号结果
+message DS_ResetAccount {
+	enum MsgID { ID = 1551; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int32 ret = 2;							// LOGIN_RESULT
+	optional string account = 3;					// 账号
+	optional string nickname = 4;					// 昵称
+}
+
+// 修改密码
+message SD_SetPassword {
+	enum MsgID { ID = 1552; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional string old_password = 2;				// 旧密码
+	optional string password = 3;					// 新密码
+}
+
+// 修改密码结果
+message DS_SetPassword {
+	enum MsgID { ID = 1553; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int32 ret = 2;							// LOGIN_RESULT
+}
+
+// 设置昵称
+message SD_SetNickname {
+	enum MsgID { ID = 1554; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional string nickname = 2;					// 昵称
+}
+
+// 设置昵称返回
+message DS_SetNickname {
+	enum MsgID { ID = 1555; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional string nickname = 2;					// 昵称
+	optional int32 ret = 3;							// LOGIN_RESULT
+}
+
+// 用短信验证码修改密码
+message SD_SetPasswordBySms {
+	enum MsgID { ID = 1556; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional string password = 2;					// 新密码
+}
+
+// 查询玩家数据
+message SD_QueryPlayerData {
+	enum MsgID { ID = 1600; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional string account = 2; 					// 账号
+	optional string nickname = 3;					// 昵称
+}
+
+// 加载玩家数据
+message DS_LoadPlayerData {
+	enum MsgID { ID = 1601; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int32 info_type = 2;					// 1 基本，2 背包，3 邮件
+	optional PlayerBaseInfo pb_base_info = 3; 		// 玩家基本信息
+	optional ItemBagInfo pb_item_bag = 4; 			// 背包
+	optional MailListInfo pb_mail_list = 5;			// 邮件列表
+}
+
+// 保存玩家数据
+message SD_SavePlayerData {
+	enum MsgID { ID = 1603; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional PlayerBaseInfo pb_base_info = 2;       // 玩家信息
+}
+
+// 切换游戏服务器
+message SS_ChangeGame {
+	enum MsgID { ID = 1604; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int32 session_id = 2;					// GateServer上客户端连接的网络id
+	optional int32 gate_id = 3;						// 客户端连接的哪个GateServer
+	optional string account = 4; 					// 账号
+	optional string nickname = 5;					// 昵称
+	optional int32 vip = 6; 						// vip 等级
+	optional int32 login_time = 7; 					// 登录时间
+	optional int32 logout_time = 8; 				// 退出时间
+	optional bool bank_password = 9; 				// 是否设置银行密码，false：没有设置
+	optional bool bank_login = 10; 					// 是否登陆银行
+	optional bool is_guest = 11; 					// 是否是游客
+	optional int32 online_award_start_time = 12;	// 在线奖励开始计时
+	optional int32 game_id = 13;					// 哪个游戏服务器
+	optional int32 first_game_type = 14;			// 一级菜单
+	optional int32 second_game_type = 15;			// 二级菜单	
+	optional string phone = 16;						// 手机型号
+	optional string phone_type = 17;					// 手机类型
+	optional string version = 18;					// 版本号
+	optional string channel_id = 19;					// 渠道号
+	optional string package_name = 20;				// 安装包名字
+	optional string imei = 21;						// 设备唯一码
+	optional string ip = 22;							// 客户端ip
+	optional string ip_area = 23;					// 客户端ip地区
+	optional int32 risk = 24;         				// 危险等级
+	optional string create_channel_id = 25;			// channelid
+	optional bool enable_transfer = 26;				// 1能够转账，0不能给其他玩家转账
+	optional int32 inviter_guid = 27;				//邀请者的guid
+	optional string invite_code = 28;				//自己的邀请码
+	optional PlayerBaseInfo pb_base_info = 29;		// 基础数据
+	optional int32 private_room_opt = 30;			// 私有房间操作 1 创建 2 加入
+	optional int32 owner_guid = 31;					// 房间拥有者guid
+	optional int32 private_room_chair_count = 32;	// 可选椅子数
+	optional int32 private_room_score_type = 33;	// 选的底注
+	optional string alipay_account = 34;			//支付宝账号
+	optional string alipay_name = 35;				//支付宝姓名
+	optional int32 change_alipay_num = 36;			//绑定
+	optional int32 ddz_dapai_times = 37;			//新玩家斗地主三局大牌
+}
+
+// 切换服务器成功失败
+message LS_ChangeGameResult {
+	enum MsgID { ID = 1605; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional bool success = 2;						// true 成功
+	optional SS_ChangeGame change_msg = 3;
+	optional int32 game_id = 4;
+}
+
+// 立即保存钱
+message SD_SavePlayerMoney {
+	enum MsgID { ID = 1606; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int64 money = 2; 						// 有多少钱
+}
+
+// 立即保存银行钱
+message SD_SavePlayerBank {
+	enum MsgID { ID = 1607; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int64 bank = 2; 						// 有多少钱
+}
+
+// 切换服务器成功失败
+message SL_ChangeGameResult {
+	enum MsgID { ID = 1608; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional bool success = 2;						// true 成功
+	optional SS_ChangeGame change_msg = 3;
+	optional int32 game_id = 4;
+}
+
+// 加入私人房间
+message SS_JoinPrivateRoom {
+	enum MsgID { ID = 1609; }
+	optional int32 owner_guid = 1;					// 房间拥有者guid
+	optional int32 owner_game_id = 2;				// 房间拥有者在哪个服务器
+	optional int32 first_game_type = 3;				// 一级菜单
+	optional int32 second_game_type = 4;			// 二级菜单
+	optional int32 private_room_score_type = 5;		// 选的底注
+	optional int32 guid = 6;						// 申请者guid
+	optional int32 game_id = 7;						// 哪个服务器
+}
+
+// 私人房间日志
+message SD_PrivateRoomLog {
+	enum MsgID { ID = 1610; }
+	optional int32 room_id = 1;
+	optional int32 owner_guid = 2;
+	optional int32 first_game_type = 3;
+	optional int32 chair_max = 4;
+	optional int32 chair_count = 5;
+	optional int32 cell_money = 6;
+	optional int32 room_cost = 7;
+	optional int32 money_limit = 8;
+	optional int32 room_state = 9;
+}
+
+// 解散私人房间日志
+message SD_FilishPrivateRoomLog {
+	enum MsgID { ID = 1611; }
+	optional int32 room_id = 1;
+	optional int32 room_state = 2;
+}
+
+// 开始私人房间日志
+message SD_StartPrivateRoomLog {
+	enum MsgID { ID = 1612; }
+	optional int32 room_id = 1;
+	repeated int32 player_guid = 2;
+}
+
+// 返回游戏开启列表
+//message LG_OpenGameList {
+//	enum MsgID { ID = 1610; }
+//	repeated int32 game_id_list = 1; 				// 开启列表
+//}
+
+// 请求机器人数据
+message SD_LoadAndroidData {
+	enum MsgID { ID = 1620; }
+	optional int32 opt_type = 1;					// 操作类型 GM_ANDROID_OPT
+	optional int32 room_id = 2;						// 哪个房间
+	optional int32 guid = 3; 						// 最小的机器人的guid
+	optional int32 count = 4;						// 请求多少个机器人
+}
+
+// 返回机器人数据
+message DS_LoadAndroidData {
+	enum MsgID { ID = 1621; }
+	optional int32 opt_type = 1;					// 操作类型 GM_ANDROID_OPT
+	optional int32 room_id = 2;						// 哪个房间 
+	repeated AndroidInfo android_list = 3;			// 机器人数据列表
+}
+enum Msg_type {
+	notice = 1;										// 公告
+	notice_private = 2;								// 消息
+}
+message Msg_Data{
+	repeated Msg_DataInfo pb_msg_data_info = 1;     // 公告及消息
+}
+// 返回查询玩家公告及消息
+message DS_QueryPlayerMsgData{
+	enum MsgID { ID = 1630; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional Msg_Data pb_msg_data = 2;				// 消息数据
+	optional bool first = 3;
+}
+//查询玩家公告及消息
+message SD_QueryPlayerMsgData{
+	enum MsgID { ID = 1631; }
+	optional int32 guid = 1; 						// 玩家的guid
+}
+// 设置已读
+message SD_SetMsgReadFlag{
+	enum MsgID { ID = 1632; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int32 id = 2;							// 消息ID
+	optional int32 msg_type = 3;					// 消息类型m_type
+}
+
+message Marquee_Data {
+	repeated Marquee pb_msg_data_info = 1;
+}
+// 返回查询玩家跑马灯
+message DS_QueryPlayerMarquee {
+	enum MsgID { ID = 1633; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional Marquee_Data pb_msg_data = 2;			// 消息数据
+	optional bool first = 3;
+}
+//查询玩家跑马灯
+message SD_QueryPlayerMarquee {
+	enum MsgID { ID = 1634; }
+	optional int32 guid = 1; 						// 玩家的guid
+}
+
+// 返回查询玩家邀请奖励
+message DS_QueryPlayerInviteReward{
+	enum MsgID { ID = 1635; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int32 reward = 2;						// 消息数据
+}
+//查询玩家邀请奖励
+message SD_QueryPlayerInviteReward{
+	enum MsgID { ID = 1636; }
+	optional int32 guid = 1; 						// 玩家的guid
+}
+
+message DBChannelInviteConfig {
+	optional string channel_id = 1;					// 渠道id
+	optional int32 is_invite_open = 2;				// 是否开启邀请功能  1开启 2 关闭
+	optional int32 tax_rate = 3;					//分成千分比
+}
+
+// 返回渠道邀请配置
+message DS_QueryChannelInviteCfg{
+	enum MsgID { ID = 1637; }
+	repeated DBChannelInviteConfig cfg = 1; 	// 玩家的配置
+}
+//查询渠道邀请配置
+message SD_QueryChannelInviteCfg{
+	enum MsgID { ID = 1638; }
+}
+
+// 保存玩家百人牛牛数据
+message SD_SavePlayerOxData {
+	enum MsgID { ID = 1622; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int32 is_android = 2;					//是否机器人(1机器人,0玩家)
+	optional int32 table_id = 3;					//桌子ID
+	optional int32 banker_id = 4;					//庄家ID
+	optional string nickname = 5;					// 昵称
+	optional int32 money = 6;						//现有金币
+	optional int32 win_money = 7;					//输赢金币该局
+	optional int32 bet_money = 8;					//下注金币总数
+	optional int32 tax = 9;							//台费
+	optional int32 curtime = 10;						//当前时间
+}
+
+// 百人牛牛请求配置数据
+message SD_QueryOxConfigData {
+	enum MsgID { ID = 1623; }
+	optional int64 cur_time = 1;				//当前时间
+}
+
+//返回百人牛牛配置数据
+message DS_OxConfigData {
+	enum MsgID { ID = 1624; }
+	optional int32 FreeTime = 1;				//空闲时间
+	optional int32 BetTime = 2;					//下注时间
+	optional int32 EndTime = 3;					//结束时间
+	optional int32 MustWinCoeff = 4;			//系统必赢概率(1/100)
+	optional int64 BankerMoneyLimit = 5;		//上庄金币限制
+	optional int32 SystemBankerSwitch = 6;		//系统当庄开关(1开,0关)
+	optional int32 BankerCount = 7;				//连庄次数
+	optional int64 RobotBankerInitUid = 8;		//系统庄家初始ID
+	optional int64 RobotBankerInitMoney = 9;	//系统庄家初始金币
+	optional int32 BetRobotSwitch = 10;			//下注机器人开关(1开,0关)
+	optional int64 BetRobotInitUid = 11;		//下注机器人初始ID
+	optional int64 BetRobotInitMoney = 12;		//下注机器人初始金币
+	optional int32 BetRobotNumControl = 13;		//下注机器人个数控制
+	optional int32 BetRobotTimesControl = 14;	//下注机器人次数限制
+	optional int64 RobotBetMoneyControl = 15;	//下注机器人总额限制
+	optional string BasicChip = 16;				//筹码信息
+}
+
+// 手机号重复查询 返回
+message LG_PhoneQuery {
+	enum MsgID { ID = 1625; }
+	optional int32 ret = 1;							// 结果 1不存在 2存在
+	optional string phone = 2;						// 账号
+	optional int32 gate_session_id = 3;	
+	
+}
+
+//////////////////////////////////////////////////////////////////////////
+/// 银行相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 设置银行密码
+message SD_BankSetPassword {
+	enum MsgID { ID = 30000; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional string password = 2;					// 密码
+}
+
+// 修改银行密码
+message SD_BankChangePassword {
+	enum MsgID { ID = 30001; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional string old_password = 2; 				// 旧密码
+	optional string password = 3; 					// 新密码
+}
+
+// 修改银行密码结果
+message DS_BankChangePassword {
+	enum MsgID { ID = 30002; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional int32 result = 2; 						// 结果 BANK_OPT_RESULT
+}
+
+// 登录银行
+message SD_BankLogin {
+	enum MsgID { ID = 30003; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional string password = 2; 					// 密码
+}
+message DS_BankLogin {
+	enum MsgID { ID = 30004; }
+	optional int32 guid = 1; 						// 玩家的guid
+	optional int32 result = 2; 						// 结果 BANK_OPT_RESULT
+}
+
+// 保存流水
+message SD_SaveBankStatement {
+	enum MsgID { ID = 30005; }
+	optional BankStatement pb_statement = 1;		// 流水
+}
+message DS_SaveBankStatement {
+	enum MsgID { ID = 30006; }
+	optional BankStatement pb_statement = 1;		// 流水
+}
+
+// 查询银行流水记录
+message SD_BankStatement {
+	enum MsgID { ID = 30007; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional int64 cur_serial = 2; 					// 查询大于该流水号的
+}
+message DS_BankStatement {
+	enum MsgID { ID = 3008; }
+	optional int32 guid = 1;						// 玩家的guid
+	repeated BankStatement pb_statement = 2;		// 流水
+}
+
+// 转账
+message SD_BankTransfer {
+	enum MsgID { ID = 30009; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional int32 time = 2;                        // 记录时间
+	optional string target = 3;                     // 转账目标账号名
+	optional int64 money = 4;                       // 改变的钱
+	optional int32 bank_balance = 5; 				// 当前银行余额
+	optional string selfname = 6;					// 玩家的名字
+	optional int32 game_id = 7;						// 游戏服务器id
+}
+message DS_BankTransfer {
+	enum MsgID { ID = 30010; }
+	optional int32 result = 1;						// 结果 BANK_OPT_RESULT
+	optional BankStatement pb_statement = 2;		// 流水
+	optional int32 guid = 3;						// 玩家的guid
+	optional int64 money = 4;                       // 改变的钱
+}
+message LS_BankTransferSelf {
+	enum MsgID { ID = 30011; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional int32 time = 2;                        // 记录时间
+	optional string target = 3;                     // 转账目标账号名
+	optional int64 money = 4;                       // 改变的钱
+	optional int32 bank_balance = 5; 				// 当前银行余额
+}
+message LS_BankTransferTarget {
+	enum MsgID { ID = 30012; }
+	optional string selfname = 1;					// 玩家的名字
+	optional int32 time = 2;                        // 记录时间
+	optional string target = 3;                     // 转账目标账号名
+	optional int64 money = 4;                       // 改变的钱
+}
+
+// 通过guid转账
+message S_BankTransferByGuid {
+	enum MsgID { ID = 30013; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional int32 target_guid = 2;                 // 转账目标guid
+	optional int64 money = 3;                       // 改变的钱
+	optional int32 game_id = 4;						// 游戏服务器id
+}
+message DS_BankTransferByGuid {
+	enum MsgID { ID = 30014; }
+	optional int32 result = 1;						// 结果 BANK_OPT_RESULT
+	optional int32 guid = 2;						// 玩家的guid
+	optional int64 money = 3;                       // 改变的钱
+}
+message LS_BankTransferByGuid {
+	enum MsgID { ID = 30015; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional int64 money = 2;                       // 改变的钱
+}
+
+// 银行日志
+message SD_BankLog {
+	enum MsgID { ID = 30016; }
+	optional int32 time = 1;						// 记录发生时间
+	optional int32 guid = 2;						// 全局唯一标识符
+	optional string nickname = 3;					// 昵称
+	optional string phone = 4;						// 手机名字：ios，android
+	optional int32 opt_type = 5;					// 交易类型：0存入，1取出
+	optional int32 money = 6;						// 变动金币
+	optional int32 old_money = 7;					// 开始金币
+	optional int32 new_money = 8;					// 结束金币
+	optional int32 old_bank = 9;					// 开始银行金币
+	optional int32 new_bank = 10;					// 结束银行金币
+	optional string ip = 11;						// IP地址
+}
+
+// 执行一个sql
+message SD_Do_OneSql {
+	enum MsgID { ID = 30017; }
+	optional string sql = 1;						// 要执行的sql
+	optional string db_name = 2;					// 要执行的sql的db名字
+}
+
+//////////////////////////////////////////////////////////////////////////
+/// 聊天，邮件相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 发送邮件
+message SD_SendMail {
+	enum MsgID { ID = 31080; }
+	optional MailInfo pb_mail = 1;
+}
+message DES_SendMail {
+	enum MsgID { ID = 31081; }
+	optional MailInfo pb_mail = 1;
+	optional int32 ret = 2; 						// 0 成功 1 没有找到收邮件人
+}
+
+// 删除邮件
+message SD_DelMail {
+	enum MsgID { ID = 31084; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional string mail_id = 2; 					// 邮件id
+}
+
+// 提取附件
+message SD_ReceiveMailAttachment {
+	enum MsgID { ID = 31085; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional string mail_id = 2; 					// 邮件id
+}
+
+//////////////////////////////////////////////////////////////////////////
+/// 排行榜相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 更新排行榜信息
+message DE_UpdateRank {
+	enum MsgID { ID = 32000; }
+	optional int32 rank_type = 1;					// 排行榜种类，RANK_TYPE
+	repeated RankItem pb_rank = 2;					// 排行榜
+} 
+
+// 更新收益
+message SD_UpdateEarnings {
+	enum MsgID { ID = 32001; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional int32 money = 2;						// 改变的钱
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+/// Log相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 钱日志
+message SD_LogMoney {
+	enum MsgID { ID = 33000; }
+	optional int32 guid = 1;						// 玩家的guid
+	optional int64 old_money = 2;					// 旧的钱
+	optional int64 new_money = 3;					// 新的钱
+	optional int64 old_bank = 4;					// 旧的存款
+	optional int64 new_bank = 5;					// 新的存款
+	optional int32 opt_type = 6;					// 操作类型
+} 
+
+//////////////////////////////////////////////////////////////////////////
+/// web相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 请求游戏服务器信息
+message WL_RequestGameServerInfo {
+	enum MsgID { ID = 40000; }
+	optional int32 id = 1;
+}
+
+message WebGameServerInfo {
+	optional int32 cpu = 1;							// CPU
+	optional int32 memory = 2;						// 内存
+	optional int32 status = 3;						// 服务状态
+	optional string ip = 4;							// ip
+	optional int32 port = 5;						// 端口
+	optional int32 first_game_type = 6;				// 游戏种类
+	optional int32 second_game_type = 7;			// 房间号
+	optional int32 player_online_count = 8;			//在线人数
+	optional int32 robot_online_count = 9;			//robot在线人数
+	optional int32 niuniu_banker_times = 10;		//牛牛系统当庄次数
+	optional int32 android_online_count = 11;		//android_在线人数
+	optional int32 ios_online_count = 12;			//ios_在线人数
+}
+
+// 回复游戏服务器信息
+message LW_ResponseGameServerInfo {
+	enum MsgID { ID = 40001; }
+	repeated WebGameServerInfo info_list = 1;
+	optional int32 android_online_top = 2;		//android_在线人数 top
+	optional int32 ios_online_top = 3;			//ios_在线人数 top
+}
+
+// 服务器查询返回
+message SL_WebGameServerInfo {
+	enum MsgID { ID = 40002; }
+	optional int32 id = 1;
+	optional WebGameServerInfo info = 2;
+}
+
+// 游戏指令回复
+message WL_GMMessage {	
+	enum MsgID { ID = 40011; }
+	optional string GmCommand = 1;						// gm消息指命
+	optional string data = 2;						    // 数据
+}
+
+
+// 游戏指令回复
+message LW_GMMessage {	
+	enum MsgID { ID = 40012; }
+	optional int32 result = 1;						// GMmessageRetCode
+}
+
+message LD_NewNotice{
+	enum MsgID { ID = 40013; }
+	optional int32 guid = 1;						// guid
+	optional int32 type = 2;						// 类型
+	optional string name = 3;						// 标题
+	optional string content = 4;					// 内容
+	optional string author = 5;						// 发布者
+	optional string start_time = 6;					// 开始时间
+	optional string end_time = 7;					// 结束时间
+	optional int32  retID = 8;						// 回复id
+	optional int32 number = 9;						// 轮播次数
+	optional int32 interval_time = 10;				// 轮播时间间隔（秒）
+}
+
+message DL_NewNotice{
+	enum MsgID { ID = 40014; }
+	optional int32 ret = 1;							// 100 成功 其它失败
+	optional int32 id = 2;							// 消息id
+	optional int32 guid = 3;						// guid
+	optional int32 type = 4;						// 类型
+	optional string name = 5;						// 标题
+	optional string content = 6;					// 内容
+	optional string author = 7;						// 发布者
+	optional int32 start_time = 8;					// 开始时间
+	optional int32 end_time = 9;					// 结束时间	
+	optional int32 retID = 10;						// 回复id
+	optional int32 number = 11;						// 轮播次数
+	optional int32 interval_time = 12;				// 轮播时间间隔（秒）
+}
+
+message LS_NewNotice{
+	enum MsgID { ID = 40015; }
+	optional int32  id = 1;							// 编号
+	optional int32  start_time = 2;					// 开始时间
+	optional int32  end_time = 3;					// 结束时间
+	optional int32  msg_type = 4;					// 消息类型 1 消息 2公告 3跑马灯
+	optional int32  is_read = 5;					// 是否已读
+	optional string content = 6;					// 消息内容
+	optional int32 	retID = 7;						// 回复id
+	optional int32 number = 8;						// 轮播次数
+	optional int32 interval_time = 9;				// 轮播时间间隔（秒）
+}
+message LS_DelMessage{
+	enum MsgID { ID = 40016; }
+	optional int32  msg_type = 1;					// type 1 消息 2公告 3 跑马灯
+	optional int32  msg_id = 2;						// msg id
+}
+message LG_NewNotice{
+	enum MsgID { ID = 40017; }
+	optional int32  id = 1;							// 编号
+	optional int32  gateid = 2;						// guid
+	optional int32  sessionid = 3;					// sessionid
+	optional int32  start_time = 4;					// 开始时间
+	optional int32  end_time = 5;					// 结束时间
+	optional int32  msg_type = 6;					// 消息类型 1 消息 2公告
+	optional int32  is_read = 7;					// 是否已读
+	optional string content = 8;					// 消息内容
+	optional int32 	retID = 9;						// 回复id
+	optional int32  guid = 10;
+}
+message LG_DelNotice{
+	enum MsgID { ID = 40018; }
+	optional int32  guid = 1;						// guid
+	optional int32  msg_id = 2;						// 消息id
+	optional int32  msg_type = 3;					// 消息类型
+	optional int32  retID = 4;						// wwebid	
+}
+message GL_NewNotice{
+	enum MsgID { ID = 40019; }
+	optional int32  result = 1;						// 处理结果
+	optional int32 	retID = 2;						// 回复id
+}
+message LG_FeedBackUpdate{
+	enum MsgID { ID = 40020; }
+	optional int32  guid = 1;						// guid	
+	optional int32  type = 2;						// type
+	optional int32  UpdateTime = 3;					// 更新时间
+	optional int32  feedbackid = 4;					// 反馈id
+	optional int32  retid = 5;						// 回复id
+}
+message LD_DelMessage{
+	enum MsgID { ID = 40021; }
+	optional int32  msg_type = 1;					// type 1 消息 2公告
+	optional int32  msg_id = 2;						// msg id
+	optional int32  retid = 3;						// 回复id
+}
+
+message DL_DelMessage{
+	enum MsgID { ID = 40022; }
+	optional int32  msg_type = 1;					// type 1 消息 2公告
+	optional int32  msg_id = 2;						// msg id
+	optional int32  retid = 3;						// 回复id
+	optional int32  guid = 4;						// guid 用于通知用户	
+	optional int32  ret = 5;						// 100 成功 其它失败
+}
+message SL_Log_Money{
+	enum MsgID{ ID = 40023; }
+	optional int32  guid = 1;						// guid
+	optional int32  type = 2;						// type 1 loss 2 win 3 offline
+	optional int32  gameid = 3;						// gameid
+	optional string game_name = 4;					// 游戏名字
+	optional string phone_type = 5;					// 终端类型
+	optional int64 	old_money = 6;                  // 游戏前的钱
+	optional int64 	new_money = 7;                  // 游戏后的钱
+	optional int64 	tax = 8;                       	// 游戏扣税
+	optional int64 	change_money = 9;               // 变动金币
+	optional string ip = 10;						// IP
+	optional string id = 11;						// 牌局id
+	optional string channel_id = 12;				// channelid
+}
+message SL_Log_Game{
+	enum MsgID{ ID = 40024; }
+	optional string playid = 1;						// 游戏id
+	optional string type = 2;						// 游戏类型
+	optional string log = 3;						// log
+	optional int32 	starttime = 4;                  // 开始时间
+	optional int32 	endtime = 5;                  	// 结束时间
+}
+
+// 提现失败
+message WF_CashFalse{
+	enum MsgID { ID = 40025; }
+	optional int32 order_id = 1;                    // 订单号
+	optional int32 del = 2;                         // 0 不删除 其它删除
+}
+
+
+message LW_CashFalse{
+	enum MsgID { ID = 40026; }
+	optional int32 result = 1;						// 结果 1：成功 0：失败
+}
+
+message LD_CashFalse{
+	enum MsgID { ID = 40026; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional int32 order_id = 2;                    // 订单号
+	optional int32 login_id = 3;                    // login服ID
+	optional int32 del = 4;							// 0 不删除 其它 删除
+}
+
+message DL_CashFalseInfo{
+	enum MsgID { ID = 40027; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional CashFalse info = 2;                    // 订单信息
+	optional int32 login_id = 3;                    // login服ID
+}
+
+message LD_CashDeal{
+	enum MsgID { ID = 40028; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional CashFalse info = 2;                    // 订单信息
+	optional int32 login_id = 3;                    // login服ID
+}
+
+message DL_CashReply{
+	enum MsgID { ID = 40029; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional int32 result = 2;						// 结果 1：成功 0：失败
+}
+
+
+message LS_CashDeal{
+	enum MsgID { ID = 40030; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional CashFalse info = 2;                    // 订单信息
+	optional int32 server_id = 3;			     	// 游戏服务器id
+	optional int32 login_id = 4;                    // login服ID
+}
+
+message SL_CashReply{
+	enum MsgID { ID = 40031; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional int32 result = 2;						// 结果 1：成功 0：失败
+	optional int32 server_id = 3;			     	// 游戏服务器id
+	optional int32 order_id = 4;                    // 订单号
+	optional CashFalse info = 5;                    // 订单信息
+}
+
+message LD_CashReply{
+	enum MsgID { ID = 40032; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional int32 result = 2;						// 结果 1：成功 0：失败
+	optional int32 order_id = 3;                    // 订单号
+}
+
+message SD_CashMoneyType{
+	enum MsgID { ID = 40033; }
+	optional int32 guid = 1;						
+}
+
+message DS_CashMoneyType{
+	enum MsgID { ID = 40034; }
+	optional int32 guid = 1;
+	repeated CashMoneyType pb_cash_info = 2;
+}
+
+message SD_CashMoney{	
+	enum MsgID { ID = 40035; }
+	optional int32 guid = 1;
+	optional int32 money = 3;					//提现金钱
+	optional int32 coins = 4;					//提现金币
+	optional int32 pay_money = 5;				//扣税后金钱	
+	optional string phone = 6;					//手机型号
+	optional string phone_type = 7;				//手机类型 安卓 苹果 win
+	optional string ip = 8;						//客户端ip
+	optional string  bag_id = 9;                //渠道号
+	optional int64  bef_money = 10;				//提现前金钱
+	optional int64  aft_money = 11;				//提现后金钱
+	optional int64  bef_bank = 12;				//提现前银行金钱
+	optional int64  aft_bank = 13;				//提现后银行金钱
+	optional int32 cash_type = 14;				//提现类型1是支付宝2是银行卡
+	
+}
+
+
+message DS_CashMoney{	
+	enum MsgID { ID = 40036; }
+	optional int32 guid = 1;
+	optional int32 coins = 2;	
+	optional int32 result = 3;						// 结果 1：成功 0：失败
+}
+//充值
+message WF_Recharge{
+	enum MsgID { ID = 40037; }
+	optional int32 id = 1;							// Web服务器ID
+	optional int32 order_id = 2;                    // 订单号
+}
+
+message FW_Result{
+	enum MsgID { ID = 40038; }
+	optional int32 result = 1;						// 结果 1：成功 0：失败
+}
+
+message FD_ChangMoney{
+	enum MsgID { ID = 40039; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional int32 order_id = 2;                    // 订单号
+	optional int32 type_id = 3;                     // 类型
+	optional int32 other_oper = 4;                  //其它操作
+}
+
+
+message DF_Reply{
+	enum MsgID { ID = 40042; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional int32 result = 2;						// 结果 1：成功 0：失败
+}
+
+message AddMoneyInfo {
+	optional int32 guid = 2;						// 玩家的guid
+	optional int32 type_id = 3;                     // 操作类型
+	optional int64 gold = 4; 						// 金币
+	optional int32 order_id = 5;					// 订单id
+}
+
+message FD_ChangMoneyDeal{
+	enum MsgID { ID = 40041; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional AddMoneyInfo info = 2;                 // 增加金钱信息
+}
+
+message DF_ChangMoney{
+	enum MsgID { ID = 40040; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional AddMoneyInfo info = 2;                 // 增加金钱信息
+}
+
+message FS_ChangMoneyDeal{
+	enum MsgID { ID = 40043; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional AddMoneyInfo info = 2;                 // 增加金钱信息
+}
+
+message SD_ChangMoneyReply{
+	enum MsgID { ID = 40044; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional AddMoneyInfo info = 2;                 // 增加金钱信息
+	optional int64 befor_bank = 6;			     	// 充值前银行金额
+	optional int64 after_bank = 7;                  // 充值后银行金额	
+	optional int32 result = 8;						// 结果 1：成功 0：失败
+}
+
+//绑定支付宝
+message SD_BandAlipay{
+	enum MsgID { ID = 40046; }
+	optional int32 guid = 1;
+	optional string alipay_account = 2;					// 支付宝账号
+	optional string alipay_name = 3;					// 支付宝名字
+}
+
+message DS_BandAlipay{
+	enum MsgID { ID = 40047; }
+	optional int32 guid = 1;
+	optional string alipay_account = 2;					// 支付宝账号
+	optional string alipay_name = 3;					// 支付宝名字
+	optional int32  result = 4;							// 0：失败 1: 成功
+}
+//绑定支付宝次数
+message DS_BandAlipayNum{
+	enum MsgID { ID = 40048; }
+	optional int32 guid = 1;
+	optional int32 band_num = 2;					// 支付宝次数
+}
+//修改游戏服务器税率配置
+message WL_ChangeTax{
+	enum MsgID { ID = 40050; }
+	optional int32 id = 1;							// 游戏服务器ID
+	optional int32 tax = 2;	                    	// 税率百分比 1-100
+	optional int32 is_enable = 3;	                // 是否开启
+	optional int32 is_show = 4;	                    // 是否显示	  
+}
+
+message LS_ChangeTax{
+	enum MsgID { ID = 40051; }
+	optional int32 webid = 1;						// web服务器ID
+	optional int32 tax = 2;	                    	// 税率百分比 1-100
+	optional int32 is_enable = 3;	                // 是否开启
+	optional int32 is_show = 4;	                    // 是否显示	  
+}
+
+message SL_ChangeTax{
+	enum MsgID { ID = 40052; }
+	optional int32 webid = 1;						// web服务器ID	
+	optional int32 result = 2;						// 结果 1：成功 0：失败
+}
+
+message LW_ChangeTax{
+	enum MsgID { ID = 40053; }
+	optional int32 result = 1;						// 结果 1：成功 0：失败
+}
+//修改游戏服务器配置
+message WF_ChangeGameCfg{
+	enum MsgID { ID = 40054; }
+	optional int32 id = 1;							// 游戏服务器ID
+}
+
+message FS_ChangeGameCfg {
+	enum MsgID { ID = 40057; }
+	optional int32 webid = 1;						// web服务器ID
+	optional string room_list = 2;					// 房间列表配置
+	optional string room_lua_cfg = 3;				// 房间lua脚本配置	
+}
+message SF_ChangeGameCfg {
+	enum MsgID { ID = 40058; }
+	optional int32 webid = 1;						// web服务器ID
+	optional int32 result = 2;						// 结果 1：成功 0：失败
+	optional GameClientRoomListCfg pb_cfg = 3;
+}
+
+message FW_ChangeGameCfg{
+	enum MsgID { ID = 40059; }
+	optional int32 result = 1;						// 结果 1：成功 0：失败
+}
+message LG_AddNewGameServer{
+	enum MsgID { ID = 40060; }
+	optional string ip   = 1;
+	optional int32  port = 2;
+	optional int32 	retID = 3;						// 回复id
+}
+message DBGameConfigMgr {
+	repeated DBGameConfig pb_cfg = 1;
+}
+
+message DBGameConfig {
+	optional string cfg_name = 1;					// 配置文件名
+	optional int32 is_open = 2;						// 是否开启游戏	
+	optional int32 using_login_validatebox = 3;		// 是否开启登陆验证框
+	optional string ip = 4;							// ip
+	optional int32 port = 5;						// 端口	
+	optional int32 game_id = 6;						// 真实的服务器ID		
+	optional int32 first_game_type = 7;				// 一级菜单：5斗地主，6扎金花，8百人牛牛'
+	optional int32 second_game_type = 8;			// 二级菜单：斗地主（1新手场2初级场3高级场4富豪场）,扎金花（1乞丐场2平民场3中端场4富豪场5贵宾场）,百人牛牛（1默认）
+	optional string game_name = 9;					// 游戏名字
+	optional string game_log = 10;					// 日志文件名
+	optional int32 default_lobby = 11;				// 是否拥有默认大厅
+	optional int32 player_limit = 12;				// 人数限制
+	optional string data_path = 13;					// 数据路径
+	optional string room_list = 14;					// 房间列表配置
+	optional string room_lua_cfg = 15;				// 房间lua脚本配置	
+}
+
+message SD_ServerConfig {
+	enum MsgID { ID = 40061; }
+	optional int32 gamer_id = 1;					// 游戏服务器ID	
+}
+
+message DS_ServerConfig {
+	enum MsgID { ID = 40062; }
+	optional DBGameConfig cfg = 1;					//游戏配置	
+}
+
+message DL_ServerConfig {
+	enum MsgID { ID = 40063; }
+	optional DBGameConfig cfg = 1;					//游戏配置
+}
+
+//php修改玩家金币
+message WL_ChangeMoney {
+	enum MsgID { ID = 40064; }
+	optional int32 guid = 1;							// 玩家ID
+	optional string GmCommand = 2;						// 封装GM字符串
+}
+
+message LS_ChangeMoney {
+	enum MsgID { ID = 40065; }
+	optional int32 webid = 1;							// web服务器ID
+	optional int32 guid = 2;							// 玩家ID
+	optional string GmCommand = 3;						// 封装GM字符串
+}
+
+message SL_ChangeMoney{
+	enum MsgID { ID = 40066; }
+	optional int32 webid = 1;						// web服务器ID	
+	optional int32 result = 2;						// 结果 1：成功 0：失败
+}
+
+message LW_ChangeMoney{
+	enum MsgID { ID = 40067; }
+	optional int32 result = 1;						// 结果 1：成功 0：失败
+}
+
+message LD_OfflineChangeMoney{
+	enum MsgID { ID = 40068; }
+	optional int32 guid = 1;							// 玩家ID
+	optional string GmCommand = 2;						// 封装GM字符串
+}
+
+
+message GL_GetServerCfg{
+	enum MsgID { ID = 40069; }
+}
+
+message LD_GetServerCfg{
+	enum MsgID { ID = 40070; }
+	optional int32 gid = 1;							// ID
+}
+
+message DL_DBGameConfigMgr {
+	enum MsgID { ID = 40071; }
+	optional int32 gid = 1;							// ID
+	optional DBGameConfigMgr pb_cfg_mgr = 2;
+}
+
+message LG_DBGameConfigMgr {
+	enum MsgID { ID = 40072; }
+	optional DBGameConfigMgr pb_cfg_mgr = 1;
+}
+
+message SL_Channel_Invite_Tax{
+	enum MsgID{ ID = 40075; }
+	optional string channel_id = 1;					// 渠道id
+	optional int32 guid = 2;						// guid
+	optional int32 guid_invite = 3;					// guid_invite
+	optional int32 	val = 4;						// 具体值
+}
+
+//php通知客户端更新
+message WL_BroadcastClientUpdate {
+	enum MsgID { ID = 40076; }
+	optional string GmCommand = 1;						// 封装GM字符串
+}
+
+message LW_ClientUpdateResult{
+	enum MsgID { ID = 40077; }
+	optional int32 result = 1;						// 结果 1：成功 2：失败
+}
+
+// lua命令，针对玩家，返回结果
+message WL_LuaCmdPlayerResult {
+	enum MsgID { ID = 40078; }
+	optional int32 guid = 1;						// 玩家ID
+	optional string cmd = 2;						// 封装GM字符串
+}
+message LW_LuaCmdPlayerResult{
+	enum MsgID { ID = 40079; }
+	optional int32 result = 1;						// 结果 1：成功 0：失败
+}
+message LS_LuaCmdPlayerResult{
+	enum MsgID { ID = 40080; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional string cmd = 2;						// 封装GM字符串
+}
+message SL_LuaCmdPlayerResult{
+	enum MsgID { ID = 40081; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional int32 result = 2;						// 结果 1：成功 0：失败
+}
+message LD_LuaCmdPlayerResult{
+	enum MsgID { ID = 40082; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional string cmd = 2;						// 封装GM字符串
+}
+message DL_LuaCmdPlayerResult{
+	enum MsgID { ID = 40083; }
+	optional int32 web_id = 1;						// Web服务器ID
+	optional int32 result = 2;						// 结果 1：成功 0：失败
+}
+
+message LD_AgentsTransfer_finish{
+	enum MsgID { ID = 40084; }
+	optional AgentsTransferData pb_result = 1;
+	optional int32 retid = 2;
+	optional int64 a_oldmoney = 3;
+	optional int64 a_newmoney = 4;
+	optional int64 p_oldmoney = 5;
+	optional int64 p_newmoney = 6;
+}
+message LS_CC_ChangeMoney{
+	enum MsgID { ID = 40085; }
+	optional int32 guid = 1;								//玩家的guid
+	optional int64 money = 2;								//金钱
+	optional string keyid = 3;								//结果处理函数存储id
+	optional int32 retid = 4;								//会话sessionid
+	optional int32	login_id = 5;							//loginid
+}
+message SL_CC_ChangeMoney{
+	enum MsgID { ID = 40086; }
+	optional int32 guid = 1;								//玩家的guid
+	optional int64 money = 2;								//金钱
+	optional string keyid = 3;								//结果处理函数存储id
+	optional int32 	retid = 4;								//会话sessionid
+	optional int32	retcode = 5;							//处理结果
+	optional int64  oldmoney = 6;							//修改前moeny
+	optional int64  newmoney = 7;							//修改后money
+}
+message LD_CC_ChangeMoney{	
+	enum MsgID { ID = 40087; }
+	optional int32 guid = 1;								//玩家的guid
+	optional int64 money = 2;								//金钱
+	optional string keyid = 3;								//结果处理函数存储id
+	optional int32 retid = 4;								//会话sessionid
+	optional int32	login_id = 5;							//loginid
+}
+message DL_CC_ChangeMoney{	
+	enum MsgID { ID = 40088; }
+	optional int32 guid = 1;								//玩家的guid
+	optional int64 money = 2;								//金钱
+	optional string keyid = 3;								//结果处理函数存储id
+	optional int32 retid = 4;								//会话sessionid
+	optional int32	retcode = 5;							//处理结果
+	optional int64  oldmoney = 6;							//修改前moeny
+	optional int64  newmoney = 7;							//修改后money
+}
+
+message LD_DO_SQL{
+	enum MsgID { ID = 40089; }
+	optional string sql = 1;								//要执行的sql 要条sql 只能查出两个字段 第一个字段名为 retcode 第二个为 retdata  可以是存储过程 第一个 字段为 返回code 第二个字段 为结果 可以在存储过程中装数据组装为一个字符串 然后再由login解析 
+	optional int32 retid = 2;								//login的session ID 从get_id()中取	
+	optional string keyid = 3;								//结果处理函数存储id
+	optional string database = 4;							// "game" "log" "account" 目前只能选这三个库 默认为game
+}
+message DL_DO_SQL{
+	enum MsgID { ID = 40090; }
+	optional int32  retCode = 1;							//执行结果
+	optional string retData = 2;							//返回数据
+	optional string keyid = 3;								//结果处理函数存储id
+	optional int32 retid = 4;								//login的session ID 从get_id()中取	
+}
+
+message SL_Log_Robot_Money{
+	enum MsgID{ ID = 40091; }
+	optional int32  guid = 1;						// guid
+	optional int32  isbanker = 2;					//是否庄家(1庄家,0非庄家)
+	optional int32  winorlose = 3;					// type 1 loss 2 win
+	optional int32  gameid = 4;						// gameid
+	optional string game_name = 5;					// 游戏名字
+	optional int64 	old_money = 6;                  // 游戏前的钱
+	optional int64 	new_money = 7;                  // 游戏后的钱
+	optional int64 	tax = 8;                       	// 游戏扣税
+	optional int64 	money_change = 9;               // 变动金币
+	optional string id = 10;						// 牌局id
+
+} 
+
+message WF_GetCfg{
+	enum MsgID{ ID = 40093; }
+} 
+message FW_GetCfg{
+	enum MsgID{ ID = 40094; }
+	optional string php_sign = 1;						// php签名
+} 
+
+// 返回游戏配置
+message FG_GameServerCfg {
+	enum MsgID { ID = 40095; }
+	optional GameClientRoomListCfg pb_cfg = 1;
+}
+
+message LD_AlipayEdit{	
+	enum MsgID{ ID = 40096; }
+	optional int32 guid = 1;						// guid
+	optional string alipay_name = 2;
+	optional string alipay_name_y = 3;
+	optional string alipay_account = 4;
+	optional string alipay_account_y = 5;
+	optional int32  retid = 6;						// 回复id
+}
+
+message DL_AlipayEdit{	
+	enum MsgID{ ID = 40097; }
+	optional int32 guid = 1;						// guid
+	optional int32 EditNum = 2;						//
+	optional int32 retid = 3;						// 回复id
+}
+message LS_AlipayEdit{
+	enum MsgID{ ID = 40098; }
+	optional int32 guid = 1;						// guid
+	optional string alipay_name = 2;
+	optional string alipay_name_y = 3;
+	optional string alipay_account = 4;
+	optional string alipay_account_y = 5;
+}
+
+message SL_AddMoney{
+	enum MsgID{ ID = 40100; }
+	optional int32 guid = 1;						// guid
+	optional int32 money = 2;
+	optional int32 add_type = 3;					//增加类型	
+}
+
+message DL_AddMoney{
+	enum MsgID{ ID = 40101; }
+	optional int32 guid = 1;						// guid
+	optional int32 money = 2;
+	optional int32 add_type = 3;					//增加类型	
+}
+
+message LS_AddMoney{
+	enum MsgID{ ID = 40102; }
+	optional int32 guid = 1;						// guid
+	optional int32 money = 2;
+	optional int32 add_type = 3;					//增加类型	
+}
+
+message LD_AddMoney{
+	enum MsgID{ ID = 40103; }
+	optional int32 guid = 1;						// guid
+	optional int32 money = 2;
+	optional int32 add_type = 3;					//增加类型	
+}
+
+
+// 封号消息
+message LS_FreezeAccount{
+	enum MsgID { ID = 11084; }
+	optional int32 guid = 1;						// guid
+	optional int32 status = 2;						// status
+	optional int32 retid = 3;						// 回复id
+	optional int32 login_id = 4;
+}
+
+// 封号消息
+message SL_FreezeAccount{
+	enum MsgID { ID = 11085; }
+	optional int32 guid = 1;						// guid
+	optional int32 status = 2;						// status
+	optional int32 retid = 3;						// 回复id
+	optional int32 ret = 4;							// 处理结果
+}
+
+//维护开关
+message WS_MaintainUpdate {
+	enum MsgID { ID = 40104; }
+	optional int32 id_index = 1;						//更新id(1提现维护,2游戏维护,登录开关3)
+	optional int32 first_game_type =2;					//哪个游戏
+	optional int32 switchopen =  3;							//开关(1维护中,0正常))	
+}
+
+
+message SW_MaintainResult{							//ConfigServer--->GmServer
+	enum MsgID { ID = 40105; }
+	optional int32 result = 1;						// 结果 1：成功 2：失败
+}
+
+message CS_QueryMaintain {							//ConfigServer--->GameServer
+	enum MsgID { ID = 40106; }
+	optional int32 maintaintype = 1;				// 维护类型(1提现维护,2游戏维护,登录开关3)
+	optional int32 switchopen = 2;					// 开关(1维护中,0正常))		
+	optional int32 first_game_type =3;					//哪个游戏			
+}
+
+message GF_PlayerIn {
+	enum MsgID { ID = 40110; }
+	optional int32 guid = 1;
+}
+
+message GF_PlayerOut {
+	enum MsgID { ID = 40111; }
+	optional int32 guid = 1;
+}
+
+
+message WF_ChangeRobotCfg {
+	enum MsgID { ID = 40112; }
+	optional int32 game_id = 1;
+	optional string cfg_param = 2;
+}
+
+message FW_ChangeRobotCfg {
+	enum MsgID { ID = 40113; }
+	optional int32 result = 1;
+}
+
+message FS_ChangeRobotCfg {
+	enum MsgID { ID = 40114; }
+	optional string cfg_param = 1;
+}
+
+message SD_QueryRobotCfg{
+	enum MsgID { ID = 40115; }
+	optional int32 game_id = 1;
+}
+message DS_QueryRobotCfg{
+	enum MsgID { ID = 40116; }
+	optional int32 game_id = 1;
+	optional int32 use_robot = 2;
+	optional int32 storage = 3;
+	optional int32 robot_level = 4;
+}
+message SD_Save_Storage{
+	enum MsgID { ID = 40117; }
+	optional int32 game_id = 1;
+	optional int32 storage = 2;
+}
+message SD_Agent_CashMoney{	
+	enum MsgID { ID = 40118; }
+	optional int32 guid = 1;
+	optional int32 agent_id = 2;                //提现代理人 
+	optional int32 money = 3;					//提现金钱
+	optional int32 coins = 4;					//提现金币
+	optional int32 pay_money = 5;				//扣税后金钱	
+	optional string phone = 6;					//手机型号
+	optional string phone_type = 7;				//手机类型 安卓 苹果 win
+	optional string ip = 8;						//客户端ip
+	optional string  bag_id = 9;                //渠道号
+	optional int64  bef_money = 10;				//提现前金钱
+	optional int64  aft_money = 11;				//提现后金钱
+	optional int64  bef_bank = 12;				//提现前银行金钱
+	optional int64  aft_bank = 13;				//提现后银行金钱
+	
+}
+message SD_UpdateGameTotalTax{
+	enum MsgID { ID = 40119; }
+	optional int32 game_id = 1;
+	optional int32 first_game_type = 2;
+	optional int32 second_game_type = 3;
+	optional int32 tax_add = 4;
+}
+
+//提现失败
+message WF_Cash_false{
+	enum MsgID { ID = 40120; }
+	optional int32 id = 1;							// Web服务器ID
+	optional int32 order_id = 2;                    // 订单号
+	optional int32 reason = 3;                    	// 原因
+}
+
+
+//黑名单
+message FS_Black_List{
+	enum MsgID { ID = 40121; }
+	repeated int32 black_list = 1;					//guid
+	repeated string game_list = 2;					//游戏ID
+}
+
+message SD_BindBankCard{
+	enum MsgID { ID = 40122; }
+	optional BankCardInfo info = 1;
+}
+message DS_BindBankCard{
+	enum MsgID { ID = 40123; }
+	optional int32 result = 1;			// 1成功  2输入字符错误 或 不合法  3绑定失败，稍后重试
+	optional int32 guid = 2;	
+}
+
+message SD_GetBankCardInfo{
+	enum MsgID { ID = 40124; }
+	optional int32 guid = 1;
+}
+message DS_GetBankCardInfo{
+	enum MsgID { ID = 40125; }
+	optional BankCardInfo info = 1;
+}
+
+
+message ClientChannelInfo{
+	optional string channel = 1;
+	repeated int32	open_server_list = 2;
+}
+message FG_ClientChannelInfo{
+	enum MsgID { ID = 40126; }
+	repeated ClientChannelInfo info = 1;
+}
+
+message WL_LuaGameCmd {
+	enum MsgID { ID = 40127; }
+	optional int32 gameid = 1;						
+	optional string cmd = 2;	
+	optional string param = 3;	
+}
+message LW_LuaGameCmd {
+	enum MsgID { ID = 40128; }
+	optional int32 result = 1;						
+	optional string param = 2;	
+}
+
+message LS_LuaGameCmd{
+	enum MsgID { ID = 40129; }
+	optional string cmd = 1;	
+	optional string param = 2;	
+	optional int32 webid = 3;	
+	optional int32 gameid = 4;	
+}
+message SL_LuaGameCmd{
+	enum MsgID { ID = 40130; }
+	optional int32 result = 1;	
+	optional string param = 2;	
+	optional int32 webid = 3;		
+}
+
+message BrnnChiCfg{
+	optional int32 beginr = 1;
+	optional int32	endr = 2;
+	optional int32	prob = 3;
+}
+message SD_QueryBrnnChiCfg{
+	enum MsgID { ID = 40131; }
+	optional int32 game_id = 1;
+}
+message DS_QueryBrnnChiCfg{
+	enum MsgID { ID = 40132; }
+	optional int32 game_id = 1;
+	repeated BrnnChiCfg pb_brnn_chi_cfg = 2;
+}
+
+message PlayerPromotion{
+	optional int32 tid = 1;
+	optional int32 profit = 2;
+}
+
+message SD_QueryPlayerPromotion{
+	enum MsgID { ID = 40133; }
+	optional int32 game_id = 1;
+	optional int32 guid = 2;
+}
+
+message DS_QueryPlayerPromotion{
+	enum MsgID { ID = 40134; }
+	optional int32 game_id = 1;
+	optional int32 guid = 2;
+	repeated PlayerPromotion pb_playerpromotion = 3;
+}
+
+
+message SD_NotifyPhpServer{
+	enum MsgID { ID = 40135; }
+	optional int32 guid = 1;
+}
+
+message SD_QueryPlayerRecharge{
+	enum MsgID { ID = 40136; }
+	optional int32 guid = 1;
+}
+message DS_QueryPlayerRecharge{
+	enum MsgID { ID = 40137; }
+	optional int32 guid = 1;
+	optional int32 recharge = 2;
+}
+
+
+
+message GF_SavePlayerInfo{
+	enum MsgID { ID = 40138; }
+	optional PlayerInfoInMemery info = 1;
+}
+message GF_GetPlayerInfo{
+	enum MsgID { ID = 40139; }
+	optional int32 guid = 1;
+}
+message FG_GetPlayerInfo{
+	enum MsgID { ID = 40140; }
+	optional PlayerInfoInMemery info = 1;
+}
+
+message DF_SavePlayerInfo{
+	enum MsgID { ID = 40141; }
+	optional PlayerInfoInMemery info = 1;
+}
+message DF_GetPlayerInfo{
+	enum MsgID { ID = 40142; }
+	optional int32 guid = 1;
+	optional string account = 2;
+	optional string nickname = 3;
+	optional int32 gameid = 4;
+	
+}
+message FD_GetPlayerInfo{
+	enum MsgID { ID = 40143; }
+	optional int32 guid = 1;
+	optional string account = 2;
+	optional string nickname = 3;
+	optional int32 gameid = 4;
+	optional PlayerInfoInMemery info = 5;
+}
+message WF_SavePlayersInfoToMySQL{
+	enum MsgID { ID = 40144; }
+}
+message FW_SavePlayersInfoToMySQL{
+	enum MsgID { ID = 40145; }
+	optional bool suc = 1;
+}
+

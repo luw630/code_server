@@ -1,0 +1,1 @@
+ALTER TABLE frame.transfer_to_agent_history ADD COLUMN remarks VARCHAR(50) NULL COMMENT '备注' AFTER after_money;

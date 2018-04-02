@@ -1,0 +1,308 @@
+#pragma once
+
+#include "base_db_connection_pool.h"
+#include "LuaScriptManager.h"
+
+
+class DBQueryUpdateLuaResult : public BaseDBQueryResult
+{
+public:
+
+	DBQueryUpdateLuaResult(const std::string& sql, const std::string& query_func, int index, int ret)
+		: BaseDBQueryResult(sql)
+		, query_func_(query_func)
+		, index_(index)
+		, ret_(ret)
+	{
+	}
+
+	virtual ~DBQueryUpdateLuaResult()
+	{
+
+	}
+
+	virtual void on_query_result()
+	{
+		lua_tinker::call<void>(LuaScriptManager::instance()->get_lua_state(), query_func_.c_str(), index_, ret_);
+	}
+
+private:
+	/** \brief	?????????????????????????. */
+	std::string								query_func_;
+	/** \brief	??????????????????????????????????????????????Index. */
+	int										index_;
+	/** \brief	?????????????????. */
+	int										ret_;
+};
+
+class DBQueryLuaResult : public BaseDBQueryResult
+{
+public:
+
+	DBQueryLuaResult(const std::string& sql, const std::string& query_func, int index, bool success, const std::string& msg)
+		: BaseDBQueryResult(sql)
+		, query_func_(query_func)
+		, index_(index)
+		, success_(success)
+		, message_(msg)
+	{
+	}
+
+	virtual ~DBQueryLuaResult()
+	{
+
+	}
+
+	virtual void on_query_result()
+	{
+		if (success_)
+		{
+			lua_tinker::call<void>(LuaScriptManager::instance()->get_lua_state(), query_func_.c_str(), index_, &message_);
+		}
+		else
+		{
+			lua_tinker::call<void>(LuaScriptManager::instance()->get_lua_state(), query_func_.c_str(), index_);
+		}
+	}
+
+private:
+	/** \brief	?????????????????????????. */
+	std::string								query_func_;
+	/** \brief	??????????????????????????????????????????????Index. */
+	int										index_;
+	/** \brief	??????????????????????. */
+	bool									success_;
+	/** \brief	???????????????????????. */
+	std::string								message_;
+};
+
+class LuaDBConnectionPool : public DBConnectionPool
+{
+public:
+	LuaDBConnectionPool();
+
+	virtual ~LuaDBConnectionPool();
+
+	void execute_lua(const char* sql);
+
+	void execute_update_lua(const char* func, int index, const char* sql);
+
+	void execute_query_lua(const char* func, int index, bool more, const char* sql);
+protected:
+private:
+};
+    </ClInclude>
+    <ClInclude Include="RSAEuro\rsa.h">
+      <Filter>RSAEuro</Filter>
+    </ClInclude>
+    <ClInclude Include="RSAEuro\rsaeuro.h">
+      <Filter>RSAEuro</Filter>
+    </ClInclude>
+    <ClInclude Include="base_utils_helper.h">
+      <Filter>???????</Filter>
+    </ClInclude>
+    <ClInclude Include="base64.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="FileMD5.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="base_openssl_mgr.h">
+      <Filter>???????</Filter>
+    </ClInclude>
+    <ClInclude Include="platform_windows.h">
+      <Filter>???????</Filter>
+    </ClInclude>
+    <ClInclude Include="cjson\lua_cjson.h">
+      <Filter>Lua\cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="cjson\lua_extensions.h">
+      <Filter>Lua\cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="cjson\strbuf.h">
+      <Filter>Lua\cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="cjson\fpconv.h">
+      <Filter>Lua\cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="base_gm_mgr.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_tinker.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_tinker_ex.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="base_lua_dispatcher.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="base_lua_mgr.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="base_db_connection.h">
+      <Filter>Mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="base_db_connection_pool.h">
+      <Filter>Mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="base_db_query_result.h">
+      <Filter>Mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="Luabase_db_connection_pool.h">
+      <Filter>Mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="base_redis_con.h">
+      <Filter>Redis</Filter>
+    </ClInclude>
+    <ClInclude Include="base_redis_con_thread.h">
+      <Filter>Redis</Filter>
+    </ClInclude>
+    <ClInclude Include="base_redis_query_result.h">
+      <Filter>Redis</Filter>
+    </ClInclude>
+    <ClInclude Include="base_server.h">
+      <Filter>???????</Filter>
+    </ClInclude>
+    <ClInclude Include="base_asyn_task_mgr.h">
+      <Filter>asynTask</Filter>
+    </ClInclude>
+    <ClInclude Include="base_http_request.h">
+      <Filter>asynTask</Filter>
+    </ClInclude>
+    <ClInclude Include="base_game_contrl.h">
+      <Filter>GameContrl</Filter>
+    </ClInclude>
+    <ClInclude Include="base_random_helper.h">
+      <Filter>???????</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="base_net_server.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="base_net_server_session.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="base_net_dispatcher.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="base_io_service_pool.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="base_game_log.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseServer.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="base_net_session.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="base_windows_console.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="base_game_time_mgr.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="RSAEuro\md5c.cpp">
+      <Filter>RSAEuro</Filter>
+    </ClCompile>
+    <ClCompile Include="RSAEuro\nn.cpp">
+      <Filter>RSAEuro</Filter>
+    </ClCompile>
+    <ClCompile Include="RSAEuro\prime.cpp">
+      <Filter>RSAEuro</Filter>
+    </ClCompile>
+    <ClCompile Include="RSAEuro\r_keygen.cpp">
+      <Filter>RSAEuro</Filter>
+    </ClCompile>
+    <ClCompile Include="RSAEuro\r_random.cpp">
+      <Filter>RSAEuro</Filter>
+    </ClCompile>
+    <ClCompile Include="RSAEuro\r_stdlib.cpp">
+      <Filter>RSAEuro</Filter>
+    </ClCompile>
+    <ClCompile Include="RSAEuro\rsa.cpp">
+      <Filter>RSAEuro</Filter>
+    </ClCompile>
+    <ClCompile Include="base_utils_helper.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="base64.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="FileMD5.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="base_openssl_mgr.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="platform_windows.cpp">
+      <Filter>??????</Filter>
+    </ClCompile>
+    <ClCompile Include="cjson\lua_cjson.c">
+      <Filter>Lua\cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="cjson\lua_extensions.c">
+      <Filter>Lua\cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="cjson\strbuf.c">
+      <Filter>Lua\cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="cjson\fpconv.c">
+      <Filter>Lua\cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="BindGameTimer.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="base_gm_mgr.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua_tinker.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua_tinker_ex.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="base_lua_mgr.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="BindGameLog.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="pbc-lua53.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindbase_db_connection_pool.cpp">
+      <Filter>Mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="DBConnection.cpp">
+      <Filter>Mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="base_db_connection_pool.cpp">
+      <Filter>Mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="Luabase_db_connection_pool.cpp">
+      <Filter>Mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="base_redis_con.cpp">
+      <Filter>Redis</Filter>
+    </ClCompile>
+    <ClCompile Include="base_redis_con_thread.cpp">
+      <Filter>Redis</Filter>
+    </ClCompile>
+    <ClCompile Include="BindRedis.cpp">
+      <Filter>Redis</Filter>
+    </ClCompile>
+    <ClCompile Include="base_asyn_task_mgr.cpp">
+      <Filter>asynTask</Filter>
+    </ClCompile>
+    <ClCompile Include="base_http_request.cpp">
+      <Filter>asynTask</Filter>
+    </ClCompile>
+    <ClCompile Include="base_game_contrl.cpp">
+      <Filter>GameContrl</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

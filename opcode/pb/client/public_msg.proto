@@ -1,0 +1,879 @@
+
+•€
+public_msg.protopublic_player.proto"¶
+C_RequestPublicKey
+
+channel_id (	R	channelId
+version (	Rversion
+re_ip (	RreIp
+android_uid (R
+androidUid
+android_pid (R
+androidPid"
+MsgID
+IDç">
+C_PublicKey
+
+public_key (	R	publicKey"
+MsgID
+IDè"ç
+CL_RegAccount
+account (	Raccount
+password (	Rpassword
+phone (	Rphone
+
+phone_type (	R	phoneType
+version (	Rversion
+
+channel_id (	R	channelId!
+package_name (	RpackageName
+imei (	Rimei
+ip	 (	Rip
+ip_area
+ (	RipArea
+android_uid (R
+androidUid
+android_pid (R
+androidPid"
+MsgID
+IDé" 
+CL_Login
+account (	Raccount
+password (	Rpassword
+phone (	Rphone
+
+phone_type (	R	phoneType
+imei (	Rimei
+ip (	Rip
+version (	Rversion
+
+channel_id (	R	channelId!
+package_name	 (	RpackageName
+ip_area
+ (	RipArea"
+MsgID
+IDë"F
+LoginValidatebox
+question (Rquestion
+answer (Ranswer"†
+LC_Login
+result (:0Rresult
+guid (Rguid
+account (	Raccount
+game_id (RgameId
+nickname (	Rnickname
+is_guest (RisGuest
+password (	Rpassword%
+alipay_account (	RalipayAccount
+alipay_name	 (	R
+alipayName%
+is_validatebox
+ (RisValidatebox8
+pb_validatebox (2.LoginValidateboxRpbValidatebox*
+change_alipay_num (RchangeAlipayNum
+ip_area (	RipArea'
+enable_transfer (RenableTransfer
+is_first (:2RisFirst"
+MsgID
+IDì" 
+CL_LoginBySms
+account (	Raccount
+sms_no (	RsmsNo
+phone (	Rphone
+
+phone_type (	R	phoneType
+version (	Rversion
+
+channel_id (	R	channelId!
+package_name (	RpackageName
+imei (	Rimei
+ip	 (	Rip
+ip_area
+ (	RipArea"
+MsgID
+IDí"9
+SC_KickClient
+result (Rresult"
+MsgID
+IDî"Ÿ
+CL_LoginAll
+type (Rtype 
+reg (2.CL_RegAccountRreg
+login (2	.CL_LoginRlogin 
+sms (2.CL_LoginBySmsRsms
+gate_id (RgateId"y
+CS_RequestSms
+tel (	Rtel
+	intention (R	intention&
+gate_session_id (RgateSessionId"
+MsgID
+IDò"b
+SC_RequestSms
+result (Rresult
+sms_no (	RsmsNo
+tel (	Rtel"
+MsgID
+IDó"Œ
+CS_ResetAccount
+account (	Raccount
+password (	Rpassword
+nickname (	Rnickname
+sms_no (	RsmsNo"
+MsgID
+IDô"q
+SC_ResetAccount
+result (Rresult
+account (	Raccount
+nickname (	Rnickname"
+MsgID
+IDõ"a
+CS_SetPassword!
+old_password (	RoldPassword
+password (	Rpassword"
+MsgID
+IDö":
+SC_SetPassword
+result (Rresult"
+MsgID
+ID÷"Z
+CS_SetPasswordBySms
+password (	Rpassword
+sms_no (	RsmsNo"
+MsgID
+IDø">
+CS_SetNickname
+nickname (	Rnickname"
+MsgID
+IDü"V
+SC_SetNickname
+nickname (	Rnickname
+result (Rresult"
+MsgID
+IDý"K
+CS_ChangeHeaderIcon"
+header_icon (:0R
+headerIcon"
+MsgID
+IDþ"K
+SC_ChangeHeaderIcon"
+header_icon (:0R
+headerIcon"
+MsgID
+IDÿ"‰
+InviterInfo
+guid (Rguid
+account (	Raccount"
+alipay_name_y (	RalipayNameY(
+alipay_account_y (	RalipayAccountY"›
+CL_GetInviterInfo
+invite_code (	R
+inviteCode&
+gate_session_id (RgateSessionId
+gate_id (RgateId
+guid (Rguid"
+MsgID
+ID€"ù
+LC_GetInviterInfo
+guid (Rguid
+account (	Raccount%
+alipay_account (	RalipayAccount
+alipay_name (	R
+alipayName&
+gate_session_id (RgateSessionId
+gate_id (RgateId
+	guid_self (RguidSelf"
+MsgID
+ID"(
+CS_RequestPlayerInfo"
+MsgID
+IDÌ"¸
+SC_ReplyPlayerInfo1
+pb_base_info (2.PlayerBaseInfoR
+pbBaseInfo,
+pb_item_bag (2.ItemBagInfoR	pbItemBag/
+pb_mail_list (2.MailListInfoR
+pbMailList"
+MsgID
+IDÍ"ª
+GameMsg&
+first_game_type (RfirstGameType(
+second_game_type (RsecondGameType
+room_id (RroomId
+table_id (RtableId
+chair_id (RchairId"[
+SC_ReplyPlayerInfoComplete+
+pb_gmMessage (2.GameMsgRpbGmMessage"
+MsgID
+IDÎ"?
+CS_LoginValidatebox
+answer (Ranswer"
+MsgID
+IDÏ"y
+SC_LoginValidatebox
+result (Rresult8
+pb_validatebox (2.LoginValidateboxRpbValidatebox"
+MsgID
+IDÐ"¬
+CS_ChangeGame&
+first_game_type (RfirstGameType(
+second_game_type (RsecondGameType(
+private_room_opt (RprivateRoomOpt
+
+owner_guid (R	ownerGuid7
+private_room_chair_count (RprivateRoomChairCount5
+private_room_score_type (RprivateRoomScoreType"
+MsgID
+IDþ"E
+CS_JoinPrivateRoom
+
+owner_guid (R	ownerGuid"
+MsgID
+IDÿ"c
+SC_JoinPrivateRoomFailed
+
+owner_guid (R	ownerGuid
+result (Rresult"
+MsgID
+ID€	"&
+CS_PrivateRoomInfo"
+MsgID
+ID	"y
+PrivateRoomInfo&
+first_game_type (RfirstGameType
+table_count (R
+tableCount
+
+cell_money (R	cellMoney"Q
+SC_PrivateRoomInfo)
+pb_info (2.PrivateRoomInfoRpbInfo"
+MsgID
+ID‚	"S
+GC_GameServerCfg-
+pb_cfg (2.GameClientRoomListCfgRpbCfg"
+MsgID
+ID°	"$
+CG_GameServerCfg"
+MsgID
+ID±	"B
+CS_BankSetPassword
+password (	Rpassword"
+MsgID
+IDÐ">
+SC_BankSetPassword
+result (Rresult"
+MsgID
+IDÑ"h
+CS_BankChangePassword!
+old_password (	RoldPassword
+password (	Rpassword"
+MsgID
+IDÒ"A
+SC_BankChangePassword
+result (Rresult"
+MsgID
+IDÓ"<
+CS_BankLogin
+password (	Rpassword"
+MsgID
+IDÔ"8
+SC_BankLogin
+result (Rresult"
+MsgID
+IDÕ"8
+CS_BankDeposit
+money (Rmoney"
+MsgID
+IDÚ"P
+SC_BankDeposit
+result (Rresult
+money (Rmoney"
+MsgID
+IDÛ"5
+CS_BankDraw
+money (Rmoney"
+MsgID
+IDÜ"M
+SC_BankDraw
+result (Rresult
+money (Rmoney"
+MsgID
+IDÝ"]
+SC_NotifyBankStatement1
+pb_statement (2.BankStatementRpbStatement"
+MsgID
+IDÞ"C
+CS_BankStatement
+
+cur_serial (R	curSerial"
+MsgID
+IDß"W
+SC_BankStatement1
+pb_statement (2.BankStatementRpbStatement"
+MsgID
+IDà"S
+CS_BankTransfer
+account (	Raccount
+money (Rmoney"
+MsgID
+IDá"e
+SC_BankTransfer
+result (Rresult
+money (Rmoney
+bank (Rbank"
+MsgID
+IDâ"v
+SC_NotifyMoney
+opt_type (RoptType
+money (Rmoney!
+change_money (RchangeMoney"
+MsgID
+IDã"S
+CS_BankTransferByGuid
+guid (Rguid
+money (Rmoney"
+MsgID
+IDä"R
+
+CS_BuyItem
+item_id (RitemId
+item_num (RitemNum"
+MsgID
+ID´"j
+
+SC_BuyItem
+item_id (RitemId
+item_num (RitemNum
+result (Rresult"
+MsgID
+IDµ"R
+
+CS_DelItem
+item_id (RitemId
+item_num (RitemNum"
+MsgID
+ID¶"j
+
+SC_DelItem
+item_id (RitemId
+item_num (RitemNum
+result (Rresult"
+MsgID
+ID·"R
+
+CS_UseItem
+item_id (RitemId
+item_num (RitemNum"
+MsgID
+ID¸"j
+
+SC_UseItem
+item_id (RitemId
+item_num (RitemNum
+result (Rresult"
+MsgID
+ID¹"C
+CS_ChatWorld!
+chat_content (	RchatContent"
+MsgID
+ID˜"}
+SC_ChatWorld!
+chat_content (	RchatContent
+	chat_guid (RchatGuid
+	chat_name (	RchatName"
+MsgID
+ID™"h
+CS_ChatPrivate!
+chat_content (	RchatContent!
+private_name (	RprivateName"
+MsgID
+IDš"…
+SC_ChatPrivate!
+chat_content (	RchatContent!
+private_name (	RprivateName
+	chat_name (	RchatName"
+MsgID
+ID›"D
+CS_ChatServer!
+chat_content (	RchatContent"
+MsgID
+IDœ"~
+SC_ChatServer!
+chat_content (	RchatContent
+	chat_guid (RchatGuid
+	chat_name (	RchatName"
+MsgID
+ID"B
+CS_ChatRoom!
+chat_content (	RchatContent"
+MsgID
+IDž"|
+SC_ChatRoom!
+chat_content (	RchatContent
+	chat_guid (RchatGuid
+	chat_name (	RchatName"
+MsgID
+IDŸ"C
+CS_ChatTable!
+chat_content (	RchatContent"
+MsgID
+ID "}
+SC_ChatTable!
+chat_content (	RchatContent
+	chat_guid (RchatGuid
+	chat_name (	RchatName"
+MsgID
+ID¡"8
+
+SC_Marquee
+content (	Rcontent"
+MsgID
+ID¢")
+CS_QueryPlayerMarquee"
+MsgID
+ID£"S
+SC_QueryPlayerMarquee(
+pb_msg_data (2.MarqueeR	pbMsgData"
+MsgID
+ID¤"K
+SC_NewMarquee(
+pb_msg_data (2.MarqueeR	pbMsgData"
+MsgID
+ID¥"C
+CS_SendMail"
+pb_mail (2	.MailInfoRpbMail"
+MsgID
+IDè"U
+SC_SendMail
+ret (Rret"
+pb_mail (2	.MailInfoRpbMail"
+MsgID
+IDé"F
+SC_RecviceMail"
+pb_mail (2	.MailInfoRpbMail"
+MsgID
+IDê"7
+
+CS_DelMail
+mail_id (	RmailId"
+MsgID
+IDí"O
+
+SC_DelMail
+result (Rresult
+mail_id (	RmailId"
+MsgID
+IDî"E
+CS_ReceiveMailAttachment
+mail_id (	RmailId"
+MsgID
+IDï"
+SC_ReceiveMailAttachment
+result (Rresult
+mail_id (	RmailId.
+pb_attachment (2	.ItemInfoRpbAttachment"
+MsgID
+IDð")
+CS_ReceiveRewardLogin"
+MsgID
+IDü"W
+SC_ReceiveRewardLogin
+result (Rresult
+money (Rmoney"
+MsgID
+IDý"*
+CS_ReceiveRewardOnline"
+MsgID
+IDþ"X
+SC_ReceiveRewardOnline
+result (Rresult
+money (Rmoney"
+MsgID
+IDÿ"+
+CS_ReceiveReliefPayment"
+MsgID
+ID€"Y
+SC_ReceiveReliefPayment
+result (Rresult
+money (Rmoney"
+MsgID
+ID"?
+CE_RequestRank
+	rank_type (RrankType"
+MsgID
+IDà"a
+EC_ReplyRank
+	rank_type (RrankType"
+pb_rank (2	.RankItemRpbRank"
+MsgID
+IDá"9
+CS_EnterRoom
+room_id (RroomId"
+MsgID
+IDøU"Q
+SC_EnterRoom
+room_id (RroomId
+result (Rresult"
+MsgID
+IDùU"S
+SC_NotifyEnterRoom
+room_id (RroomId
+guid (Rguid"
+MsgID
+IDúU"
+CS_ExitRoom"
+MsgID
+IDûU"P
+SC_ExitRoom
+room_id (RroomId
+result (Rresult"
+MsgID
+IDüU"R
+SC_NotifyExitRoom
+room_id (RroomId
+guid (Rguid"
+MsgID
+IDýU"$
+CS_AutoEnterRoom"
+MsgID
+IDþU""
+CS_AutoSitDown"
+MsgID
+ID‚V"T
+
+CS_SitDown
+table_id (RtableId
+chair_id (RchairId"
+MsgID
+IDƒV"l
+
+SC_SitDown
+table_id (RtableId
+chair_id (RchairId
+result (Rresult"
+MsgID
+ID„V"—
+SC_NotifySitDown
+table_id (RtableId7
+pb_visual_info (2.PlayerVisualInfoRpbVisualInfo
+
+is_onfline (R	isOnfline"
+MsgID
+ID…V"
+
+CS_StandUp"
+MsgID
+IDŒV"l
+
+SC_StandUp
+table_id (RtableId
+chair_id (RchairId
+result (Rresult"
+MsgID
+IDV"
+SC_NotifyStandUp
+table_id (RtableId
+chair_id (RchairId
+guid (Rguid
+
+is_offline (R	isOffline"
+MsgID
+IDŽV"*
+CS_EnterRoomAndSitDown"
+MsgID
+ID–V"¬
+SC_EnterRoomAndSitDown
+room_id (RroomId
+table_id (RtableId
+chair_id (RchairId
+result (Rresult7
+pb_visual_info (2.PlayerVisualInfoRpbVisualInfo
+game_id (RgameId&
+first_game_type (RfirstGameType(
+second_game_type (RsecondGameType
+ip_area	 (	RipArea!
+private_room
+ (RprivateRoom#
+balance_money (RbalanceMoney5
+private_room_score_type (RprivateRoomScoreType5
+private_room_cell_money (RprivateRoomCellMoney&
+private_room_id (RprivateRoomId"
+MsgID
+ID—V")
+CS_StandUpAndExitRoom"
+MsgID
+ID˜V"
+SC_StandUpAndExitRoom
+room_id (RroomId
+table_id (RtableId
+chair_id (RchairId
+result (Rresult"
+MsgID
+ID™V""
+CS_ChangeChair"
+MsgID
+IDšV"©
+SC_ChangeChair
+table_id (RtableId
+chair_id (RchairId
+result (Rresult7
+pb_visual_info (2.PlayerVisualInfoRpbVisualInfo"
+MsgID
+ID›V""
+CS_ChangeTable"
+MsgID
+IDœV"
+CS_Ready"
+MsgID
+IDªV"]
+SC_Ready$
+ready_chair_id (RreadyChairId
+is_ready (RisReady"
+MsgID
+ID«V"
+CS_Exit"
+MsgID
+ID¬V"P
+SC_ReadyFailed
+result (Rresult
+money (Rmoney"
+MsgID
+ID­V"7
+SC_Gamefinish
+money (Rmoney"
+MsgID
+ID®V"Ö
+SC_PlayerReconnection
+room_id (RroomId
+table_id (RtableId
+chair_id (RchairId
+result (Rresult7
+pb_visual_info (2.PlayerVisualInfoRpbVisualInfo
+game_id (RgameId&
+first_game_type (RfirstGameType(
+second_game_type (RsecondGameType
+ip_area	 (	RipArea
+is_ready
+ (RisReady!
+private_room (RprivateRoom5
+private_room_score_type (RprivateRoomScoreType5
+private_room_cell_money (RprivateRoomCellMoney&
+private_room_id (RprivateRoomId3
+private_room_has_start (RprivateRoomHasStart"
+MsgID
+ID¯V"Æ
+SC_ChangeTable
+room_id (RroomId
+table_id (RtableId
+chair_id (RchairId
+result (Rresult7
+pb_visual_info (2.PlayerVisualInfoRpbVisualInfo
+game_id (RgameId&
+first_game_type (RfirstGameType(
+second_game_type (RsecondGameType
+ip_area	 (	RipArea"
+MsgID
+ID°V">
+SC_HEARTBEAT
+	severTime (R	severTime"
+MsgID
+ID±V" 
+CS_HEARTBEAT"
+MsgID
+ID²V"'
+CS_ReconnectionPlay"
+MsgID
+ID³V"F
+SC_ReconnectionPlay
+
+find_table (R	findTable"
+MsgID
+ID»V"<
+SC_SimpleRespons
+status (Rstatus"
+MsgID
+ID´V")
+CS_QueryPlayerMsgData"
+MsgID
+IDµV"X
+SC_QueryPlayerMsgData-
+pb_msg_data (2.Msg_DataInfoR	pbMsgData"
+MsgID
+ID¶V"P
+SC_NewMsgData-
+pb_msg_data (2.Msg_DataInfoR	pbMsgData"
+MsgID
+ID·V"P
+CS_SetMsgReadFlag
+id (Rid
+msg_type (RmsgType"
+MsgID
+ID¸V"y
+SC_FeedBackUpDate
+
+feedbackid (R
+feedbackid
+type (Rtype
+
+updateTime (R
+updateTime"
+MsgID
+ID¹V"Q
+SC_DeletMsg
+msg_id (RmsgId
+msg_type (RmsgType"
+MsgID
+IDºV"S
+CS_CashMoney
+money (Rmoney
+	cash_type (RcashType"
+MsgID
+ID¾V"h
+SC_CashMoneyResult
+result (Rresult
+bank (Rbank
+money (Rmoney"
+MsgID
+ID¿V"$
+CS_CashMoneyType"
+MsgID
+IDÀV"V
+SC_CashMoneyType0
+pb_cash_info (2.CashMoneyTypeR
+pbCashInfo"
+MsgID
+IDÁV"q
+SC_NotifyBank
+opt_type (RoptType
+bank (Rbank
+change_bank (R
+changeBank"
+MsgID
+IDÂV"i
+CS_BandAlipay%
+alipay_account (	RalipayAccount
+alipay_name (	R
+alipayName"
+MsgID
+IDÅV"
+SC_BandAlipay
+result (Rresult%
+alipay_account (	RalipayAccount
+alipay_name (	R
+alipayName"
+MsgID
+IDÆV"6
+CS_Trusteeship
+flag (Rflag"
+MsgID
+IDÇV"2
+
+SC_ShowTax
+flag (Rflag"
+MsgID
+IDÈV"T
+SD_Delonline_player
+guid (Rguid
+game_id (RgameId"
+MsgID
+IDÉV"Ë
+SC_AlipayEdit
+guid (Rguid
+alipay_name (	R
+alipayName"
+alipay_name_y (	RalipayNameY%
+alipay_account (	RalipayAccount(
+alipay_account_y (	RalipayAccountY"
+MsgID
+IDÊV"O
+SC_BrocastClientUpdateInfo
+update_info (	R
+updateInfo"
+MsgID
+IDËV"P
+SC_FreezeAccount
+guid (Rguid
+status (Rstatus"
+MsgID
+IDÌV"
+SC_GameMaintain
+result (Rresult&
+first_game_type (RfirstGameType(
+second_game_type (RsecondGameType"
+MsgID
+IDÍV";
+SC_CashMaintain
+result (Rresult"
+MsgID
+IDÎV"F
+CS_GetHelpMoney!
+get_rightnow (RgetRightnow"
+MsgID
+IDÏV"ª
+SC_GetHelpMoney
+result_cash (R
+resultCash
+
+left_times (R	leftTimes
+
+cash_money (R	cashMoney&
+money_must_less (RmoneyMustLess"
+MsgID
+IDÐV"W
+CS_Agent_CashMoney
+money (Rmoney
+agent_id (RagentId"
+MsgID
+IDÑV"n
+SC_Agent_CashMoneyResult
+result (Rresult
+bank (Rbank
+money (Rmoney"
+MsgID
+IDÒV"&
+CS_RequestNewAward"
+MsgID
+IDÓV"h
+SC_RequestNewAward'
+newaward_result (RnewawardResult
+money (:0Rmoney"
+MsgID
+IDÔV"*
+CS_RequestCheckInAward"
+MsgID
+IDÕV"j
+SC_RequestCheckInAward%
+checkin_result (RcheckinResult
+money (:0Rmoney"
+MsgID
+IDÖV"K
+CS_BindBankCard&
+pb_info (2.BankCardInfoRpbInfo"
+MsgID
+ID×V"D
+SC_BindBankCard
+bind_result (R
+bindResult"
+MsgID
+IDØV"&
+CS_GetBankCardInfo"
+MsgID
+IDÙV"N
+SC_GetBankCardInfo&
+pb_info (2.BankCardInfoRpbInfo"
+MsgID
+IDÚV"&
+CS_NewGameMaintain"
+MsgID
+IDÛV"N
+SC_NewGameMaintain&
+first_game_type (RfirstGameType"
+MsgID
+IDÜV"<
+CS_PlayerPromotion
+index (Rindex"
+MsgID
+IDÝV"Q
+SC_PlayerPromotion)
+promotion_result (RpromotionResult"
+MsgID
+IDÞV

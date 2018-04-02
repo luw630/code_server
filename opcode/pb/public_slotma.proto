@@ -1,0 +1,53 @@
+﻿syntax = "proto2";
+
+// 客户端和服务器通信消息
+// C Client, L LoginServer, D DBServer, S GameServer
+// CS 即C-发送->S
+
+
+
+//////////////////////////////////////////////////////////////////////////
+/// 老虎机相关消息
+//////////////////////////////////////////////////////////////////////////
+
+//玩家进入游戏或重连
+message CS_SlotmaPlayerConnectGame {
+	enum MsgID {ID = 22004;}
+	optional int32 guid = 1;
+}
+
+//玩家离开游戏
+message CS_SlotmaLeaveGame{
+	enum MsgID {ID = 22005;}
+	optional int32 guid = 1;
+}
+
+message WinningLine{
+	optional int32 lineid = 1;					//线的id
+	optional int32 itemid = 2;					//所中物品
+	optional int32 itemNum = 3;				    //所中个数
+	optional int32 times = 4;					//中奖倍数
+}
+
+message SC_Slotma_Start {
+	enum MsgID { ID = 22002; }
+	repeated int32 items = 1;					//当前物品顺序
+	optional int64 money = 2;					//玩家所赢金额
+	optional int32 tax = 3;					    //玩家收税金额
+	repeated WinningLine pb_winline = 4;		//中奖线信息
+}
+
+message CS_Slotma_Start {
+	enum MsgID { ID = 22003; Target = 2; }
+	optional int32 cell_times = 1;              //底注的倍数
+	repeated int32 lines = 2;					//选择押注线的列表
+}
+
+// 返回类型
+enum SLOTMA_TYPE {
+	SLOTMA_TYPE_SUCESS					= 0;								//成功
+	SLOTMA_TYPE_ERRORID					= 1;								//chairid错误
+	SLOTMA_TYPE_NOMONEY  				= 2;								//金钱不足
+	SLOTMA_TYPE_LINERROR				= 3;								//线型错误
+	SLOTMA_TYPE_NOLINE  				= 4;								//未选择线型
+}

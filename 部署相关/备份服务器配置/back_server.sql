@@ -1,0 +1,11 @@
+USE `config`;
+update t_game_server_cfg SET ip = '14.29.123.156' WHERE ip != '127.0.0.1' AND is_open = 1 ;
+update t_gate_server_cfg SET ip = '14.29.123.156' WHERE ip != '127.0.0.1' ;
+update t_login_server_cfg SET ip = '14.29.123.156' WHERE ip != '127.0.0.1' ;
+update t_db_server_cfg SET ip = '14.29.123.156' WHERE ip != '127.0.0.1' ;
+update t_db_server_cfg SET php_interface_addr = 'http://125.88.177.26:8088/api/notice/notice_server'  ;
+update t_db_server_cfg SET cash_money_addr = 'http://125.88.177.26:8088/api/index/cash'  ;
+delete from t_gate_server_cfg where gate_id > '1';
+delete from t_login_server_cfg where login_id > '1';
+delete from t_db_server_cfg where id > '1';
+update t_gate_server_cfg SET sms_url = 'http://125.88.177.26:8088/api/account/sms' ;

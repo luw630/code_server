@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{71fab4bf-c8b3-45dc-9267-6cd02d5e33b1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="config.pb.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="login.pb.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="public_enum.pb.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="public_msg.pb.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="public_player.pb.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="redis.pb.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="server.pb.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="config.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="login.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="public_enum.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="public_msg.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="public_player.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="redis.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="server.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

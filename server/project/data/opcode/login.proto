@@ -1,0 +1,53 @@
+
+†	
+login.proto"E
+VerifyAccount
+account (	Raccount
+password (	Rpassword"¡
+VerifyAccountResult
+ret (Rret
+guid (Rguid(
+no_bank_password (RnoBankPassword
+vip (Rvip
+
+login_time (R	loginTime
+logout_time (R
+logoutTime
+nickname (	Rnickname
+is_guest	 (RisGuest
+password
+ (	Rpassword%
+alipay_account (	RalipayAccount
+alipay_name (	R
+alipayName*
+change_alipay_num (RchangeAlipayNum
+risk (Rrisk
+
+channel_id (	R	channelId'
+enable_transfer (RenableTransfer$
+inviter_guid (:0RinviterGuid
+invite_code (	R
+inviteCode"‹
+GuestAccount
+ret (Rret
+guid (Rguid
+account (	Raccount(
+no_bank_password (RnoBankPassword
+vip (Rvip
+
+login_time (R	loginTime
+logout_time (R
+logoutTime
+nickname (	Rnickname
+is_guest	 (RisGuest
+password
+ (	Rpassword%
+alipay_account (	RalipayAccount
+alipay_name (	R
+alipayName*
+change_alipay_num (RchangeAlipayNum
+risk (Rrisk
+
+channel_id (	R	channelId'
+enable_transfer (RenableTransfer
+is_first (:2RisFirst

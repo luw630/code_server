@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>.
+<!--鱼王        ID           产生几率         最大倍率         捕获几率             缩放               视图ID            -->
+<FishKing TypeID="1"  Probability="30" MaxScore="200" CatchProbability="10" VisualScale="1.0" VisualAttach="600" BoundingBox="600" LockLevel="3"/>
+<FishKing TypeID="2"  Probability="30" MaxScore="200" CatchProbability="10" VisualScale="1.0" VisualAttach="600" BoundingBox="600" LockLevel="3"/>
+<FishKing TypeID="3"  Probability="30" MaxScore="200" CatchProbability="10" VisualScale="1.0" VisualAttach="600" BoundingBox="600" LockLevel="3"/>
+<FishKing TypeID="4"  Probability="30" MaxScore="200" CatchProbability="10" VisualScale="1.0" VisualAttach="600" BoundingBox="600" LockLevel="3"/>
+<FishKing TypeID="5"  Probability="30" MaxScore="200" CatchProbability="10" VisualScale="1.0" VisualAttach="600" BoundingBox="600" LockLevel="3"/>
+<FishKing TypeID="6"  Probability="30" MaxScore="200" CatchProbability="10" VisualScale="1.0" VisualAttach="600" BoundingBox="600" LockLevel="3"/>
+<FishKing TypeID="7"  Probability="30" MaxScore="200" CatchProbability="10" VisualScale="1.0" VisualAttach="600" BoundingBox="600" LockLevel="3"/>
+<FishKing TypeID="8"  Probability="30" MaxScore="200" CatchProbability="10" VisualScale="1.0" VisualAttach="600" BoundingBox="600" LockLevel="3"/>
+<FishKing TypeID="9"  Probability="30" MaxScore="200" CatchProbability="10" VisualScale="1.0" VisualAttach="600" BoundingBox="600" LockLevel="3"/>
+<FishKing TypeID="10"  Probability="30" MaxScore="200" CatchProbability="10" VisualScale="1.0" VisualAttach="600" BoundingBox="600" LockLevel="3"/>
+
+<FishSanYuan TypeID="1" Probability="20" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="900" BoundingBox="900" LockLevel="3"/>
+<FishSanYuan TypeID="2" Probability="20" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="900" BoundingBox="900" LockLevel="3"/>
+<FishSanYuan TypeID="3" Probability="20" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="900" BoundingBox="900" LockLevel="3"/>
+<FishSanYuan TypeID="4" Probability="20" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="900" BoundingBox="900" LockLevel="3"/>
+<FishSanYuan TypeID="5" Probability="20" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="900" BoundingBox="900" LockLevel="3"/>
+<FishSanYuan TypeID="6" Probability="20" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="900" BoundingBox="900" LockLevel="3"/>
+<FishSanYuan TypeID="7" Probability="20" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="900" BoundingBox="900" LockLevel="3"/>
+<FishSanYuan TypeID="8" Probability="20" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="900" BoundingBox="900" LockLevel="3"/>
+<FishSanYuan TypeID="9" Probability="20" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="900" BoundingBox="900" LockLevel="3"/>
+<FishSanYuan TypeID="10" Probability="20" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="900" BoundingBox="900" LockLevel="3"/>
+
+<FishSiXi TypeID="1" Probability="50" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="1000" BoundingBox="1000" LockLevel="3"/>
+<FishSiXi TypeID="2" Probability="50" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="1000" BoundingBox="1000" LockLevel="3"/>
+<FishSiXi TypeID="3" Probability="50" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="1000" BoundingBox="1000" LockLevel="3"/>
+<FishSiXi TypeID="4" Probability="50" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="1000" BoundingBox="1000" LockLevel="3"/>
+<FishSiXi TypeID="5" Probability="50" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="1000" BoundingBox="1000" LockLevel="3"/>
+<FishSiXi TypeID="6" Probability="50" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="1000" BoundingBox="1000" LockLevel="3"/>
+<FishSiXi TypeID="7" Probability="50" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="1000" BoundingBox="1000" LockLevel="3"/>
+<FishSiXi TypeID="8" Probability="50" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="1000" BoundingBox="1000" LockLevel="3"/>
+<FishSiXi TypeID="9" Probability="50" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="1000" BoundingBox="1000" LockLevel="3"/>
+<FishSiXi TypeID="10" Probability="50" MaxScore="200" CatchProbability="100" VisualScale="1.0" VisualAttach="1000" BoundingBox="1000" LockLevel="3"/>
+
+ 
+
+ 

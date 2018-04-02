@@ -1,0 +1,85 @@
+﻿生成启动时间为 2018/3/16 11:54:05。
+     1>项目“D:\code_server\server\cpp_src\lua_lib\lua_lib.vcxproj”在节点 3 上(Build 个目标)。
+     1>ClCompile:
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Isrc /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D LUA_COMPAT_MATHLIB /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\\" /Fd"D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt src\lapi.c src\lauxlib.c src\lbaselib.c src\lbitlib.c src\lcode.c src\lcorolib.c src\lctype.c src\ldblib.c src\ldebug.c src\ldo.c src\ldump.c src\lfunc.c src\lgc.c src\linit.c src\liolib.c src\llex.c src\lmathlib.c src\lmem.c src\loadlib.c src\lobject.c src\lopcodes.c src\loslib.c src\lparser.c src\lstate.c src\lstring.c src\lstrlib.c src\ltable.c src\ltablib.c src\ltm.c src\lua.c src\luac.c src\lundump.c src\lutf8lib.c src\lvm.c src\lzio.c
+         lzio.c
+         lvm.c
+         lutf8lib.c
+         lundump.c
+         luac.c
+         lua.c
+         ltm.c
+         ltablib.c
+         ltable.c
+         lstrlib.c
+         lstring.c
+         lstate.c
+         lparser.c
+         loslib.c
+         lopcodes.c
+         lobject.c
+         loadlib.c
+         lmem.c
+         lmathlib.c
+         llex.c
+         正在生成代码...
+         正在编译...
+         liolib.c
+         linit.c
+         lgc.c
+         lfunc.c
+         ldump.c
+         ldo.c
+         ldebug.c
+         ldblib.c
+         lctype.c
+         lcorolib.c
+         lcode.c
+         lbitlib.c
+         lbaselib.c
+         lauxlib.c
+         lapi.c
+         正在生成代码...
+       Lib:
+         D:\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\code_server\server\cpp_src\..\lib\Debug\lua_lib.lib" /NOLOGO D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lapi.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lauxlib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lbaselib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lbitlib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lcode.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lcorolib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lctype.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\ldblib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\ldebug.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\ldo.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\ldump.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lfunc.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lgc.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\linit.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\liolib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\llex.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lmathlib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lmem.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\loadlib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lobject.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lopcodes.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\loslib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lparser.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lstate.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lstring.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lstrlib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\ltable.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\ltablib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\ltm.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lua.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\luac.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lundump.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lutf8lib.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lvm.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\lua_lib\lzio.obj
+     1>lua.obj : warning LNK4006: _main 已在 luac.obj 中定义；已忽略第二个定义
+         lua_lib.vcxproj -> D:\code_server\server\cpp_src\..\lib\Debug\lua_lib.lib
+     1>已完成生成项目“D:\code_server\server\cpp_src\lua_lib\lua_lib.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:07.29

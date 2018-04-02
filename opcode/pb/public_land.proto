@@ -1,0 +1,278 @@
+﻿syntax = "proto2";
+
+// 客户端和服务器通信消息
+// C Client, L LoginServer, D DBServer, S GameServer
+// CS 即C-发送->S
+
+
+
+//////////////////////////////////////////////////////////////////////////
+/// 斗地主相关消息
+//////////////////////////////////////////////////////////////////////////
+
+// 出牌类型
+enum LAND_CARD_TYPE {
+	LAND_CARD_TYPE_ERROR					= 0;								//错误类型
+	LAND_CARD_TYPE_SINGLE					= 1;								//单牌类型
+	LAND_CARD_TYPE_DOUBLE					= 2;								//对牌类型
+	LAND_CARD_TYPE_THREE					= 3;								//三条类型
+	LAND_CARD_TYPE_SINGLE_LINE				= 4;								//单连类型
+	LAND_CARD_TYPE_DOUBLE_LINE				= 5;								//对连类型
+	LAND_CARD_TYPE_THREE_LINE				= 6;								//三连类型
+	LAND_CARD_TYPE_THREE_TAKE_ONE			= 7;								//三带一单
+	LAND_CARD_TYPE_THREE_TAKE_TWO			= 8;								//三带一对
+	LAND_CARD_TYPE_FOUR_TAKE_ONE			= 9;								//四带两单
+	LAND_CARD_TYPE_FOUR_TAKE_TWO			= 10;								//四带两对
+	LAND_CARD_TYPE_BOMB						= 11;								//炸弹类型
+	LAND_CARD_TYPE_MISSILE					= 12;								//火箭类型
+}
+
+// 发送扑克
+message SC_LandStart {
+	enum MsgID { ID = 15002; }
+	optional int32 first_turn = 1;					// 开始玩家
+	optional int32 valid_card_chair_id = 2;			// 明牌位置
+	optional int32 valid_card = 3;					// 明牌扑克
+	repeated int32 cards = 4;						// 扑克列表
+};
+
+// 用户叫分
+message CS_LandCallScore {
+	enum MsgID { ID = 15003; }
+	optional int32 call_score = 1;					// 叫分数目
+};
+message SC_LandCallScore {
+	enum MsgID { ID = 15004; }
+	optional int32 cur_chair_id = 1;				// 当前玩家
+	optional int32 call_chair_id = 2;				// 叫分玩家
+	optional int32 call_score = 3;					// 叫分数目
+};
+
+// 叫分失败
+message SC_LandCallFail {
+	enum MsgID { ID = 15005; }
+}
+
+//地主信息
+message SC_LandInfo {
+	enum MsgID { ID = 15006; }
+	optional int32 land_chair_id = 1;				// 地主玩家
+	optional int32 call_score = 2;					// 叫分数目
+	repeated int32 cards = 3;						// 地主扑克
+};
+
+// 出牌
+message CS_LandOutCard {
+	enum MsgID { ID = 15007; }
+	repeated int32 cards = 1;						// 扑克列表
+};
+message SC_LandOutCard {
+	enum MsgID { ID = 15008; }
+	optional int32 cur_chair_id = 1;				// 当前玩家
+	optional int32 out_chair_id = 2;				// 出牌玩家
+	repeated int32 cards = 3;						// 扑克列表
+	optional int32 turn_over = 4;					// 一轮结束，火箭
+};
+
+// 放弃出牌
+message CS_LandPassCard {
+	enum MsgID { ID = 15009; }
+}
+message SC_LandPassCard {
+	enum MsgID { ID = 15010; }
+	optional int32 cur_chair_id = 1;				// 当前玩家
+	optional int32 pass_chair_id = 2;				// 放弃玩家
+	optional int32 turn_over = 3;					// 一轮结束
+};
+
+// 游戏结束
+message LandPlayerConclude {
+	optional int32 score = 1;						// 得分
+	optional int32 bomb_count = 2;					// 炸弹个数
+	repeated int32 cards = 3;						// 扑克列表
+	optional int32 flag = 4;           				// 税收开启
+	optional int32 tax  = 5;						// 税收
+	optional int32 totoalwinlost=6;					//游戏总输赢
+}
+message SC_LandConclude {
+	enum MsgID { ID = 15011; }
+	repeated LandPlayerConclude pb_conclude = 1; 	// 玩家结果
+	optional int32 chuntian = 2;					// 春天
+	optional int32 fanchuntian = 3;					// 反春天
+};
+
+//玩家掉线
+message SC_LandPlayerOffline {
+	enum MsgID { ID = 15012; }
+	optional int32 cur_chair_id = 1;				// 掉线玩家id
+	optional int32 wait_time = 2;					// 等待时间
+};
+
+//玩家上线
+message SC_LandPlayerOnline {
+	enum MsgID { ID = 15013; }
+	optional int32 cur_online_chair_id = 1;			// 上玩家id
+	optional int32 cur_chair_id = 2;				// 出牌玩家id
+};
+message PlayerCardsMsg{
+	optional int32 chair_id = 1;				// 位置id
+	optional int32 cardsnum = 2;				// 当前牌数
+	optional bool  isTrusteeship = 3; 			// 是否托管状态
+}
+//恢复上线玩家的牌
+message SC_LandRecoveryPlayerCard {
+	enum MsgID { ID = 15014; }
+	optional int32 cur_chair_id = 1;			// 玩家id
+	repeated int32 cards = 2;					// 当前所有的牌
+	repeated PlayerCardsMsg pb_msg = 3;			// 其他玩家数据
+	optional int32 landchairid = 4;				// 地主位置号
+	repeated int32 landcards = 5;				// 地主牌
+	optional int32 call_score = 6;				// 叫分
+	repeated int32 lastCards = 7;				// 上个玩家出的牌
+	optional int32 lastcardid = 8;				// 上个出牌玩家chairid
+	optional int32 outcardid = 9;				// 当前出牌玩家
+	repeated int32 alreadyoutcards = 10;		// 已经出了的牌
+	optional int32 bomb = 11;					// 炸弹数量
+};
+message pofflineMsg{
+	optional int32 chair_id = 1;				//位置id
+	optional int32 outTimes = 2;				//掉线超时时间
+}
+message SC_LandRecoveryPlayerCallScore{	
+	enum MsgID { ID = 15015; }
+	optional int32 cur_chair_id = 1;				// 当前叫分玩家
+	optional int32 call_chair_id = 2;				// 叫分最主玩家
+	optional int32 call_score = 3;					// 叫分最高数目
+	repeated int32 cards = 4;						// 当前所有的牌
+	repeated pofflineMsg pb_playerOfflineMsg = 5;	// 当前掉线玩家信息
+}
+message SC_LandCallScorePlayerOffline{
+	enum MsgID { ID = 15017; }
+	optional int32 cur_chair_id = 1;			// 掉线玩家id	
+	optional int32 wait_time = 2;				// 等待时长
+}
+message CS_LandTrusteeship{
+	enum MsgID { ID = 15018; }
+}
+
+message SC_LandTrusteeship{
+	enum MsgID { ID = 15019; }
+	optional int32 chair_id = 1;			// 托管玩家id
+	optional bool  isTrusteeship = 2; 		// 托管状态
+}
+
+// 用户加倍
+message CS_LandCallDouble {
+	enum MsgID { ID = 15020; }
+	optional int32 is_double = 1;					// 是否加倍 1是false    2是true
+};
+message SC_LandCallDouble {
+	enum MsgID { ID = 15021; }
+	optional int32 call_chair_id = 1;				// 加倍玩家
+	optional int32 is_double = 2;					// 是否加倍 1是false    2是true
+};
+
+message SC_LandCallDoubleFinish{
+	enum MsgID { ID = 15022; }
+	optional int32 land_chair_id = 1;				// 地主玩家
+}
+
+message PlayerDoubleMsg{
+	optional int32 chair_id = 1;				// 位置id
+	optional int32 is_double = 2; 				// 是加倍状态 1是false    2是true
+}
+//恢复上线玩家的加倍情况
+message SC_LandRecoveryPlayerDouble {
+	enum MsgID { ID = 15023; }
+	repeated PlayerDoubleMsg pb_double_state = 1;  // 加倍情况
+	optional int32 double_count_down	= 2; //加倍阶段倒计时
+};
+
+//私人房间玩家请求房间设置
+message CS_GetPrivateConfig {
+	enum MsgID { ID = 15024; }
+};
+
+//私人游戏房间增加自定义设置提示(消息只能是房主发送)
+message CS_SetPrivateConfigChange {
+	enum MsgID { ID = 15025; }
+	optional int32	nallowDouble=1;	// 1/2 不允许/允许加倍
+	optional int32  nlimitbeishu=2; //1/32 没有限制/32倍限制
+	optional int32  nallowYiXiaoBoda=3; //1/2 不允许/允许
+};
+
+//通知游戏房间设置
+message SC_PrivateConfigChange {
+	enum MsgID { ID = 15026; }
+	optional int32	nallowDouble=1;	// 1/2 不允许/允许加倍
+	optional int32  nlimitbeishu=2; //1/32 没有限制/32倍限制
+	optional int32  nallowYiXiaoBoda=3; //1/2 不允许/允许
+	optional int32	ncell=4;		//房间基本信息	
+	optional int32  nlimit=5;
+	optional int32  nhosterguid=6;	//房主
+	optional int32  nstatues=7;		//1/2 没有设置过/有设置
+	optional int32	nreason=8;		//1/2 设置返回/请求返回 消息
+	optional int32 private_room_has_start = 9;		// 私人房间已经开始 1 开始 2 没开始
+};
+
+//T人
+message CS_TabTiren
+{
+	enum MsgID { ID = 15027; }
+	optional int32 chair_id = 1;				
+}
+
+//发起投票
+message CS_TabVote
+{
+	enum MsgID { ID = 15028; }
+	required bool bret = 1;						//true 是  false 否	
+}
+
+//投票信息
+message SC_TabVoteInfo
+{
+	enum MsgID { ID = 15029; }
+	optional int32 chair_id = 1;
+	required bool bret = 2;						//true 是  false 否	
+	required int32 vote_chairid=3;					//投票发起人
+}
+
+//S->C主动发送总结算消息
+message SC_TotalScoreInfo
+{
+	enum MsgID { ID = 15030; }
+	repeated int32 totoalscore= 1;					//每个座位上的总结算分数
+}
+
+
+//请求投票列表
+message CS_GetTabVoteArray
+{
+	enum MsgID { ID = 15031; }
+}
+
+//请求投票列表
+message SC_TabVoteArray
+{
+	enum MsgID { ID = 15032; }
+	repeated SC_TabVoteInfo	pb_sctableinfo=1;
+ 	optional int32 votechairid=2;
+}
+
+//通知哪个座位玩家被提出房间
+message SC_TickNotify
+{
+	enum MsgID { ID = 15033; }
+ 	optional int32 tickchairid=1;
+}
+
+message SC_Dismiss {
+	enum MsgID { ID = 15034; }
+	optional int32 guid = 1;
+	optional int32 chair_id = 2;
+}
+
+message SC_RecconectReady {
+	enum MsgID { ID = 15035; }
+}

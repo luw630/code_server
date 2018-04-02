@@ -1,0 +1,138 @@
+
+°
+public_player.proto"´
+GameClientRoomListCfg
+game_id (RgameId(
+second_game_type (RsecondGameType&
+first_game_type (RfirstGameType
+	game_name (	RgameName
+table_count (R
+tableCount
+money_limit (R
+moneyLimit
+
+cell_money (R	cellMoney
+tax (Rtax 
+room_lua_cfg	 (	R
+roomLuaCfg"¾
+PlayerBaseInfo
+bank (:0Rbank&
+login_award_day (RloginAwardDay5
+login_award_receive_day (RloginAwardReceiveDay*
+online_award_time (RonlineAwardTime(
+online_award_num (RonlineAwardNum0
+relief_payment_count (RreliefPaymentCount
+level (:1Rlevel
+money (:0Rmoney"
+header_icon	 (:0R
+headerIcon*
+slotma_addition
+ (:0RslotmaAddition,
+newplayer_reward (:0RnewplayerReward"‚
+PlayerVisualInfo
+chair_id (RchairId
+guid (Rguid
+account (	Raccount
+nickname (	Rnickname
+level (:1Rlevel
+money (:0Rmoney#
+header_icon (:-1R
+headerIcon
+ip_area (	RipArea
+is_ready	 (RisReady">
+ItemInfo
+item_id (RitemId
+item_num (RitemNum"¦
+Msg_DataInfo
+id (Rid
+
+start_time (R	startTime
+end_time (RendTime
+msg_type (RmsgType
+is_read (RisRead
+content (	Rcontent"3
+ItemBagInfo$
+pb_items (2	.ItemInfoRpbItems"ú
+MailInfo
+mail_id (	RmailId'
+expiration_time (RexpirationTime
+guid (Rguid
+	send_guid (RsendGuid
+	send_name (	RsendName
+title (	Rtitle
+content (	Rcontent.
+pb_attachment (2	.ItemInfoRpbAttachment"4
+MailListInfo$
+pb_mails (2	.MailInfoRpbMails"²
+BankStatement
+serial (Rserial
+guid (Rguid
+time (Rtime
+opt (Ropt
+target (	Rtarget
+money (Rmoney!
+bank_balance (RbankBalance"d
+RankItem
+rank (Rrank
+guid (Rguid
+nickname (	Rnickname
+money (Rmoney"7
+RankList+
+pb_rank_list (2	.RankItemR
+pbRankList"†
+AndroidInfo
+guid (Rguid
+account (	Raccount
+nickname (	Rnickname
+game_id (RgameId
+money (Rmoney"ƒ
+	CashFalse
+guid (Rguid
+order_id (RorderId
+coins (Rcoins
+status (Rstatus
+status_c (RstatusC"\
+CashMoneyType
+money (Rmoney
+
+created_at (	R	createdAt
+status (Rstatus"7
+PlayerMoney
+money (Rmoney
+bank (Rbank"—
+Recharge
+guid (Rguid
+id (Rid#
+exchange_gold (RexchangeGold
+
+pay_status (R	payStatus#
+server_status (RserverStatus"ª
+Marquee
+id (Rid
+
+start_time (R	startTime
+end_time (RendTime
+content (	Rcontent
+number (Rnumber#
+interval_time (RintervalTime"ç
+AgentsTransferData
+AgentsID (RagentsID
+PlayerID (RplayerID
+transfer_id (R
+transferId#
+transfer_type (RtransferType%
+transfer_money (RtransferMoney
+retID (RretID
+reCode (RreCode"Ë
+BankCardInfo
+guid (Rguid
+account (	Raccount
+card_num (	RcardNum
+	user_name (	RuserName
+	bank_name (	RbankName
+	bank_addr (	RbankAddr
+	bank_code (	RbankCode"R
+PlayerInfoInMemery
+guid (Rguid
+money (Rmoney
+bank (Rbank

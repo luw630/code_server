@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<BoundingBox id="1">
+	<BB Radio="15" OffestX="-15" OffestY="0" />
+	<BB Radio="15" OffestX="0" OffestY="0" />
+	<BB Radio="15" OffestX="15" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="2">
+	<BB Radio="15" OffestX="-15" OffestY="0" />
+	<BB Radio="15" OffestX="0" OffestY="0" />
+	<BB Radio="15" OffestX="15" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="3">
+	<BB Radio="20" OffestX="-10" OffestY="0" />
+	<BB Radio="20" OffestX="10" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="4">
+	<BB Radio="15" OffestX="-15" OffestY="0" />
+	<BB Radio="15" OffestX="0" OffestY="0" />
+	<BB Radio="26.343" OffestX="28" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="5">
+	<BB Radio="25.3265" OffestX="33" OffestY="0" />
+	<BB Radio="28.3348" OffestX="-1" OffestY="0" />
+	<BB Radio="15.4959" OffestX="-37" OffestY="-17" />
+</BoundingBox>
+<BoundingBox id="6">
+	<BB Radio="38" OffestX="14" OffestY="0" />
+	<BB Radio="16" OffestX="-36" OffestY="6" />
+</BoundingBox>
+<BoundingBox id="7">
+	<BB Radio="25" OffestX="35" OffestY="0" />
+	<BB Radio="25" OffestX="15" OffestY="0" />
+	<BB Radio="15" OffestX="-20" OffestY="0" />
+	<BB Radio="10" OffestX="-40" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="8">
+	<BB Radio="36.5" OffestX="22" OffestY="-4" />
+	<BB Radio="13.5" OffestX="-40" OffestY="3" />
+	<BB Radio="15" OffestX="-19" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="9">
+	<BB Radio="37.5" OffestX="0" OffestY="2" />
+	<BB Radio="23.5" OffestX="-43" OffestY="-2" />
+	<BB Radio="23.5" OffestX="-74" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="10">
+	<BB Radio="64" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="11">
+	<BB Radio="33.4711" OffestX="42" OffestY="8" />
+	<BB Radio="15" OffestX="88" OffestY="10" />
+	<BB Radio="22.1364" OffestX="-5" OffestY="13" />
+	<BB Radio="15" OffestX="4" OffestY="-17" />
+	<BB Radio="15" OffestX="-18" OffestY="-20" />
+	<BB Radio="18.9464" OffestX="-45" OffestY="-24" />
+</BoundingBox>
+<BoundingBox id="12">
+	<BB Radio="72.2728" OffestX="10" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="13">
+	<BB Radio="35" OffestX="77" OffestY="0" />
+	<BB Radio="35" OffestX="35" OffestY="0" />
+	<BB Radio="39" OffestX="-72" OffestY="0" />
+	<BB Radio="39" OffestX="-31" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="14">
+	<BB Radio="18.595" OffestX="97" OffestY="0" />
+	<BB Radio="40.4711" OffestX="39" OffestY="-4" />
+	<BB Radio="33.3885" OffestX="-25" OffestY="-4" />
+	<BB Radio="36" OffestX="-85" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="15">
+	<BB Radio="81.5703" OffestX="25" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="16">
+	<BB Radio="70" OffestX="80" OffestY="0" />
+	<BB Radio="45" OffestX="0" OffestY="0" />
+	<BB Radio="45" OffestX="-50" OffestY="0" />
+	<BB Radio="45" OffestX="-90" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="17">
+	<BB Radio="70" OffestX="80" OffestY="0" />
+	<BB Radio="45" OffestX="0" OffestY="0" />
+	<BB Radio="45" OffestX="-50" OffestY="0" />
+	<BB Radio="45" OffestX="-90" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="18">
+	<BB Radio="95.8885" OffestX="115" OffestY="0" />
+	<BB Radio="75" OffestX="-5" OffestY="-21" />
+	<BB Radio="75" OffestX="-137" OffestY="17" />
+</BoundingBox>
+<BoundingBox id="19">
+	<BB Radio="67.9877" OffestX="129" OffestY="0" />
+	<BB Radio="88.3264" OffestX="31" OffestY="8" />
+	<BB Radio="80" OffestX="-122" OffestY="3" />
+</BoundingBox>
+<BoundingBox id="20">
+	<BB Radio="74" OffestX="0" OffestY="0" />
+	<BB Radio="65" OffestX="0" OffestY="110" />
+	<BB Radio="65" OffestX="0" OffestY="-110" />
+</BoundingBox>
+<BoundingBox id="21">
+	<BB Radio="50" OffestX="190" OffestY="0" />
+	<BB Radio="50" OffestX="130" OffestY="0" />
+	<BB Radio="50" OffestX="70" OffestY="0" />
+	<BB Radio="50" OffestX="-10" OffestY="0" />
+	<BB Radio="50" OffestX="-80" OffestY="0" />
+	<BB Radio="40" OffestX="-150" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="22">
+	<BB Radio="50" OffestX="190" OffestY="0" />
+	<BB Radio="50" OffestX="130" OffestY="0" />
+	<BB Radio="50" OffestX="70" OffestY="0" />
+	<BB Radio="50" OffestX="-10" OffestY="0" />
+	<BB Radio="50" OffestX="-80" OffestY="0" />
+	<BB Radio="40" OffestX="-150" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="23">
+	<BB Radio="50" OffestX="140" OffestY="8" />
+	<BB Radio="32.562" OffestX="67" OffestY="5" />
+	<BB Radio="57.2273" OffestX="11" OffestY="5" />
+	<BB Radio="60" OffestX="-98" OffestY="5" />
+</BoundingBox>
+<BoundingBox id="24">
+	<BB Radio="50" OffestX="150" OffestY="0" />
+	<BB Radio="60" OffestX="80" OffestY="0" />
+	<BB Radio="40" OffestX="-2" OffestY="0" />
+	<BB Radio="30" OffestX="-50" OffestY="0" />
+	<BB Radio="60" OffestX="-130" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="25">
+	<BB Radio="76.062" OffestX="224" OffestY="0" />
+	<BB Radio="81.591" OffestX="106" OffestY="17" />
+	<BB Radio="87.2728" OffestX="-11" OffestY="28" />
+	<BB Radio="100" OffestX="-124" OffestY="-2" />
+</BoundingBox>
+<BoundingBox id="26">
+	<BB Radio="56.7769" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="27">
+	<BB Radio="81.5703" OffestX="-2" OffestY="65" />
+	<BB Radio="72.8306" OffestX="14" OffestY="-70" />
+</BoundingBox>
+<BoundingBox id="28">
+	<BB Radio="111.012" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="29">
+	<BB Radio="109.463" OffestX="-23" OffestY="-2" />
+</BoundingBox>
+<BoundingBox id="30">
+	<BB Radio="115" OffestX="0" OffestY="90" />
+</BoundingBox>
+<BoundingBox id="200">
+	<BB Radio="40" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="201">
+	<BB Radio="35" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="202">
+	<BB Radio="50" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="203">
+	<BB Radio="55" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="204">
+	<BB Radio="60" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="205">
+	<BB Radio="70" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="206">
+	<BB Radio="100" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="207">
+	<BB Radio="80" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="300">
+	<BB Radio="180" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="500">
+	<BB Radio="76.9215" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="501">
+	<BB Radio="76.9215" OffestX="0" OffestY="13" />
+</BoundingBox>
+<BoundingBox id="502">
+	<BB Radio="115" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="600">
+	<BB Radio="100" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="700">
+	<BB Radio="89.5" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="800">
+	<BB Radio="99.5" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="900">
+	<BB Radio="60" OffestX="0" OffestY="45" />
+	<BB Radio="60" OffestX="-41" OffestY="-45" />
+	<BB Radio="60" OffestX="41" OffestY="-45" />
+</BoundingBox>
+<BoundingBox id="901">
+	<BB Radio="58.8843" OffestX="-20" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="902">
+	<BB Radio="38.7397" OffestX="-2" OffestY="0" />
+	<BB Radio="34.3802" OffestX="61" OffestY="3" />
+	<BB Radio="38.74" OffestX="-47" OffestY="5" />
+</BoundingBox>
+<BoundingBox id="903">
+	<BB Radio="58.3265" OffestX="0" OffestY="0" />
+</BoundingBox>
+<BoundingBox id="1000">
+	<BB Radio="60" OffestX="-40" OffestY="-40" />
+	<BB Radio="60" OffestX="40" OffestY="-40" />
+	<BB Radio="60" OffestX="-40" OffestY="40" />
+	<BB Radio="60" OffestX="40" OffestY="40" />
+</BoundingBox>
+<BoundingBox id="1001">
+	<BB Radio="118.329" OffestX="0" OffestY="0" />
+</BoundingBox>

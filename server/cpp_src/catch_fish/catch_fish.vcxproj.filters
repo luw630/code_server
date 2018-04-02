@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="网狐">
+      <UniqueIdentifier>{df648687-b138-4529-a766-ebaf8037e175}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="wang_hu\BezierCurve.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\Buffer.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\BufferFactory.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\BufferManager.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\Bullet.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\CommonLogic.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\Effect.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\EffectFactory.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\EffectManager.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\EventMgr.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\Fish.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\GameConfig.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\IDGenerator.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\MathAide.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\MoveCompent.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\MovePoint.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\MyComponent.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\MyComponentFactory.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\MyObject.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\MyObjectFactory.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\MyObjectManager.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\PathManager.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\Player.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\pugixml.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="wang_hu\VisualCompent.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="..\op_lib\config.pb.cc">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="..\base_lib\base_game_time_mgr.cpp">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="..\op_lib\public_fishing.pb.cc">
+      <Filter>网狐</Filter>
+    </ClCompile>
+    <ClCompile Include="catchfish.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="catch_fish_logic.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="earnings.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="wang_hu\BezierCurve.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\Buffer.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\BufferFactory.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\BufferManager.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\Bullet.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\CallBack.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\CommonLogic.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\Effect.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\EffectFactory.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\EffectManager.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\Event.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\EventMgr.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\Factory.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\Fish.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\GameConfig.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\IDGenerator.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\MathAide.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\MoveCompent.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\MovePoint.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\MyComponent.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\MyComponentFactory.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\MyFunctor.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\MyObject.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\MyObjectFactory.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\MyObjectManager.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\PathManager.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\Player.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\Point.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\pugiconfig.hpp">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\pugixml.hpp">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\Size.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\TSingleton.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\VisualCompent.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="wang_hu\XMLDecrypt.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="..\op_lib\config.pb.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base_lib\base_game_time_mgr.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base_lib\base_game_log.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="..\op_lib\public_fishing.pb.h">
+      <Filter>网狐</Filter>
+    </ClInclude>
+    <ClInclude Include="catchfish.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="catch_fish_logic.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="earnings.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

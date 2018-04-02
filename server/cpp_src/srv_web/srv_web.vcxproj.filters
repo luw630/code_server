@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="opcode">
+      <UniqueIdentifier>{6af42aa7-718b-4480-94ab-b9b5aa482376}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\op_lib\config.pb.h">
+      <Filter>opcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\op_lib\login.pb.h">
+      <Filter>opcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\op_lib\public_enum.pb.h">
+      <Filter>opcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\op_lib\public_msg.pb.h">
+      <Filter>opcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\op_lib\redis.pb.h">
+      <Filter>opcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\op_lib\server.pb.h">
+      <Filter>opcode</Filter>
+    </ClInclude>
+    <ClInclude Include="web_cfg.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="web_request_dispatch.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="client_socket.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="client_socket_proto.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="web_server.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="web_request_dispatch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="web_cfg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\op_lib\config.pb.cc">
+      <Filter>opcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\op_lib\login.pb.cc">
+      <Filter>opcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\op_lib\public_enum.pb.cc">
+      <Filter>opcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\op_lib\public_msg.pb.cc">
+      <Filter>opcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\op_lib\redis.pb.cc">
+      <Filter>opcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\op_lib\server.pb.cc">
+      <Filter>opcode</Filter>
+    </ClCompile>
+    <ClCompile Include="client_socket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

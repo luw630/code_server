@@ -1,0 +1,46 @@
+﻿生成启动时间为 2018/3/16 11:54:05。
+     1>项目“D:\code_server\server\cpp_src\op_lib\op_lib.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"..\..\depend\protobuf-3.3.0\src\\" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _SCL_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\code_server\server\cpp_src\..\temp\Debug\op_lib\\" /Fd"D:\code_server\server\cpp_src\..\temp\Debug\op_lib\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt config.pb.cc login.pb.cc public_enum.pb.cc public_msg.pb.cc public_player.pb.cc redis.pb.cc server.pb.cc
+         server.pb.cc
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\cpp_src\op_lib\server.pb.cc(35197): warning C4309: “static_cast”: 截断常量值
+     1>d:\code_server\server\cpp_src\op_lib\server.pb.cc(35211): warning C4309: “static_cast”: 截断常量值
+     1>d:\code_server\server\cpp_src\op_lib\server.pb.cc(35225): warning C4309: “static_cast”: 截断常量值
+     1>d:\code_server\server\cpp_src\op_lib\server.pb.cc(35241): warning C4309: “static_cast”: 截断常量值
+     1>d:\code_server\server\cpp_src\op_lib\server.pb.cc(35257): warning C4309: “static_cast”: 截断常量值
+     1>d:\code_server\server\cpp_src\op_lib\server.pb.cc(35271): warning C4309: “static_cast”: 截断常量值
+         redis.pb.cc
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         public_player.pb.cc
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         public_msg.pb.cc
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         public_enum.pb.cc
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         login.pb.cc
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         config.pb.cc
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\protobuf-3.3.0\src\google\protobuf\io\coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         正在生成代码...
+       Lib:
+         D:\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\code_server\server\cpp_src\..\lib\Debug\op_lib.lib" /NOLOGO D:\code_server\server\cpp_src\..\temp\Debug\op_lib\config.pb.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\op_lib\login.pb.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\op_lib\public_enum.pb.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\op_lib\public_msg.pb.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\op_lib\public_player.pb.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\op_lib\redis.pb.obj
+         D:\code_server\server\cpp_src\..\temp\Debug\op_lib\server.pb.obj
+         op_lib.vcxproj -> D:\code_server\server\cpp_src\..\lib\Debug\op_lib.lib
+     1>已完成生成项目“D:\code_server\server\cpp_src\op_lib\op_lib.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:11.40

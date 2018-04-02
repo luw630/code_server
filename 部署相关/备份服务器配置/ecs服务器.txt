@@ -1,0 +1,13 @@
+配置文件 /etc/nginx
+程序文件 /usr/sbin/nginx
+日志 /var/log/nginx中
+启动脚本nginx  /etc/init.d/
+其中01ecs，usr/local/nginx/sbin  和 usr/local/nginx/conf
+
+在配置文件夹下新增 nginx_back.conf 已经设置为备份服务器，运行命令mv更改文件名
+mv nginx.conf nginx_old.conf
+mv nginx_back.conf nginx.conf
+mv NGINX_BACK.CONF nginx.conf
+upstream game{
+	server 14.29.123.156
+}

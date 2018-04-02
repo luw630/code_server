@@ -1,0 +1,166 @@
+﻿syntax = "proto2";
+
+// 客户端和服务器通信消息
+// C Client, L LoginServer, D DBServer, S GameServer
+// CS 即C-发送->S
+
+
+
+//////////////////////////////////////////////////////////////////////////
+/// 百家乐相关消息
+//////////////////////////////////////////////////////////////////////////
+
+
+//开始发牌的牌
+message SC_BaiJiaLeCard {
+	repeated int32 red_cards = 1;					// 红方牌
+	repeated int32 black_cards = 2;					// 黑方牌
+}
+
+
+//在线玩家列表
+message SC_BaiJiaLeOnlinePlayer {
+	optional int32 header_icon = 1[default = 0]; 	  // 头像
+	optional string ip_area = 2;					// 客户端ip地区
+	optional int32 player_money = 3; 	  		// 玩家钱
+	optional int32 player_bet = 4; 	  			// 玩家总下注
+	optional int32 player_win = 5; 	  			// 玩家获胜局数
+	optional int32 player_rank = 6; 	  			// 玩家当前排名
+	optional int32 win_lost = 7;				//玩家输赢
+	optional int32 win_money = 8;				//玩家赢钱
+	optional int32 guid = 9;					//guid
+	optional int32 chair_id = 10;				//座位号
+}
+
+//游戏记录
+message SC_BaiJiaLeRecord {
+	optional int32 win_color = 1; 	  			// 1红2黑赢
+	optional int32 win_type = 2;				//赢的类型
+	optional int32 turn 	= 3;				//第几局
+}
+
+//富豪榜前几名
+message SC_BaiJiaLeRichPlayer {
+	optional int32 chair = 1;		//椅子
+	optional int64 money = 2;		//钱
+	optional int64 tax = 3;		//税收		输玩家：-1
+	optional int32 victory = 4;	//输赢状态	1-赢； 2-输
+}
+
+// 游戏开始
+message SC_BaiJiaLeStart {
+	enum MsgID { ID = 29000; }
+	optional int32 start_waittime = 1;			// 开局等待时间
+	repeated int32 playerbets = 2;				// 可投注的金额	
+	repeated int32 allbets = 3;					// 所有投注区域已经下注的金额	
+	optional int32 table_status = 4;			// 当前桌子状态
+}
+
+// 用户下注
+message CS_BaiJiaLePlayerBet {
+	enum MsgID { ID = 29001;}
+	optional int64 playerbet = 1;						// 投注数目
+	optional int32 playerbettype = 2;					// 投注类型区域
+}
+message SC_BaiJiaLePlayerBet {
+	enum MsgID { ID = 29002; }
+	optional int32 playerbet_result = 1;		//投注是否成功
+	repeated int32 allbets = 2;					// 所有投注区域已经下注的金额	
+	optional int32 player_chairid = 3;			//玩家座位号
+	optional int32 playerbet = 4;						// 投注数目
+	optional int32 playerbettype = 5;					// 投注类型区域
+}
+
+//所有投注区域已经下注的金额	
+message SC_BaiJiaLeAllBet {
+	enum MsgID { ID = 29003; }
+	repeated int32 allbets = 1;					// 所有投注区域已经下注的金额	
+}
+
+
+// 开始发牌
+message SC_BaiJiaLePostCard {
+	enum MsgID { ID = 29004; }
+	optional int32 result_waittime = 1;			// 结束等待时间
+	optional SC_BaiJiaLeCard pb_card = 2;			//发牌
+	optional int32 table_status = 3;			// 当前桌子状态
+}
+
+
+// 结算数据
+message SC_BaiJiaLePostResult {
+	enum MsgID { ID = 29005; }
+	optional int32 next_waittime = 1;			// 下局开始等待时间
+	optional int32 chair = 2;		//椅子
+	optional int64 money = 3;		//钱
+	optional int64 tax = 4;		//税收		输玩家：-1
+	optional int32 victory = 5;	//输赢状态	1-赢； 2-输
+	optional int32 table_status = 6;			// 当前桌子状态
+	optional int32 win_area = 7;		//赢的区域
+	optional int64 win_type = 8;		//赢的类型
+}
+
+//玩家下注信息
+message Player_bet_info {
+	repeated int64 bet_money = 1;   //下注金币
+	optional int32 chair = 2;		//座位号
+}
+
+
+message SC_BaiJiaLeReConnect {
+	enum MsgID { ID = 29006; }
+	repeated int32 playerbets = 1;					// 可投注的金额	
+	repeated int32 allbets = 2;						// 所有投注区域已经下注的金额	
+	optional int32 player_bet = 3;					//玩家已经投注的金额
+	optional SC_BaiJiaLeCard pb_card = 4;			//发牌
+	optional int32 table_status = 5;			// 当前桌子状态
+	optional int32 table_waittime = 6;			// 状态结束等待时间
+	repeated Player_bet_info pb_player_bet_info = 7; //当前玩家在每个区域下注
+}
+
+// 处于休息状态
+message SC_BaiJiaLeRest {
+	enum MsgID { ID = 29007; }
+	optional int32 rest_waittime = 1;			// 下局开始等待时间
+}
+
+
+//富豪榜和在线列表
+message SC_BaiJiaLePlayerList {
+	enum MsgID { ID = 29008; }
+	repeated SC_BaiJiaLeOnlinePlayer pb_onlinelist = 1;	// 在线列表
+} 
+
+//游戏记录
+message SC_BaiJiaLeGameRecord {
+	enum MsgID { ID = 29009; }
+	repeated SC_BaiJiaLeRecord pb_record = 1;	// 牌局记录
+} 
+
+
+// 请求下注筹码
+message CS_BaiJiaLeBetStandard {
+	enum MsgID { ID = 29010;}
+}
+message SC_BaiJiaLeBetStandard {
+	enum MsgID { ID = 29011;}
+	repeated int32 playerbets = 1;				// 可投注的金额	
+}
+
+
+//富豪榜和在线列表
+message SC_BaiJiaLeRichList {
+	enum MsgID { ID = 29012; }
+	repeated SC_BaiJiaLeRichPlayer pb_richlist = 1;	// 在线列表
+} 
+
+
+// 请求桌子状态
+message CS_BaiJiaLeGetState {
+	enum MsgID { ID = 29013;}
+}
+
+// 请求桌子状态
+message SC_BaiJiaLeGetState {
+	enum MsgID { ID = 29014;}
+}

@@ -1,0 +1,94 @@
+syntax = "proto2";
+
+// 客户端和服务器通信消息
+// C Client, L LoginServer, D DBServer, S GameServer
+// CS 即C-发送->S
+
+message SC_SanGong_GameStart {		//游戏开始，抢庄
+	enum MsgID { ID = 28000; }
+	repeated SanGong_Player_Info pb_splayerinfo = 1;  	//玩家结算数据
+	optional bool breconnect = 2;		//是否断线重连
+	optional int32 tablestatus 		= 3; 			//桌子状态
+	optional int32 playerturn 		= 4; 			//现在轮到哪一个玩家
+	optional int32 zhuangchair 		= 5; 			//庄家的座位号
+	optional int32 waittime 		= 6; 			//抢庄与下注等待时间
+}
+
+//是否抢庄
+message SC_SanGong_AskBanker {
+	enum MsgID { ID = 28001; }
+	optional int32 chair_id	= 1; //座位
+}
+//抢庄
+message CS_SanGong_AskBanker {
+	enum MsgID { ID = 28002; }
+    optional bool brequest = 1;  //目标值
+}
+message SC_SanGong_TalkBanker {
+	enum MsgID { ID = 28003; }
+	optional int32 chair_id	= 1; //座位
+	optional bool brequest = 2;  //目标值
+}
+
+//公布庄家
+message SC_SanGong_Banker {
+	enum MsgID { ID = 28004; }
+    optional int32 chair_id = 1;  //庄家
+}
+
+
+//下注
+message SC_SanGong_AskBet {
+	enum MsgID { ID = 28005; }
+	repeated int32 Bets = 1;  	//可以下注的数组
+	optional int32 chair_id	= 2; //座位
+}
+//回复下注
+message CS_SanGong_AskBet {
+	enum MsgID { ID = 28006; }
+    optional int32 target = 1;  //目标值
+}
+message SC_SanGong_Bet {
+	enum MsgID { ID = 28007; }
+    optional int32 target = 1;  //目标值
+	optional int32 chair_id = 2;  	//谁下注了
+}
+
+
+message SanGong_Card_Info
+{
+	repeated int32 cards   =	1;	// 牌列表
+}
+
+//发牌
+message SC_SanGong_PostCard {
+	enum MsgID { ID = 28008; }
+	repeated SanGong_Card_Info pb_cards = 1;  	//牌
+}
+
+message SanGong_Player_Info {
+	repeated int32 cards                    = 1;	// 牌列表
+	optional int32 chair_id		            = 2; 	// id
+    optional int32 add_total	            = 3; 	// 累计下注
+    optional int32 cur_round_add            = 4;    // 当前轮下注
+	optional string nick 					= 5;
+	optional int32 icon 					= 6;
+	optional int64 gold 					= 7;
+	optional int32 guid		            	= 8; 	// guid
+	optional bool is_win 		= 9;			//是否赢了
+	optional bool is_getbanker 		= 10;			//是否抢庄
+	repeated int32 Bets = 11;  	//可以下注的数组
+	optional int32 win_money 	= 12; 			//赢钱
+	optional int32 taxes 		= 13; 			//税收
+	optional int32 lefttime 		= 14; 			//剩余时间
+};
+
+
+//结算
+message SC_SanGong_PostResult {
+	enum MsgID { ID = 28009; }
+	repeated SanGong_Player_Info pb_splayerinfo = 1;  	//玩家结算数据
+}
+
+
+  							

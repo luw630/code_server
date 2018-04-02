@@ -1,0 +1,123 @@
+
+Å
+public_hhdz.proto"N
+SC_HongHeiCard
+	red_cards (RredCards
+black_cards (R
+blackCards"æ
+SC_HongHeiOnlinePlayer"
+header_icon (:0R
+headerIcon
+ip_area (	RipArea!
+player_money (RplayerMoney
+
+player_bet (R	playerBet
+
+player_win (R	playerWin
+player_rank (R
+playerRank
+win_lost (RwinLost
+	win_money (RwinMoney
+guid	 (Rguid
+chair_id
+ (RchairId"^
+SC_HongHeiRecord
+	win_color (RwinColor
+win_type (RwinType
+turn (Rturn"n
+SC_HongHeiRichPlayer
+chair (Rchair
+money (Rmoney
+tax (Rtax
+victory (Rvictory"®
+SC_HongHeiStart%
+start_waittime (RstartWaittime
+
+playerbets (R
+playerbets
+allbets (Rallbets!
+table_status (RtableStatus"
+MsgID
+ID»‚"l
+CS_HongHeiPlayerBet
+	playerbet (R	playerbet$
+playerbettype (Rplayerbettype"
+MsgID
+ID…‚"ÿ
+SC_HongHeiPlayerBet)
+playerbet_result (RplayerbetResult
+allbets (Rallbets%
+player_chairid (RplayerChairid
+	playerbet (R	playerbet$
+playerbettype (Rplayerbettype"
+MsgID
+ID ‚"?
+SC_HongHeiAllBet
+allbets (Rallbets"
+MsgID
+IDÀ‚"ù
+SC_HongHeiPostCard'
+result_waittime (RresultWaittime(
+pb_card (2.SC_HongHeiCardRpbCard!
+table_status (RtableStatus"
+MsgID
+IDÃ‚"ˇ
+SC_HongHeiPostResult#
+next_waittime (RnextWaittime
+chair (Rchair
+money (Rmoney
+tax (Rtax
+victory (Rvictory!
+table_status (RtableStatus
+win_area (RwinArea
+win_type (RwinType"
+MsgID
+IDÕ‚"D
+Player_bet_info
+	bet_money (RbetMoney
+chair (Rchair"¥
+SC_HongHeiReConnect
+
+playerbets (R
+playerbets
+allbets (Rallbets
+
+player_bet (R	playerBet(
+pb_card (2.SC_HongHeiCardRpbCard!
+table_status (RtableStatus%
+table_waittime (RtableWaittime=
+pb_player_bet_info (2.Player_bet_infoRpbPlayerBetInfo"
+MsgID
+IDŒ‚"H
+SC_HongHeiRest#
+rest_waittime (RrestWaittime"
+MsgID
+IDœ‚"g
+SC_HongHeiPlayerList<
+pb_onlinelist (2.SC_HongHeiOnlinePlayerRpbOnlinelist"
+MsgID
+ID–‚"Y
+SC_HongHeiGameRecord.
+	pb_record (2.SC_HongHeiRecordRpbRecord"
+MsgID
+ID—‚"*
+CS_HongHeiBetStandard"
+MsgID
+ID“‚"J
+SC_HongHeiBetStandard
+
+playerbets (R
+playerbets"
+MsgID
+ID”‚"_
+SC_HongHeiRichList6
+pb_richlist (2.SC_HongHeiRichPlayerR
+pbRichlist"
+MsgID
+ID‘‚"'
+CS_HongHeiGetState"
+MsgID
+ID’‚"'
+SC_HongHeiGetState"
+MsgID
+ID÷‚

@@ -1,0 +1,190 @@
+﻿生成启动时间为 2018/3/18 17:31:52。
+     1>项目“D:\code_server\server\cpp_src\srv_mysql\srv_mysql.vcxproj”在节点 7 上(Build 个目标)。
+     1>ClCompile:
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\depend\iconv /I..\..\depend\boost_1_60_0\ /I"..\..\depend\protobuf-3.3.0\src\\" /I"..\..\depend\MySQL Server 5.7\include\\" /I"..\..\depend\mysql-connector-c-6.1.6-src\include\\" /I"..\..\depend\mysql-connector-c++-1.1.7\\" /I"..\..\depend\mysql-connector-c++-1.1.7\driver\\" /I"..\..\depend\mysql-connector-c++-1.1.7\build\\" /I"..\..\depend\redis-win-3.0.503\deps\hiredis\\" /I..\lua_lib\src\ /I..\op_lib\ /I..\base_lib\ /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\\" /Fd"D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt bind_db_net_mgr.cpp bind_db_mgr.cpp db_cfg_net_server.cpp db_cfg_session.cpp db_lua_mgr.cpp db_mgr.cpp db_cfg_mgr.cpp db_session.cpp db_session_mgr.cpp db_server.cpp stdafx.cpp
+         bind_db_net_mgr.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         bind_db_mgr.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\sqlstring.h(39): warning C4251: “sql::SQLString::realStr”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“sql::SQLString”的客户端使用
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\exception.h(61): warning C4251: “sql::SQLException::sql_state”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“sql::SQLException”的客户端使用
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\exception.h(145): warning C4251: “sql::SQLUnsupportedOptionException::option”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 struct“sql::SQLUnsupportedOptionException”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_driver.h(52): warning C4251: “sql::mysql::MySQL_Driver::proxy”: class“boost::scoped_ptr<sql::mysql::NativeAPI::NativeDriverWrapper>”需要有 dll 接口由 class“sql::mysql::MySQL_Driver”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(175): warning C4251: “sql::mysql::MySQL_Connection::proxy”: class“boost::shared_ptr<sql::mysql::NativeAPI::NativeConnectionWrapper>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(179): warning C4251: “sql::mysql::MySQL_Connection::service”: class“boost::scoped_ptr<sql::mysql::MySQL_Statement>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(181): warning C4251: “sql::mysql::MySQL_Connection::intern”: class“boost::scoped_ptr<sql::mysql::MySQL_ConnectionData>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         db_cfg_net_server.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         db_cfg_session.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\sqlstring.h(39): warning C4251: “sql::SQLString::realStr”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“sql::SQLString”的客户端使用
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\exception.h(61): warning C4251: “sql::SQLException::sql_state”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“sql::SQLException”的客户端使用
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\exception.h(145): warning C4251: “sql::SQLUnsupportedOptionException::option”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 struct“sql::SQLUnsupportedOptionException”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_driver.h(52): warning C4251: “sql::mysql::MySQL_Driver::proxy”: class“boost::scoped_ptr<sql::mysql::NativeAPI::NativeDriverWrapper>”需要有 dll 接口由 class“sql::mysql::MySQL_Driver”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(175): warning C4251: “sql::mysql::MySQL_Connection::proxy”: class“boost::shared_ptr<sql::mysql::NativeAPI::NativeConnectionWrapper>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(179): warning C4251: “sql::mysql::MySQL_Connection::service”: class“boost::scoped_ptr<sql::mysql::MySQL_Statement>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(181): warning C4251: “sql::mysql::MySQL_Connection::intern”: class“boost::scoped_ptr<sql::mysql::MySQL_ConnectionData>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+         db_lua_mgr.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+         db_mgr.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\sqlstring.h(39): warning C4251: “sql::SQLString::realStr”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“sql::SQLString”的客户端使用
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\exception.h(61): warning C4251: “sql::SQLException::sql_state”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“sql::SQLException”的客户端使用
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\exception.h(145): warning C4251: “sql::SQLUnsupportedOptionException::option”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 struct“sql::SQLUnsupportedOptionException”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_driver.h(52): warning C4251: “sql::mysql::MySQL_Driver::proxy”: class“boost::scoped_ptr<sql::mysql::NativeAPI::NativeDriverWrapper>”需要有 dll 接口由 class“sql::mysql::MySQL_Driver”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(175): warning C4251: “sql::mysql::MySQL_Connection::proxy”: class“boost::shared_ptr<sql::mysql::NativeAPI::NativeConnectionWrapper>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(179): warning C4251: “sql::mysql::MySQL_Connection::service”: class“boost::scoped_ptr<sql::mysql::MySQL_Statement>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(181): warning C4251: “sql::mysql::MySQL_Connection::intern”: class“boost::scoped_ptr<sql::mysql::MySQL_ConnectionData>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         db_cfg_mgr.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         db_session.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\sqlstring.h(39): warning C4251: “sql::SQLString::realStr”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“sql::SQLString”的客户端使用
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\exception.h(61): warning C4251: “sql::SQLException::sql_state”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“sql::SQLException”的客户端使用
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\exception.h(145): warning C4251: “sql::SQLUnsupportedOptionException::option”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 struct“sql::SQLUnsupportedOptionException”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_driver.h(52): warning C4251: “sql::mysql::MySQL_Driver::proxy”: class“boost::scoped_ptr<sql::mysql::NativeAPI::NativeDriverWrapper>”需要有 dll 接口由 class“sql::mysql::MySQL_Driver”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(175): warning C4251: “sql::mysql::MySQL_Connection::proxy”: class“boost::shared_ptr<sql::mysql::NativeAPI::NativeConnectionWrapper>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(179): warning C4251: “sql::mysql::MySQL_Connection::service”: class“boost::scoped_ptr<sql::mysql::MySQL_Statement>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(181): warning C4251: “sql::mysql::MySQL_Connection::intern”: class“boost::scoped_ptr<sql::mysql::MySQL_ConnectionData>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>db_session.cpp(735): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>db_session.cpp(1059): warning C4018: “>=”: 有符号/无符号不匹配
+     1>db_session.cpp(1108): warning C4018: “<”: 有符号/无符号不匹配
+         db_session_mgr.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+         db_server.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(864): warning C4800: “google::protobuf::internal::AtomicWord”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>D:\code_server\server\depend\protobuf-3.3.0\src\google/protobuf/io/coded_stream.h(868): warning C4800: “google::protobuf::internal::Atomic32”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\sqlstring.h(39): warning C4251: “sql::SQLString::realStr”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“sql::SQLString”的客户端使用
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\exception.h(61): warning C4251: “sql::SQLException::sql_state”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“sql::SQLException”的客户端使用
+     1>d:\code_server\server\depend\mysql-connector-c++-1.1.7\cppconn\exception.h(145): warning C4251: “sql::SQLUnsupportedOptionException::option”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 struct“sql::SQLUnsupportedOptionException”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_driver.h(52): warning C4251: “sql::mysql::MySQL_Driver::proxy”: class“boost::scoped_ptr<sql::mysql::NativeAPI::NativeDriverWrapper>”需要有 dll 接口由 class“sql::mysql::MySQL_Driver”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(175): warning C4251: “sql::mysql::MySQL_Connection::proxy”: class“boost::shared_ptr<sql::mysql::NativeAPI::NativeConnectionWrapper>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(179): warning C4251: “sql::mysql::MySQL_Connection::service”: class“boost::scoped_ptr<sql::mysql::MySQL_Statement>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+     1>D:\code_server\server\depend\mysql-connector-c++-1.1.7\driver\mysql_connection.h(181): warning C4251: “sql::mysql::MySQL_Connection::intern”: class“boost::scoped_ptr<sql::mysql::MySQL_ConnectionData>”需要有 dll 接口由 class“sql::mysql::MySQL_Connection”的客户端使用
+         stdafx.cpp
+       Link:
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code_server\server\cpp_src\..\project\Release\srv_mysql.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\depend\boost_1_60_0\stage\lib\ ..\..\lib\Release\lua_lib.lib ..\..\lib\Release\op_lib.lib ..\..\lib\Release\base_lib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\code_server\server\cpp_src\..\project\Release\srv_mysql.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\code_server\server\cpp_src\..\project\Release\srv_mysql.lib" /MACHINE:X86 /SAFESEH D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\bind_db_net_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\bind_db_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\db_cfg_net_server.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\db_cfg_session.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\db_lua_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\db_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\db_cfg_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\db_session.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\db_session_mgr.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\db_server.obj
+         D:\code_server\server\cpp_src\..\temp\Release\srv_mysql\stdafx.obj
+         正在生成代码
+         已完成代码的生成
+     1>base_lib.lib(base_net_server_session.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_server_session.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_io_service_pool.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_io_service_pool.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_http_request.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_http_request.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_net_dispatcher.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_dispatcher.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(lua_tinker.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_tinker.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(lua_tinker_ex.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_tinker_ex.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_utils_helper.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_utils_helper.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_net_session.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_session.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_db_connection_pool.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_db_connection_pool.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_db_connection.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_db_connection.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_bind_lua.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_bind_lua.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_lua_mgr.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_lua_mgr.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_server.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_server.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_lua_db_connection_pool.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_lua_db_connection_pool.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_net_server.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_net_server.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_redis_con_thread.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_redis_con_thread.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_game_time_mgr.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_game_time_mgr.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(r_keygen.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(r_keygen.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(r_random.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(r_random.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(FileMD5.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(FileMD5.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(rsa.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(rsa.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_game_log.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_game_log.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_redis_con.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_redis_con.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(base_game_contrl.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(base_game_contrl.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(pbc-lua53.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(pbc-lua53.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(lua_extensions.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_extensions.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(nn.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(nn.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(prime.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(prime.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(r_stdlib.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(r_stdlib.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(md5c.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(md5c.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(hiredis.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(hiredis.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(proto.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(proto.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(array.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(array.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(pattern.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(pattern.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(rmessage.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(rmessage.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(wmessage.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(wmessage.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(register.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(register.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(decode.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(decode.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(lua_cjson.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(lua_cjson.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_FDAPI.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_FDAPI.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(sds.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(sds.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(net.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(net.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Error.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Error.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(alloc.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(alloc.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(map.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(map.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(bootstrap.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(bootstrap.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(stringpool.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(stringpool.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(varint.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(varint.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(context.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(context.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(strbuf.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(strbuf.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(fpconv.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(fpconv.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_fdapi_crt.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_fdapi_crt.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Common.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Common.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_variadicFunctor.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_variadicFunctor.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_RedisLog.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_RedisLog.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(win32_rfdmap.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(win32_rfdmap.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_ANSI.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_ANSI.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_EventLog.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_EventLog.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>base_lib.lib(Win32_Time.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“base_lib.lib(Win32_Time.obj)”或在“D:\code_server\server\project\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+         srv_mysql.vcxproj -> D:\code_server\server\cpp_src\..\project\Release\srv_mysql.exe
+     1>已完成生成项目“D:\code_server\server\cpp_src\srv_mysql\srv_mysql.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:04:19.60

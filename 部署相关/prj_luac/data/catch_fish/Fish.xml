@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<FishSet>
+	<Fish TypeID="1" Name="小黄鱼" BroadCast="false" Probability="500" Speed="100" VisualID="1" BoundingBox="1" ShowBingo="false" Particle="bubble" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+	</Fish>
+	<Fish TypeID="2" Name="绿草鱼" BroadCast="false" Probability="500" Speed="89" VisualID="2" BoundingBox="2" ShowBingo="false" Particle="bubble" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+	</Fish>
+	<Fish TypeID="3" Name="黄草鱼" BroadCast="false" Probability="333" Speed="92" VisualID="3" BoundingBox="3" ShowBingo="false" Particle="bubble" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="3" />
+	</Fish>
+	<Fish TypeID="4" Name="大眼鱼" BroadCast="false" Probability="250" Speed="78" VisualID="4" BoundingBox="4" ShowBingo="false" Particle="bubble" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="4" />
+	</Fish>
+	<Fish TypeID="5" Name="黄边鱼" BroadCast="false" Probability="200" Speed="98" VisualID="5" BoundingBox="5" ShowBingo="false" Particle="bubble" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="5" />
+	</Fish>
+	<Fish TypeID="6" Name="小丑鱼" BroadCast="false" Probability="166" Speed="99" VisualID="6" BoundingBox="6" ShowBingo="false" Particle="bubble" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="6" />
+	</Fish>
+	<Fish TypeID="7" Name="小刺鱼" BroadCast="false" Probability="142" Speed="110" VisualID="7" BoundingBox="7" ShowBingo="false" Particle="switch" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="7" />
+	</Fish>
+	<Fish TypeID="8" Name="蓝鱼" BroadCast="false" Probability="125" Speed="101" VisualID="8" BoundingBox="8" ShowBingo="false" Particle="switch" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="8" />
+	</Fish>
+	<Fish TypeID="9" Name="灯笼鱼" BroadCast="false" Probability="111" Speed="120" VisualID="9" BoundingBox="9" ShowBingo="false" Particle="switch" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="9" />
+	</Fish>
+	<Fish TypeID="10" Name="海龟" BroadCast="false" Probability="100" Speed="72" VisualID="10" BoundingBox="10" ShowBingo="false" Particle="switch" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+	</Fish>
+	<Fish TypeID="11" Name="花斑鱼" BroadCast="false" Probability="83" Speed="113" VisualID="11" BoundingBox="11" ShowBingo="false" Particle="switch" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="12" />
+	</Fish>
+	<Fish TypeID="12" Name="蝴蝶鱼" BroadCast="false" Probability="66" Speed="93" VisualID="12" BoundingBox="12" ShowBingo="false" Particle="switch" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="15" />
+	</Fish>
+	<Fish TypeID="13" Name="孔雀鱼" BroadCast="false" Probability="55" Speed="103" VisualID="13" BoundingBox="13" ShowBingo="false" Particle="bomb3" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="18" />
+	</Fish>
+	<Fish TypeID="14" Name="剑鱼" BroadCast="false" Probability="50" Speed="127" VisualID="14" BoundingBox="14" ShowBingo="false" Particle="switch" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="20" />
+	</Fish>
+	<Fish TypeID="15" Name="蝙蝠鱼" BroadCast="false" Probability="40" Speed="81" VisualID="15" BoundingBox="15" ShowBingo="false" Particle="switch" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="25" />
+	</Fish>
+	<Fish TypeID="16" Name="银鲨" BroadCast="false" Probability="33" Speed="133" VisualID="16" BoundingBox="16" ShowBingo="false" Particle="switch" ShakeScreen="false" LockLevel="1">
+		<Effect TypeID="0" Param1="1" Param2="30" />
+	</Fish>
+	<Fish TypeID="17" Name="金鲨" BroadCast="false" Probability="28.5" Speed="145" VisualID="17" BoundingBox="17" ShowBingo="false" Particle="switch" ShakeScreen="false" LockLevel="1">
+		<Effect TypeID="0" Param1="1" Param2="50" />
+	</Fish>
+	<Fish TypeID="18" Name="小海豚" BroadCast="false" Probability="25" Speed="66" VisualID="18" BoundingBox="18" ShowBingo="true" Particle="salute1" ShakeScreen="true" LockLevel="2">
+		<Effect TypeID="0" Param1="1" Param2="100" />
+	</Fish>
+	<Fish TypeID="19" Name="霸王鲸" BroadCast="true" Probability="20" Speed="128" VisualID="19" BoundingBox="19" ShowBingo="true" Particle="bagualu00" ShakeScreen="true" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="80" Param3="150" />
+	</Fish>
+	<Fish TypeID="20" Name="双头企鹅" BroadCast="true" Probability="15" Speed="130" VisualID="20" BoundingBox="20" ShowBingo="true" Particle="bagualu00" ShakeScreen="true" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="40" />
+	</Fish>
+	<Fish TypeID="21" Name="银龙" BroadCast="true" Probability="12" Speed="126" VisualID="21" BoundingBox="21" ShowBingo="true" Particle="bagualu00" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="70" />
+	</Fish>
+	<Fish TypeID="22" Name="金龙" BroadCast="true" Probability="10" Speed="130" VisualID="22" BoundingBox="22" ShowBingo="true" Particle="bagualu00" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="40" Param3="180" />
+	</Fish>
+	<Fish TypeID="23" Name="章鱼王" BroadCast="true" Probability="7" Speed="59" VisualID="23" BoundingBox="23" ShowBingo="true" Particle="bagualu00" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="80" Param3="200" />
+		<Effect TypeID="4" />
+	</Fish>
+	<Fish TypeID="24" Name="美人鱼" BroadCast="true" Probability="10" Speed="66" VisualID="24" BoundingBox="24" ShowBingo="true" Particle="salute1" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="120" />
+	</Fish>
+	<Fish TypeID="25" Name="神仙船" BroadCast="true" Probability="10" Speed="42" VisualID="25" BoundingBox="25" ShowBingo="true" Particle="bagualu02_0" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="140" />
+	</Fish>
+	<Fish TypeID="26" Name="神秘鱼" BroadCast="false" Probability="100" Speed="88" VisualID="26" BoundingBox="26" ShowBingo="false" Particle="0" ShakeScreen="false" LockLevel="0">
+		<Effect TypeID="0" Param1="1" Param2="1" Param3="10" />
+	</Fish>
+	<Fish TypeID="27" Name="玉帝" BroadCast="true" Probability="3.3" Speed="76" VisualID="27" BoundingBox="27" ShowBingo="true" Particle="bagualu02_0" ShakeScreen="true" LockLevel="8">
+		<Effect TypeID="0" Param1="1" Param2="200" Param3="300" />
+	</Fish>
+	<Fish TypeID="28" Name="金蟾" BroadCast="true" Probability="3.3" Speed="74" VisualID="28" BoundingBox="28" ShowBingo="true" Particle="bagualu02_0" ShakeScreen="true" LockLevel="8">
+		<Effect TypeID="0" Param1="1" Param2="40" Param3="300" />
+		<Buffer TypeID="4" Param="0" Life="-1" />
+	</Fish>
+	<Fish TypeID="29" Name="李逵" BroadCast="true" Probability="3.3" Speed="123" VisualID="29" BoundingBox="29" ShowBingo="true" Particle="0" ShakeScreen="true" LockLevel="5">
+		<Effect TypeID="0" Param1="1" Param2="40" Param3="300" />
+		<Buffer TypeID="4" Param="0" Life="-1" />
+	</Fish>
+	<Fish TypeID="30" Name="孙悟空" BroadCast="true" Probability="3.3" Speed="78" VisualID="30" BoundingBox="30" ShowBingo="true" Particle="0" ShakeScreen="true" LockLevel="8">
+		<Effect TypeID="0" Param1="1" Param2="40" Param3="300" />
+		<Buffer TypeID="4" Param="0" Life="-1" />
+	</Fish>
+	<Fish TypeID="200" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="200" BoundingBox="200" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="201" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="201" BoundingBox="201" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="202" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="202" BoundingBox="202" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="3" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="203" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="203" BoundingBox="203" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="4" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="204" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="204" BoundingBox="204" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="5" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="205" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="205" BoundingBox="203" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="6" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="206" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="206" BoundingBox="204" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="7" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="207" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="207" BoundingBox="205" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="8" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="208" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="208" BoundingBox="206" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="9" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="209" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="209" BoundingBox="207" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="210" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="210" BoundingBox="200" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="211" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="211" BoundingBox="201" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="212" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="212" BoundingBox="202" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="3" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="213" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="213" BoundingBox="203" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="4" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="214" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="214" BoundingBox="204" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="5" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="215" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="215" BoundingBox="203" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="6" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="216" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="216" BoundingBox="204" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="7" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="217" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="217" BoundingBox="205" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="8" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="218" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="218" BoundingBox="206" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="9" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="219" Name="连锁闪电" BroadCast="true" Probability="20" Speed="66" VisualID="219" BoundingBox="207" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="3" Param2="1" Param3="300" />
+	</Fish>
+	<Fish TypeID="300" Name="金玉满堂" BroadCast="true" Probability="20" Speed="78" VisualID="300" BoundingBox="300" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="5">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="2" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="3" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="1" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="9" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="10" Param3="300" />
+	</Fish>
+	<Fish TypeID="301" Name="金玉满堂" BroadCast="true" Probability="20" Speed="78" VisualID="301" BoundingBox="300" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="5">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="2" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="3" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="5" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="6" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="7" Param3="300" />
+	</Fish>
+	<Fish TypeID="500" Name="超级炸弹" BroadCast="true" Probability="0.1" Speed="119" VisualID="500" BoundingBox="500" ShowBingo="true" Particle="bomb2" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="0" Param2="0" Param3="9999" />
+	</Fish>
+	<Fish TypeID="501" Name="范围炸弹" BroadCast="true" Probability="0.1" Speed="117" VisualID="501" BoundingBox="501" ShowBingo="true" Particle="bagualu02_1" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="1" Param2="500" Param3="4096" />
+	</Fish>
+	<Fish TypeID="502" Name="定屏炸弹" BroadCast="false" Probability="50" Speed="116" VisualID="502" BoundingBox="502" ShowBingo="false" Particle="bomb4" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="0" Param2="10" />
+		<Effect TypeID="2" Param1="0" Param2="0" Param3="1" Param4="0" Param5="15" />
+	</Fish>
+	<Fish TypeID="601" Name="小黄鱼王" BroadCast="true" Probability="12.5" Speed="89" VisualID="601" BoundingBox="600" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+		<Effect TypeID="1" Param1="2" Param2="1" Param3="800" />
+		<Effect TypeID="3" Param1="1" Param2="3" Param3="30" Param4="1" />
+	</Fish>
+	<Fish TypeID="602" Name="绿草鱼王" BroadCast="true" Probability="12.5" Speed="88" VisualID="602" BoundingBox="600" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+		<Effect TypeID="1" Param1="2" Param2="2" Param3="800" />
+		<Effect TypeID="3" Param1="2" Param2="3" Param3="30" Param4="1" />
+	</Fish>
+	<Fish TypeID="603" Name="黄草鱼王" BroadCast="true" Probability="12.5" Speed="87" VisualID="603" BoundingBox="600" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+		<Effect TypeID="1" Param1="2" Param2="3" Param3="800" />
+		<Effect TypeID="3" Param1="3" Param2="3" Param3="30" Param4="1" />
+	</Fish>
+	<Fish TypeID="604" Name="大眼鱼王" BroadCast="true" Probability="11.1" Speed="86" VisualID="604" BoundingBox="600" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="4" />
+		<Effect TypeID="1" Param1="2" Param2="4" Param3="900" />
+		<Effect TypeID="3" Param1="4" Param2="3" Param3="30" Param4="1" />
+	</Fish>
+	<Fish TypeID="605" Name="黄边鱼王" BroadCast="true" Probability="11.1" Speed="85" VisualID="605" BoundingBox="600" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="5" />
+		<Effect TypeID="1" Param1="2" Param2="5" Param3="900" />
+		<Effect TypeID="3" Param1="5" Param2="3" Param3="30" Param4="1" />
+	</Fish>
+	<Fish TypeID="606" Name="小丑鱼王" BroadCast="true" Probability="11.1" Speed="84" VisualID="606" BoundingBox="600" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="6" />
+		<Effect TypeID="1" Param1="2" Param2="6" Param3="900" />
+		<Effect TypeID="3" Param1="6" Param2="3" Param3="30" Param4="1" />
+	</Fish>
+	<Fish TypeID="607" Name="小刺鱼王" BroadCast="true" Probability="11.1" Speed="83" VisualID="607" BoundingBox="600" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="7" />
+		<Effect TypeID="1" Param1="2" Param2="7" Param3="900" />
+		<Effect TypeID="3" Param1="7" Param2="3" Param3="30" Param4="1" />
+	</Fish>
+	<Fish TypeID="608" Name="蓝鱼王" BroadCast="true" Probability="11.1" Speed="82" VisualID="608" BoundingBox="600" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="8" />
+		<Effect TypeID="1" Param1="2" Param2="8" Param3="900" />
+		<Effect TypeID="3" Param1="8" Param2="3" Param3="30" Param4="1" />
+	</Fish>
+	<Fish TypeID="609" Name="灯笼鱼王" BroadCast="true" Probability="11.1" Speed="81" VisualID="609" BoundingBox="600" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="9" />
+		<Effect TypeID="1" Param1="2" Param2="9" Param3="900" />
+		<Effect TypeID="3" Param1="9" Param2="3" Param3="30" Param4="1" />
+	</Fish>
+	<Fish TypeID="610" Name="海龟鱼王" BroadCast="true" Probability="10" Speed="79" VisualID="610" BoundingBox="600" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="10" Param3="1000" />
+		<Effect TypeID="3" Param1="10" Param2="3" Param3="30" Param4="1" />
+	</Fish>
+	<Fish TypeID="701" Name="一箭双雕" BroadCast="true" Probability="20" Speed="60" VisualID="701" BoundingBox="700" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="1" Param3="200" />
+		<Effect TypeID="1" Param1="2" Param2="2" Param3="200" />
+	</Fish>
+	<Fish TypeID="702" Name="一箭双雕" BroadCast="true" Probability="20" Speed="60" VisualID="702" BoundingBox="700" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="3" Param3="200" />
+		<Effect TypeID="1" Param1="2" Param2="4" Param3="200" />
+	</Fish>
+	<Fish TypeID="703" Name="一箭双雕" BroadCast="true" Probability="20" Speed="60" VisualID="703" BoundingBox="700" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="5" Param3="200" />
+		<Effect TypeID="1" Param1="2" Param2="6" Param3="200" />
+	</Fish>
+	<Fish TypeID="704" Name="一箭双雕" BroadCast="true" Probability="20" Speed="60" VisualID="704" BoundingBox="700" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="7" Param3="200" />
+		<Effect TypeID="1" Param1="2" Param2="8" Param3="200" />
+	</Fish>
+	<Fish TypeID="705" Name="一箭双雕" BroadCast="true" Probability="20" Speed="60" VisualID="705" BoundingBox="700" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="9" Param3="200" />
+		<Effect TypeID="1" Param1="2" Param2="10" Param3="200" />
+	</Fish>
+	<Fish TypeID="801" Name="一石三鸟" BroadCast="true" Probability="20" Speed="46" VisualID="801" BoundingBox="800" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="5">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="8" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="9" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="10" Param3="300" />
+	</Fish>
+	<Fish TypeID="802" Name="一石三鸟" BroadCast="true" Probability="20" Speed="46" VisualID="802" BoundingBox="800" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="5">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="11" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="13" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="14" Param3="300" />
+	</Fish>
+	<Fish TypeID="803" Name="一石三鸟" BroadCast="true" Probability="20" Speed="46" VisualID="803" BoundingBox="800" ShowBingo="true" Particle="0" ShakeScreen="false" LockLevel="5">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="2" Param2="5" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="6" Param3="300" />
+		<Effect TypeID="1" Param1="2" Param2="7" Param3="300" />
+	</Fish>
+	<Fish TypeID="901" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="901" BoundingBox="901" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="902" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="902" BoundingBox="901" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="903" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="903" BoundingBox="903" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="904" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="904" BoundingBox="903" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="2" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="905" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="905" BoundingBox="903" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="3" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="906" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="906" BoundingBox="903" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="4" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="907" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="907" BoundingBox="903" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="5" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="908" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="908" BoundingBox="903" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="6" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="909" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="909" BoundingBox="903" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="7" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="910" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="910" BoundingBox="903" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="8" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="911" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="911" BoundingBox="903" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="9" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="912" Name="金蛇王" BroadCast="true" Probability="20" Speed="70" VisualID="912" BoundingBox="903" ShowBingo="true" Particle="salute1" ShakeScreen="false" LockLevel="3">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="3" Param2="0" Param3="300" />
+	</Fish>
+	<Fish TypeID="1001" Name="八卦炉" BroadCast="false" Probability="10" Speed="60" VisualID="1001" BoundingBox="1001" ShowBingo="false" Particle="bagualu03" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="1" Param2="300" Param3="4096" />
+	</Fish>
+	<Fish TypeID="1002" Name="八卦炉" BroadCast="false" Probability="10" Speed="60" VisualID="1002" BoundingBox="1001" ShowBingo="false" Particle="bagualu01" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="1" Param1="1" Param2="500" Param3="4096" />
+	</Fish>
+	<Fish TypeID="1003" Name="八卦炉" BroadCast="false" Probability="10" Speed="60" VisualID="1003" BoundingBox="1001" ShowBingo="false" Particle="bagualu02_1" ShakeScreen="true" LockLevel="4">
+		<Effect TypeID="0" Param1="1" Param2="10" />
+		<Effect TypeID="2" Param1="0" Param2="0" Param3="1" Param4="0" Param5="15" />
+	</Fish>
+</FishSet>

@@ -1,0 +1,73 @@
+
+¥
+public_sangong.proto"†
+SC_SanGong_GameStart;
+pb_splayerinfo (2.SanGong_Player_InfoRpbSplayerinfo
+
+breconnect (R
+breconnect 
+tablestatus (Rtablestatus
+
+playerturn (R
+playerturn 
+zhuangchair (Rzhuangchair
+waittime (Rwaittime"
+MsgID
+IDàÚ"D
+SC_SanGong_AskBanker
+chair_id (RchairId"
+MsgID
+IDáÚ"E
+CS_SanGong_AskBanker
+brequest (Rbrequest"
+MsgID
+IDâÚ"a
+SC_SanGong_TalkBanker
+chair_id (RchairId
+brequest (Rbrequest"
+MsgID
+IDãÚ"A
+SC_SanGong_Banker
+chair_id (RchairId"
+MsgID
+IDäÚ"U
+SC_SanGong_AskBet
+Bets (RBets
+chair_id (RchairId"
+MsgID
+IDåÚ">
+CS_SanGong_AskBet
+target (Rtarget"
+MsgID
+IDæÚ"V
+SC_SanGong_Bet
+target (Rtarget
+chair_id (RchairId"
+MsgID
+IDçÚ")
+SanGong_Card_Info
+cards (Rcards"W
+SC_SanGong_PostCard-
+pb_cards (2.SanGong_Card_InfoRpbCards"
+MsgID
+IDèÚ"ô
+SanGong_Player_Info
+cards (Rcards
+chair_id (RchairId
+	add_total (RaddTotal"
+cur_round_add (RcurRoundAdd
+nick (	Rnick
+icon (Ricon
+gold (Rgold
+guid (Rguid
+is_win	 (RisWin!
+is_getbanker
+ (RisGetbanker
+Bets (RBets
+	win_money (RwinMoney
+taxes (Rtaxes
+lefttime (Rlefttime"g
+SC_SanGong_PostResult;
+pb_splayerinfo (2.SanGong_Player_InfoRpbSplayerinfo"
+MsgID
+IDéÚ

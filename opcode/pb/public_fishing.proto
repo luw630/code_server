@@ -1,0 +1,264 @@
+﻿syntax = "proto2";
+
+//import "player_define.proto";
+
+// 客户端和服务器通信消息
+// C Client, L LoginServer, D DBServer, S GameServer
+// CS 即C-发送->S
+
+
+
+//////////////////////////////////////////////////////////////////////////
+/// 捕鱼相关消息
+//////////////////////////////////////////////////////////////////////////
+//打开宝箱
+message CS_TreasureEnd
+{
+	enum MsgID { ID = 12000; Target = 2; }
+	required int32	chair_id = 1;						//椅子ID
+	required int64	score=2;	              //值
+};
+//改变大炮集
+message CS_ChangeCannonSet
+{
+	enum MsgID { ID = 12001; Target = 2; }
+	required int32		chair_id = 1;   				//椅子ID
+	required int32		add =2;   						//增加值 0 减 
+};
+//网鱼
+message CS_Netcast
+{
+	enum MsgID { ID = 12002; Target = 2; }
+	required int32	bullet_id=1;				//子弹ID
+	required int32	data=2;             //无使用 可优
+	required int32	fish_id=3;          //鱼ID
+};
+//锁定鱼
+message CS_LockFish
+{
+	enum MsgID { ID = 12003; Target = 2; }
+	required int32	chair_id=1;        //椅子ID
+	required int32	lock=2;			  	   //0表示解锁
+};
+
+//锁定指定鱼
+message CS_LockSpecFish
+{
+	enum MsgID{ID = 12120;}
+	required int32  chair_id  = 1;
+	required int32 	fish_id = 2;	
+};
+//开火
+message CS_Fire
+{
+	enum MsgID { ID = 12004; Target = 2; }
+	required int32		chair_id=1;			//椅子ID
+	required float		direction=2;		//方向
+	required uint32		fire_time=3;		//开火时间
+	required int32		client_id=4;		//子弹ID？
+	required float		pos_x = 5;
+	required float 		pos_y = 6;
+};
+//变换大炮
+message CS_ChangeCannon
+{
+	enum MsgID { ID = 12005; Target = 2; }
+	required int32 chair_id=1;   				//椅子ID
+	required int32 add=2;        				//0减下一档 非0增加
+};
+//改变筹码？ 暂无处理
+message CS_ChangeScore
+{
+	enum MsgID { ID = 12006; Target = 2; }
+	required int32	chair_id=1;
+	required int32	add=2;
+	required int32	add_all=3;
+};
+//获取系统时间
+message CS_TimeSync
+{
+	enum MsgID { ID = 12007; Target = 2; }
+	required int32	chair_id=1;								//椅子ID
+	required uint32	client_tick=2;            //玩家时间
+};
+
+
+//鱼增加值？
+message SC_FishMul {
+	enum MsgID { ID = 12100;}
+	required int32	fish_id=1;   //鱼ID
+	required int32		mul=2;	//增加值
+}
+
+//添加BUFF
+message SC_AddBuffer {
+	enum MsgID { ID = 12102; }
+	required int32		buffer_type=1;		//类型
+	required float	buffer_param=2;			//参数
+	required float	buffer_time=3;			//持续时间
+}
+
+//子弹集信息 一定要发送？可优
+message SC_BulletSet {
+	enum MsgID { ID = 12103; }
+	required int32					mulriple=1;						//子弹价格？
+	required int32					speed=2;              //速度
+	required int32					max_catch=3;          //最大抓捕值？
+	required int32					bullet_size=4;        //子弹大小
+	required int32					catch_radio=5;        //抓捕半径
+	required int32					cannon_type=6;        //子弹类型
+	required int32					first=7;              //是否第一个
+}
+
+message SC_BulletSet_List{
+	enum MsgID{ID = 12121;}
+	repeated SC_BulletSet 			pb_bullets = 1;//子弹集
+}
+
+//鱼的描述 建立 改为ID， 描述自己读取 每条文字分配2秒的显示时间 自行根据总数延时显示
+message SC_SendDes {
+	enum MsgID { ID = 12104; }
+	repeated string			des=1;					//描述
+};
+//锁定鱼
+message SC_LockFish {
+	enum MsgID { ID = 12105; }
+	required int32	chair_id=1;											//椅子ID
+	required int32	lock_id=2[default=0];           //鱼ID　默认为０
+};
+//是否允许开火
+message SC_AllowFire {
+	enum MsgID { ID = 12107; }
+	required int32	allow_fire=1;                  //１可　０否
+};
+//发送场景替换
+message SC_SwitchScene
+{
+	enum MsgID { ID = 12108; }
+	required int32		nst=1;										//场景ID
+	required int32	switching=2;								//0为不变换 1为变换
+};
+//发送清除子弹
+message SC_KillBullet {
+	enum MsgID { ID = 12109; }
+	required int32		chair_id=1;							//椅子ID
+	required int32		bullet_id=2;						//子弹ID
+};
+//发送清除鱼
+message SC_KillFish {
+	enum MsgID { ID = 12110; }
+	required int32		chair_id=1;							//椅子ID
+	required int64	score=2;                  //鱼价值
+	required int32		fish_id=3;              //鱼ID
+	required int32			bscoe=4;              //子弹价值
+};
+
+message SC_SendBullet {
+	enum MsgID { ID = 12111; }
+	required int32		id=1;										//子弹ID
+	required int32		chair_id=2;             //椅子ID
+	required uint32		create_tick=3;          //创建时间
+	required float		x_pos=4;                //X坐标
+	required float		y_pos=5;                //Y坐标
+	required int32		cannon_type=6;          //炮类型
+	required int32		multiply=7;             //子弹类型
+	required int64	score=8;                  //玩家金钱？
+	required float		direction=9;            //方向
+	required int32	is_new=10;                //是否新子弹
+	required uint32	server_tick=11;           //系统时间
+	required int32	is_double=12;             //双倍炮
+};
+
+message SC_Fly_Bullet_List{
+	enum MsgID {ID = 12122;}
+	repeated SC_SendBullet pb_fly_bullets = 1;
+}
+
+message SC_CannonSet {
+	enum MsgID { ID = 12112; }
+	required int32		chair_id=1;								//椅子ID
+	required int32		cannon_type=2;            //炮类型
+	required int32		cannon_mul=3;             //子弹类型
+	required int32		cannon_set=4;             //炮集类型
+};
+//无调用
+message SC_ChangeScore {
+	enum MsgID { ID = 12113; }
+	required int32	chair_id=1;
+	required int64	fish_score=2;
+	required int64	wastage_score=3;
+};
+
+message SC_UserInfo {
+	enum MsgID { ID = 12114; }
+	required int32		chair_id=1;								//椅子ID
+	required int64	score=2;                    //金
+	required int32			cannon_type=3;          //炮类型
+	required int32			cannon_mul=4;           //炮弹类型
+	required int64	wastage=5;                  //损耗
+};
+//发送鱼信息
+message SC_SendFish
+{
+	enum MsgID { ID = 12115; }
+	required int32	fish_id=1;					//鱼ID
+	required int32	type_id=2;          //类型？
+	required int32	path_id=3;          //路径ID
+	required uint32	create_tick=4;      //创建时间
+	required float	offest_x=5;         //X坐标
+	required float	offest_y=6;         //Y坐标
+	required float	dir=7;              //方向
+	required float	delay=8;            //延时
+	required uint32	server_tick=9;      //系统时间
+	required float	fish_speed=10;      //鱼速度
+	required int32	fis_type=11;        //鱼类型？
+	required bool	troop=12;           //是否鱼群
+	required int32	refersh_id=13;      //获取刷新ID？
+};
+//鱼列表
+message SC_SendFishList
+{
+	enum MsgID { ID = 12116; }
+	repeated SC_SendFish	pb_fishes=1;
+};
+
+message SC_GameConfig
+{
+	enum MsgID { ID = 12117; }
+	required int32	server_id=1;															//服务器ID？
+	required int32		change_ratio_user_score=2;              //多少游戏币
+	required int32		change_ratio_fish_score=3;              //兑换多少渔币
+	required int32		exchange_once=4;                        //改变一次？
+	required int32		fire_interval=5;                        //开火区间？
+	required int32		max_interval=6;                         //最大值？
+	required int32		min_interval=7;                         //最小值？
+	required int32		show_gold_min_mul=8;                    //显示金钱位数？
+	required int32		max_bullet_count=9;                     //最大子弹数？
+	required int32		max_cannon=10;                          //最大炮？
+};
+//发送系统时间
+message SC_TimeSync
+{
+	enum MsgID { ID = 12118; }
+	required int32	chair_id=1;									//玩家椅子
+	required uint32	server_tick=2;              //服务器时间
+	required uint32	client_tick=3;              //玩家时间
+};
+
+//类型掩码
+enum SMT_TYPE {
+	SMT_CHAT					= 0x0001;								//聊天消息
+	SMT_EJECT					= 0x0002;								//弹出消息
+	SMT_GLOBAL					= 0x0004;								//全局消息
+	SMT_PROMPT					= 0x0008;								//提示消息
+	SMT_TABLE_ROLL				= 0x0010;								//滚动消息
+	SMT_SCORE					= 0x0020;								//成绩消息
+};
+
+//系统消息
+message SC_SystemMessage
+{
+	enum MsgID { ID = 12119; }
+	required int32				wType = 1;								//消息类型
+	required string				szString = 2;							//消息内容
+};
